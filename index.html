@@ -188,6 +188,11 @@
       margin: 0 auto;
     }
 
+    /* 👉 Wirksam-Section darf den ganzen Bildschirm nutzen */
+    #wirksam {
+      max-width: none;
+    }
+
     section.narrow {
       max-width: 800px;
     }
@@ -249,8 +254,8 @@
     ------------------------------ */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
     }
 
     /* auf großen Screens genau 4 Kästchen nebeneinander */
