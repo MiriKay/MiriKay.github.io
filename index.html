@@ -4,13 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Systemischer Wandel – Räume für Dialog & Wirksamkeit</title>
-    <link rel="stylesheet" href="styles.css" />
+
     <style>
-        /* Farb-Variablen für Salbei-Palette */
+        /* Farbvariablen */
         :root {
-            --salbei-hell: #F3F7F5;    /* sehr heller Hintergrund */
-            --salbei:       #D7E8E1;   /* Balken-Ton */
-            --salbei-dunkel:#A3C4BC;   /* dunkler für Karten/Buttons */
+            --salbei-hell: #F3F7F5;     /* sehr heller Hintergrund */
+            --salbei:       #D7E8E1;    /* Banner */
+            --salbei-dunkel:#A3C4BC;    /* Karten & Buttons */
             --text-dunkel:  #2F3E39;
         }
 
@@ -18,10 +18,11 @@
             margin: 0;
             font-family: system-ui, sans-serif;
             color: var(--text-dunkel);
-            background: var(--salbei-hell);  /* ganze Seite in hellem Salbei */
+            background: var(--salbei-hell);
             line-height: 1.6;
         }
 
+        /* Navigation */
         header {
             background: white;
             padding: 20px 40px;
@@ -36,25 +37,35 @@
         header a {
             margin-left: 20px;
             text-decoration: none;
-            color: #444;
+            color: #555;
             font-weight: 500;
         }
         header a:hover {
-            color: #000;
+            color: black;
         }
 
-        /* HERO-BEREICH */
+        /* HERO */
         .hero {
-            padding: 100px 20px 80px;
+            padding: 100px 0 80px;
             text-align: center;
-            background: transparent;
+            margin: 0;
+            width: 100%;
+            max-width: none;
         }
 
-        /* durchgehender Balken hinter "Systemischer Wandel" */
+        /* Vollbreiten-Banner */
         .hero-title-bar {
-            background: var(--salbei);       /* D7E8E1 */
-            padding: 25px 10px;
-            margin: 0 auto 30px;
+            width: 100vw;
+            background: var(--salbei);
+            padding: 30px 10px;
+            margin: 0 0 40px 0;
+
+            /* Trick: Banner über gesamte Seitenbreite */
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
         }
 
         .hero-title-bar h1 {
@@ -82,6 +93,7 @@
             filter: brightness(0.9);
         }
 
+        /* Allgemeine Sections */
         section {
             padding: 80px 20px;
             max-width: 1000px;
@@ -90,41 +102,41 @@
 
         h2 {
             text-align: center;
-            margin-bottom: 40px;
             font-size: 2rem;
+            margin-bottom: 40px;
         }
 
+        /* Karten */
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
-        /* Karten/Kästchen im dunkleren Salbeiton */
         .karte {
             background: var(--salbei-dunkel);
-            color: var(--text-dunkel);
             padding: 25px;
             border-radius: 16px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.07);
             transition: 0.2s;
         }
         .karte h3 {
             margin-top: 0;
         }
         .karte:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 26px rgba(0,0,0,0.1);
         }
 
         .textblock {
             max-width: 800px;
+            margin: auto;
         }
 
         footer {
             text-align: center;
             padding: 40px;
-            background: rgba(0,0,0,0.03);
+            background: rgba(0,0,0,0.04);
             margin-top: 80px;
         }
     </style>
@@ -144,7 +156,7 @@
         </nav>
     </header>
 
-    <!-- Hero -->
+    <!-- HERO -->
     <section id="home" class="hero">
         <div class="hero-title-bar">
             <h1>Systemischer Wandel</h1>
@@ -165,10 +177,8 @@
             <div class="karte">
                 <h3>Eigene Anliegen klären</h3>
                 <p>
-                    Was ist dir wirklich wichtig? Wo spürst du Reibung, Sehnsucht oder
-                    Unzufriedenheit – in dir, in Beziehungen, im gesellschaftlichen Miteinander?
-                    Systemischer Wandel beginnt damit, Worte für das zu finden, was innerlich
-                    längst spürbar ist.
+                    Was bewegt dich wirklich? Welche Fragen tauchen immer wieder auf?
+                    Wandel beginnt, wenn innere Wahrheit Sprache findet.
                 </p>
             </div>
 
@@ -176,50 +186,41 @@
                 <h3>Räume für Dialog</h3>
                 <p>
                     Wenn Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört fühlen,
-                    entsteht ein Raum, in dem es möglich wird, das Schwierige anzuschauen
-                    und gleichzeitig offen und kreativ in Lösungsprozesse zu gehen.
+                    entsteht Raum – für das Schwierige und für kreative Lösungswege.
                 </p>
             </div>
 
             <div class="karte">
                 <h3>Schritte in Richtung Wandel</h3>
                 <p>
-                    Wirksamkeit muss nicht groß und laut sein. Oft sind es kleine,
-                    realistische Schritte im eigenen Umfeld: eine andere Art, Gespräche
-                    zu führen, Konflikte zu betrachten, Entscheidungen zu treffen oder
-                    Verantwortung zu teilen.
+                    Veränderung muss nicht laut sein. Oft beginnt sie im Kleinen:
+                    neue Gespräche, neue Perspektiven, neue Bewegung im Miteinander.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Werte & Perspektiven -->
+    <!-- Werte -->
     <section id="werte">
         <h2>Werte & Perspektiven</h2>
 
         <div class="textblock">
             <h3>Verstehen heißt nicht einverstanden sein</h3>
             <p>
-                Für mich beginnt Wandel dort, wo Menschen einander wirklich zuhören,
-                ohne sofort zu bewerten oder zu korrigieren. Verbundenheit entsteht
-                nicht durch Gleichheit, sondern durch den Mut, Unterschiedlichkeit
-                auszuhalten.
+                Verbundenheit entsteht dort, wo Menschen einander zuhören,
+                ohne zu bewerten. Unterschiedlichkeit darf bleiben.
             </p>
 
             <h3>Verbundenheit statt Gewalt</h3>
             <p>
-                Ich wünsche mir eine Kultur, in der wir weniger auf Beschämung,
-                Abwertung und Druck setzen – und mehr auf Kontakt, Klarheit und
-                Verantwortung auf Augenhöhe. Weniger Gewalt, mehr Verbindung:
-                in Sprache, Strukturen und im Alltag.
+                Ich wünsche mir Strukturen, die nicht auf Beschämung beruhen,
+                sondern auf Kontakt, Verantwortung und Augenhöhe.
             </p>
 
             <h3>Lernende Räume</h3>
             <p>
-                Lernen ist für mich ein relationaler Prozess. Wir lernen dort, wo wir
-                uns sicher genug fühlen, Fragen zu stellen, Fehler zu machen und uns
-                zeigen zu dürfen. Ich möchte Räume mitgestalten, in denen Lernen
-                wieder lebendig, dialogisch und verkörperte Erfahrung ist.
+                Lernen ist ein Beziehungsprozess. Dafür braucht es Sicherheit,
+                Resonanz und Räume, in denen Fehler dazugehören dürfen.
             </p>
         </div>
     </section>
@@ -230,22 +231,14 @@
 
         <div class="textblock">
             <p>
-                Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen und
-                Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
-                kommen können – ohne sich selbst zu verlieren.
+                Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen und Systeme
+                in mehr Resonanz, Verbundenheit und Handlungsfähigkeit kommen können –
+                ohne sich selbst zu verlieren.
             </p>
 
             <p>
-                In meiner Arbeit verbinde ich systemische Perspektiven,
-                dialogische Haltungen, Körper- und Erfahrungsorientierung sowie
-                eine tiefe Neugier für das, was zwischen Menschen entsteht.
-            </p>
-
-            <p>
-                Diese Seite ist ein wachsender Raum für Gedanken, Projekte,
-                Formate und Experimente rund um systemischen und gesellschaftlichen Wandel.
-                Sie darf mit mir mitwachsen, sich verändern und immer wieder neu
-                ausgerichtet werden.
+                Diese Seite ist ein wachsender Raum für Gedanken, Projekte und Experimente
+                rund um systemischen und gesellschaftlichen Wandel.
             </p>
         </div>
     </section>
@@ -255,8 +248,7 @@
         <h2>Kontakt & Resonanz</h2>
 
         <p style="text-align:center; max-width:700px; margin:auto;">
-            Du möchtest mit mir in Austausch kommen, eine Idee teilen oder 
-            gemeinsam überlegen, wie ein Raum für Dialog und Lernen aussehen könnte?  
+            Du möchtest mit mir in Austausch kommen oder eine Idee teilen?
             Schreib mir gerne:
         </p>
 
