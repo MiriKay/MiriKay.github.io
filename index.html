@@ -6,35 +6,24 @@
     <title>Systemischer Wandel – Räume für Dialog & Wirksamkeit</title>
 
     <style>
-        /* Farb-Variablen */
         :root {
-            --salbei-hell:   #F3F7F5;   /* Hintergrund */
-            --salbei:        #D7E8E1;   /* Haupt-Salbei */
-            --salbei-dunkel: #A3C4BC;   /* Akzent */
+            --salbei-hell:   #F3F7F5;
+            --salbei:        #D7E8E1;
+            --salbei-dunkel: #A3C4BC;
             --text-dunkel:   #2F3E39;
-        }
-
-        /* Grundlayout */
-        * {
-            box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-family: system-ui, sans-serif;
             background: var(--salbei-hell);
             color: var(--text-dunkel);
-            line-height: 1.6;
         }
 
-        a {
-            color: inherit;
-        }
-
-        /* Header / Navigation */
+        /* HEADER */
         header {
-            background: #ffffff;
-            padding: 16px 32px;
+            background: white;
+            padding: 18px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -45,122 +34,103 @@
         }
 
         .logo {
+            font-size: 1.35rem;
             font-weight: 700;
-            font-size: 1.2rem;
+            letter-spacing: 1px;
         }
 
         nav a {
             margin-left: 20px;
             text-decoration: none;
-            font-weight: 500;
             color: #555;
-            font-size: 0.95rem;
+            font-weight: 500;
         }
+        nav a:hover { color: #000; }
 
-        nav a:hover {
-            color: #000;
-        }
-
-        main {
-            padding-bottom: 60px;
-        }
-
-        section {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 60px 20px 0;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2rem;
-            margin-bottom: 40px;
-        }
-
-        /* Hero-Bereich (Salbei-Banner über volle Breite) */
+        /* HERO-BANNER WIE VORHER */
         .hero-wrap {
             background: var(--salbei);
-            margin-top: 0;
-            margin-bottom: 40px;
+            padding: 60px 0 60px; /* <-- weniger Abstand */
         }
 
         .hero {
-            max-width: 1100px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 20px 70px;
             text-align: center;
+            padding: 0 20px;
         }
 
         .hero h1 {
-            font-size: 2.4rem;
+            color: white;
+            font-size: 2.6rem; /* größer wie vorher */
+            margin-bottom: 18px;
             font-weight: 600;
-            margin: 0 0 22px;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            max-width: 720px;
-            margin: 0 auto 30px;
+            color: white;
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 28px;
         }
 
         .hero-buttons {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
             gap: 14px;
+            flex-wrap: wrap;
         }
 
         .hero-buttons a {
-            display: inline-block;
-            padding: 10px 20px;
+            padding: 10px 22px;
             border-radius: 999px;
-            border: 1px solid rgba(47,62,57,0.35);
-            background: rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.35);
+            color: white;
             text-decoration: none;
-            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.6);
             font-weight: 500;
         }
-
         .hero-buttons a:hover {
-            background: rgba(255,255,255,0.5);
+            background: rgba(255,255,255,0.55);
         }
 
-        /* 4 breitere Kästen */
+        /* BREITE KÄSTCHEN */
+        .values-section {
+            max-width: 1400px;
+            margin: 60px auto 0;
+            padding: 0 40px;
+        }
+
         .values-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
-            max-width: 1400px;
-            margin: 30px auto 0;
-            padding: 0 30px 0;
+            gap: 24px;
         }
 
         .value-box {
             background: var(--salbei);
-            border-radius: 18px;
-            padding: 28px 26px 34px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.07);
-            line-height: 1.55;
+            padding: 26px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
 
         .value-box h3 {
             margin-top: 0;
-            margin-bottom: 12px;
             font-size: 1.35rem;
-            color: #2f4b45;
             font-weight: 600;
         }
 
         .value-box ul {
-            padding-left: 18px;
-            margin-top: 8px;
+            padding-left: 20px;
+            margin: 8px 0 12px;
         }
 
-        .value-box p {
-            margin-top: 8px;
-            margin-bottom: 0;
-            color: #2a413c;
+        /* TEXTBEREICHE */
+        section h2 {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 2rem;
         }
 
         .textblock {
@@ -170,69 +140,37 @@
 
         footer {
             text-align: center;
-            padding: 40px 20px 30px;
+            padding: 40px;
             background: rgba(0,0,0,0.03);
-            margin-top: 60px;
-            font-size: 0.9rem;
+            margin-top: 80px;
         }
 
-        /* Responsive Anpassungen */
-        @media (max-width: 900px) {
-            nav {
-                font-size: 0.9rem;
-            }
-
+        /* RESPONSIVE */
+        @media (max-width: 1000px) {
             .values-grid {
                 grid-template-columns: repeat(2, 1fr);
-                padding: 0 20px;
             }
         }
-
-        @media (max-width: 680px) {
-            header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 8px;
-            }
-
-            nav {
-                display: flex;
-                flex-wrap: wrap;
-                gap: 8px;
-            }
-
-            nav a {
-                margin-left: 0;
-            }
-
-            .hero {
-                padding: 40px 16px 50px;
-            }
-
-            .hero h1 {
-                font-size: 1.9rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
+        @media (max-width: 650px) {
             .values-grid {
                 grid-template-columns: 1fr;
-                padding: 0 16px;
             }
+            .hero h1 { font-size: 2rem; }
         }
     </style>
 </head>
 
+
+
+
 <body>
 
 <header>
-    <div class="logo">Systemischer Wandel</div>
+    <div class="logo">SYSTEMISCHER WANDEL</div>
     <nav>
         <a href="#home">Start</a>
         <a href="#wirksam">Wirksam werden</a>
-        <a href="#werte">Werte &amp; Perspektiven</a>
+        <a href="#werte">Werte</a>
         <a href="#ueber">Über mich</a>
         <a href="#kontakt">Kontakt</a>
     </nav>
@@ -240,7 +178,7 @@
 
 <main>
 
-    <!-- HERO-BANNER -->
+    <!-- HERO WIE VORHER -->
     <div class="hero-wrap" id="home">
         <section class="hero">
             <h1>Veränderung beginnt oft damit, einander wirklich zuzuhören.</h1>
@@ -253,113 +191,94 @@
 
             <div class="hero-buttons">
                 <a href="#wirksam">Wirksam werden</a>
-                <a href="#werte">Werte &amp; Perspektiven</a>
+                <a href="#werte">Werte</a>
                 <a href="#kontakt">Kontakt</a>
             </div>
         </section>
     </div>
 
+
     <!-- WIRKSAM WERDEN -->
     <section id="wirksam">
         <h2>Wirksam werden – mit dem, was da ist</h2>
 
-        <div class="values-grid">
+        <div class="values-section">
+            <div class="values-grid">
 
-            <!-- BOX 1 -->
-            <div class="value-box">
-                <h3>Eigene Anliegen &amp; Werte klären</h3>
-                <p>Was ist dir wirklich wichtig? Wo spürst du:</p>
-                <ul>
-                    <li>Reibung oder Widerstand</li>
-                    <li>Sehnsucht nach etwas anderem</li>
-                    <li>Unzufriedenheit im Privaten, im Beruf oder im Miteinander?</li>
-                </ul>
-                <p>
-                    Klarheit darüber schafft Anbindung und Orientierung.
-                    Sie ist die Grundlage dafür, überhaupt wirksam werden zu können –
-                    in die Richtung deiner Werte.
-                </p>
+                <div class="value-box">
+                    <h3>Eigene Anliegen & Werte klären</h3>
+                    <p>Was ist dir wirklich wichtig? Wo spürst du:</p>
+                    <ul>
+                        <li>Reibung oder Widerstand</li>
+                        <li>Sehnsucht nach etwas anderem</li>
+                        <li>Unzufriedenheit im Alltag, Beruf oder Miteinander?</li>
+                    </ul>
+                    <p>Klarheit schafft Orientierung – und macht wirksam.</p>
+                </div>
+
+                <div class="value-box">
+                    <h3>Verbindung & Dialog</h3>
+                    <p>Wenn Menschen sich wirklich gehört fühlen, wird möglich:</p>
+                    <ul>
+                        <li>anzuschauen, was verletzt hat</li>
+                        <li>das Schöne nicht zu übersehen</li>
+                        <li>offen nach nächsten Schritten zu fragen</li>
+                    </ul>
+                    <p>So entsteht Dialog, der Beziehungen stärkt.</p>
+                </div>
+
+                <div class="value-box">
+                    <h3>Schritte Richtung Wandel</h3>
+                    <p>Wandel zeigt sich oft in kleinen, konkreten Schritten:</p>
+                    <ul>
+                        <li>ein anderes Gespräch</li>
+                        <li>eine neue Frage</li>
+                        <li>eine bewusste Entscheidung im Alltag</li>
+                    </ul>
+                </div>
+
+                <div class="value-box">
+                    <h3>Gesellschaftliche Annäherung</h3>
+                    <p>
+                        Wo wir uns als Gesellschaft entfernen, suche ich nach Wegen,
+                        wieder in Kontakt zu kommen – ohne Unterschiede zuzudecken.
+                    </p>
+                    <p>
+                        Mich interessiert, wie Begegnungen gestaltet werden können,
+                        in denen Verantwortung geteilt und Perspektiven gehalten werden.
+                    </p>
+                </div>
+
             </div>
-
-            <!-- BOX 2 -->
-            <div class="value-box">
-                <h3>Verbindung &amp; Dialog</h3>
-                <p>
-                    Verbindung verstehe ich als Basis für gemeinsames Wirken.
-                    Wenn Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört fühlen, entsteht Raum:
-                </p>
-                <ul>
-                    <li>anzuschauen, was verletzend oder schwierig war</li>
-                    <li>das Schöne und Gelungene nicht zu übersehen</li>
-                    <li>offen und kreativ nach nächsten Schritten zu fragen</li>
-                </ul>
-                <p>
-                    So entsteht Dialog, der nicht nur Positionen verteidigt,
-                    sondern Beziehungen und Handlungsspielräume stärkt.
-                </p>
-            </div>
-
-            <!-- BOX 3 -->
-            <div class="value-box">
-                <h3>Schritte in Richtung Wandel</h3>
-                <p>
-                    Wandel zeigt sich oft in kleinen, konkreten Schritten:
-                    ein anderes Gespräch, eine neue Frage in einem Team,
-                    eine bewusste Entscheidung im Alltag.
-                </p>
-                <p>
-                    Gemeinsam schauen wir, welche Schritte für dich stimmig,
-                    machbar und nährend sind.
-                </p>
-            </div>
-
-            <!-- BOX 4 -->
-            <div class="value-box">
-                <h3>Gesellschaftliche Annäherung</h3>
-                <p>
-                    In Zeiten, in denen sich unsere Gesellschaft an vielen Stellen
-                    auseinanderzubewegen scheint, suche ich nach Wegen,
-                    wie wieder mehr Verbindung entstehen kann – ohne Unterschiede zuzudecken.
-                </p>
-                <p>
-                    Mich interessiert, wie Strukturen, Sprache und Begegnungen so gestaltet
-                    werden können, dass Menschen mit sehr unterschiedlichen Perspektiven
-                    einander begegnen und gemeinsam Verantwortung übernehmen können.
-                </p>
-            </div>
-
         </div>
     </section>
 
-    <!-- WERTE & PERSPEKTIVEN -->
+
+
+    <!-- WERTE -->
     <section id="werte">
-        <h2>Werte &amp; Perspektiven</h2>
+        <h2>Werte & Perspektiven</h2>
 
         <div class="textblock">
             <h3>Verstehen heißt nicht einverstanden sein</h3>
             <p>
-                Für mich beginnt Wandel dort, wo Menschen einander wirklich zuhören,
-                ohne sofort zu bewerten oder zu korrigieren. Verbundenheit entsteht nicht
-                durch Gleichheit, sondern durch den Mut, Unterschiedlichkeit auszuhalten.
+                Wandel beginnt dort, wo Menschen einander zuhören, ohne zu korrigieren.
             </p>
 
             <h3>Verbundenheit statt Gewalt</h3>
             <p>
-                Ich wünsche mir eine Kultur, in der wir weniger auf Beschämung,
-                Abwertung und Druck setzen – und mehr auf Kontakt, Klarheit und
-                Verantwortung auf Augenhöhe. Weniger Gewalt, mehr Verbindung:
-                in Sprache, Strukturen und im Alltag.
+                Weniger Beschämung – mehr Kontakt, Klarheit, Verantwortung.
             </p>
 
             <h3>Lernende Räume</h3>
             <p>
-                Lernen ist für mich ein relationaler Prozess.
-                Wir lernen dort, wo wir uns sicher genug fühlen, Fragen zu stellen,
-                Fehler zu machen und uns zeigen zu dürfen. Ich möchte Räume mitgestalten,
-                in denen Lernen wieder lebendig, dialogisch und verkörperte Erfahrung ist.
+                Lernen entsteht in Sicherheit, Neugier und Beziehung.
             </p>
         </div>
     </section>
+
+
+
 
     <!-- ÜBER MICH -->
     <section id="ueber">
@@ -367,39 +286,27 @@
 
         <div class="textblock">
             <p>
-                Ich bin Mirjam Kittel. Mich beschäftigt die Frage,
-                wie Menschen und Systeme in mehr Resonanz, Verbundenheit und
-                Handlungsfähigkeit kommen können – ohne sich selbst zu verlieren.
+                Ich bin Mirjam Kittel. Mich beschäftigt, wie Menschen und Systeme
+                in Resonanz, Verbundenheit und Handlungsfähigkeit kommen.
             </p>
 
             <p>
-                In meiner Arbeit verbinde ich systemische Perspektiven,
-                dialogische Haltungen, Körper- und Erfahrungsorientierung sowie
-                eine tiefe Neugier für das, was zwischen Menschen entsteht.
-            </p>
-
-            <p>
-                Diese Seite ist ein wachsender Raum für Gedanken, Projekte,
-                Formate und Experimente rund um systemischen und gesellschaftlichen Wandel.
-                Sie darf mit mir mitwachsen, sich verändern und immer wieder neu
-                ausgerichtet werden.
+                Meine Arbeit verbindet systemische und dialogische Perspektiven,
+                Körperorientierung und eine große Neugier für das Dazwischen.
             </p>
         </div>
     </section>
 
+
+
+
     <!-- KONTAKT -->
     <section id="kontakt">
-        <h2>Kontakt &amp; Resonanz</h2>
+        <h2>Kontakt</h2>
 
         <div class="textblock" style="text-align:center;">
-            <p>
-                Du möchtest mit mir in Austausch kommen, eine Idee teilen oder gemeinsam überlegen,
-                wie ein Raum für Dialog und Lernen aussehen könnte?
-            </p>
-            <p>
-                Schreib mir gerne:
-            </p>
-            <p style="font-size:1.1rem; font-weight:500;">
+            <p>Schreib mir gerne:</p>
+            <p style="font-size:1.15rem">
                 <a href="mailto:hallo@systemischer-wandel.de">hallo@systemischer-wandel.de</a>
             </p>
         </div>
@@ -413,4 +320,3 @@
 
 </body>
 </html>
-
