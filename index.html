@@ -1,89 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Meine Webseite</title>
-  <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systemischer Wandel – Mirjam Kittel</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        /* Falls deine styles.css leer ist, bekommst du zumindest Basis-Design */
+        body {
+            margin: 0;
+            font-family: system-ui, sans-serif;
+            color: #222;
+            background: #f8f8f8;
+            line-height: 1.6;
+        }
+
+        header {
+            background: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        header a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #444;
+            font-weight: 500;
+        }
+        header a:hover {
+            color: #000;
+        }
+
+        .hero {
+            padding: 120px 20px;
+            text-align: center;
+            background: linear-gradient(160deg, #e5f1ff, #f9f9f9);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 20px auto 40px;
+            color: #444;
+        }
+        .btn-primary {
+            display: inline-block;
+            padding: 12px 22px;
+            background: #2b6cb0;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .btn-primary:hover {
+            background: #1e4f82;
+        }
+
+        section {
+            padding: 80px 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+        }
+
+        .leistungen {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+        .karte {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: 0.2s;
+        }
+        .karte:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+        .karte h3 {
+            margin-top: 0;
+        }
+
+        .ueber {
+            max-width: 800px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #eee;
+            margin-top: 80px;
+        }
+    </style>
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="#" class="logo">DeinLogo</a>
-      <button id="nav-toggle" class="nav-toggle" aria-label="Navigation umschalten">☰</button>
-      <nav id="main-nav" class="main-nav">
-        <a href="#home">Start</a>
-        <a href="#services">Leistungen</a>
-        <a href="#about">Über</a>
-        <a href="#contact">Kontakt</a>
-      </nav>
-    </div>
-  </header>
 
-  <main>
+    <!-- Navigation -->
+    <header>
+        <div style="font-weight:700; font-size:1.2rem;">Systemischer Wandel</div>
+        <nav>
+            <a href="#home">Start</a>
+            <a href="#angebote">Angebote</a>
+            <a href="#ueber">Über mich</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
     <section id="home" class="hero">
-      <div class="container hero-inner">
-        <h1>Willkommen auf meiner Webseite</h1>
-        <p>Schöne, schnelle und responsive Startseite — bereit für Anpassungen.</p>
-        <p><a class="btn" href="#contact">Kontakt aufnehmen</a></p>
-      </div>
+        <h1>Systemischer Wandel</h1>
+        <p>
+            Begleitung für Menschen, Teams und Organisationen, 
+            die neue Wege des Miteinanders, Lernens und gesellschaftlichen 
+            Zusammenwirkens gestalten wollen.
+        </p>
+        <a href="#kontakt" class="btn-primary">Kontakt aufnehmen</a>
     </section>
 
-    <section id="services" class="section">
-      <div class="container">
-        <h2>Leistungen</h2>
-        <div class="cards">
-          <article class="card">
-            <h3>Design</h3>
-            <p>Modernes UI/UX-Design für deine Marke.</p>
-          </article>
-          <article class="card">
-            <h3>Webentwicklung</h3>
-            <p>Responsive Webseiten mit sauberem Code.</p>
-          </article>
-          <article class="card">
-            <h3>Support</h3>
-            <p>Wartung und Weiterentwicklung nach Bedarf.</p>
-          </article>
+    <!-- Leistungen / Angebote -->
+    <section id="angebote">
+        <h2>Angebote</h2>
+
+        <div class="leistungen">
+            <div class="karte">
+                <h3>Systemische Beratung</h3>
+                <p>
+                    Individuelle und teambezogene Beratung zu Rollenklärung, 
+                    Konflikten, Entscheidungsprozessen, innerem Erleben, 
+                    Selbstwirksamkeit und Resonanz.
+                </p>
+            </div>
+
+            <div class="karte">
+                <h3>Workshops & Bildung</h3>
+                <p>
+                    Entwicklung und Durchführung von Formaten zu 
+                    Kommunikation, Beziehungskultur, Achtsamkeit, 
+                    Empowerment, Gewaltprävention und Lernorganisation.
+                </p>
+            </div>
+
+            <div class="karte">
+                <h3>Gesellschaftlicher Wandel</h3>
+                <p>
+                    Projekte, Prozesse und Beteiligungsformate zur Gestaltung 
+                    eines wertorientierten, achtsamen und gemeinschaftlichen 
+                    gesellschaftlichen Miteinanders.
+                </p>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section id="about" class="section alt">
-      <div class="container">
+    <!-- Über mich -->
+    <section id="ueber">
         <h2>Über mich</h2>
-        <p>Kurze Beschreibung — wer du bist und was du anbietest. Ersetze diesen Text mit deinen Inhalten.</p>
-      </div>
+
+        <div class="ueber">
+            <p>
+                Ich bin Mirjam Kittel und arbeite an den Schnittstellen von 
+                systemischer Beratung, Bildung, Resonanzforschung und 
+                gesellschaftlicher Transformation.  
+            </p>
+
+            <p>
+                Meine Arbeit verbindet systemische Perspektiven, 
+                körperorientierte Methoden, emotionale Prozessbegleitung und 
+                eine Haltung von Neugier, Empathie und Bezogenheit.
+            </p>
+
+            <p>
+                Ich begleite Menschen, Teams und Organisationen dabei, 
+                sinnvolle, humane und lebendige Formen des Zusammenwirkens 
+                zu entdecken und zu gestalten.
+            </p>
+        </div>
     </section>
 
-    <section id="contact" class="section">
-      <div class="container">
+    <!-- Kontakt -->
+    <section id="kontakt">
         <h2>Kontakt</h2>
-        <form id="contact-form" action="#" method="POST">
-          <label>
-            Name
-            <input type="text" name="name" required />
-          </label>
-          <label>
-            E‑Mail
-            <input type="email" name="email" required />
-          </label>
-          <label>
-            Nachricht
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button class="btn" type="submit">Senden</button>
-        </form>
-      </div>
+
+        <p style="text-align:center; max-width:700px; margin:auto;">
+            Du möchtest mit mir zusammenarbeiten oder hast Fragen?  
+            Schreib mir gerne eine E-Mail:
+        </p>
+
+        <p style="text-align:center; margin-top:20px; font-size:1.2rem;">
+            <a href="mailto:hallo@systemischer-wandel.de">hallo@systemischer-wandel.de</a>
+        </p>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; <span id="year"></span> Deine Firma — Alle Rechte vorbehalten</p>
-    </div>
-  </footer>
+    <footer>
+        © 2025 Mirjam Kittel – Systemischer Wandel
+    </footer>
 
-  <script src="script.js"></script>
 </body>
 </html>
