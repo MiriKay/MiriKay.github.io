@@ -1,322 +1,543 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Systemischer Wandel – Räume für Dialog & Wirksamkeit</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Systemischer Wandel – Mirjam Kittel</title>
 
-    <style>
-        :root {
-            --salbei-hell:   #F3F7F5;
-            --salbei:        #D7E8E1;
-            --salbei-dunkel: #A3C4BC;
-            --text-dunkel:   #2F3E39;
-        }
+  <style>
+    /* ------------------------------
+       Farbpalette Salbei
+    ------------------------------ */
+    :root {
+      --salbei-hell:   #F3F7F5;
+      --salbei:        #D7E8E1;
+      --salbei-dunkel: #A3C4BC;
+      --salbei-tief:   #2F3E39;
+      --accent:        #6B8F71;
+      --white:         #FFFFFF;
+    }
 
-        body {
-            margin: 0;
-            font-family: system-ui, sans-serif;
-            background: var(--salbei-hell);
-            color: var(--text-dunkel);
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        /* HEADER */
-        header {
-            background: white;
-            padding: 18px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: var(--salbei-hell);
+      color: var(--salbei-tief);
+      line-height: 1.6;
+    }
 
-        .logo {
-            font-size: 1.35rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
+    a {
+      color: inherit;
+    }
 
-        nav a {
-            margin-left: 20px;
-            text-decoration: none;
-            color: #555;
-            font-weight: 500;
-        }
-        nav a:hover { color: #000; }
+    /* ------------------------------
+       Header / Navigation
+    ------------------------------ */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 6vw;
+    }
 
-        /* HERO-BANNER WIE VORHER */
-        .hero-wrap {
-            background: var(--salbei);
-            padding: 60px 0 60px; /* <-- weniger Abstand */
-        }
+    .logo-text {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.95rem;
+      color: var(--accent);
+    }
 
-        .hero {
-            max-width: 900px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
 
-        .hero h1 {
-            color: white;
-            font-size: 2.6rem; /* größer wie vorher */
-            margin-bottom: 18px;
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
+    nav a {
+      text-decoration: none;
+      position: relative;
+    }
 
-        .hero p {
-            color: white;
-            font-size: 1.15rem;
-            max-width: 650px;
-            margin: 0 auto 28px;
-        }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.18s ease-out;
+    }
 
-        .hero-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+    nav a:hover::after {
+      width: 100%;
+    }
 
-        .hero-buttons a {
-            padding: 10px 22px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.35);
-            color: white;
-            text-decoration: none;
-            border: 1px solid rgba(255,255,255,0.6);
-            font-weight: 500;
-        }
-        .hero-buttons a:hover {
-            background: rgba(255,255,255,0.55);
-        }
+    /* Mobile Navi */
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
 
-        /* BREITE KÄSTCHEN */
-        .values-section {
-            max-width: 1400px;
-            margin: 60px auto 0;
-            padding: 0 40px;
-        }
+    @media (max-width: 720px) {
+      nav {
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 100%;
+        background: var(--white);
+        padding: 12px 20px;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-        }
+      nav.open {
+        display: flex;
+      }
 
-        .value-box {
-            background: var(--salbei);
-            padding: 26px;
-            border-radius: 16px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-        }
+      .nav-toggle {
+        display: block;
+      }
+    }
 
-        .value-box h3 {
-            margin-top: 0;
-            font-size: 1.35rem;
-            font-weight: 600;
-        }
+    /* ------------------------------
+       Hero-Bereich (ohne Kreis)
+    ------------------------------ */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: 70vh;
+      padding: 60px 6vw 80px;
+      background: var(--salbei-dunkel);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
 
-        .value-box ul {
-            padding-left: 20px;
-            margin: 8px 0 12px;
-        }
+    .hero h1 {
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin: 0 0 24px;
+    }
 
-        /* TEXTBEREICHE */
-        section h2 {
-            text-align: center;
-            margin-top: 60px;
-            font-size: 2rem;
-        }
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 32px;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 1.05rem;
+    }
 
-        .textblock {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: rgba(0,0,0,0.03);
-            margin-top: 80px;
-        }
+    .btn-pill {
+      display: inline-block;
+      padding: 10px 26px;
+      border-radius: 999px;
+      border: 1px solid var(--white);
+      background: var(--white);
+      color: var(--accent);
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease,
+        background 0.15s ease, color 0.15s ease;
+      white-space: nowrap;
+    }
 
-        /* RESPONSIVE */
-        @media (max-width: 1000px) {
-            .values-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-        @media (max-width: 650px) {
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-            .hero h1 { font-size: 2rem; }
-        }
-    </style>
+    .btn-pill.secondary {
+      background: transparent;
+      color: var(--white);
+    }
+
+    .btn-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+      background: var(--white);
+      color: var(--accent);
+    }
+
+    /* ------------------------------
+       Sections allgemein
+    ------------------------------ */
+    section {
+      padding: 70px 6vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    section.narrow {
+      max-width: 800px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin: 0 0 36px;
+    }
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.25rem;
+    }
+
+    /* ------------------------------
+       Intro + „Bildplatz“
+    ------------------------------ */
+    .intro-layout {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      align-items: start;
+    }
+
+    .intro-text p {
+      margin-bottom: 1rem;
+    }
+
+    .intro-image {
+      width: 100%;
+      max-width: 360px;
+      height: 260px;
+      border-radius: 20px;
+      background: linear-gradient(
+        135deg,
+        rgba(167, 201, 187, 0.9),
+        rgba(215, 232, 225, 1)
+      );
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(47, 62, 57, 0.9);
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 16px;
+    }
+
+    @media (max-width: 880px) {
+      .intro-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ------------------------------
+       Karten / Wirksame Felder
+    ------------------------------ */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    /* auf großen Screens genau 4 Kästchen nebeneinander */
+    @media (min-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .card {
+      background: var(--salbei);
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      transition: transform 0.16s ease, box-shadow 0.16s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+    }
+
+    .card ul {
+      padding-left: 1.2rem;
+      margin: 0 0 0.6rem;
+    }
+
+    /* ------------------------------
+       Zitat
+    ------------------------------ */
+    .quote {
+      text-align: center;
+      font-style: italic;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .quote span {
+      display: block;
+      margin-top: 12px;
+      font-style: normal;
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+
+    /* ------------------------------
+       Neugierig-Block
+    ------------------------------ */
+    .cta {
+      background: var(--accent);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 16px;
+    }
+
+    .cta p {
+      max-width: 640px;
+      margin: 0 auto 26px;
+    }
+
+    /* ------------------------------
+       Footer
+    ------------------------------ */
+    footer {
+      padding: 30px 6vw 40px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: rgba(47, 62, 57, 0.7);
+    }
+  </style>
 </head>
-
-
-
 
 <body>
 
-<header>
-    <div class="logo">SYSTEMISCHER WANDEL</div>
+  <!-- Header -->
+  <header>
+    <div class="logo-text">Systemischer Wandel</div>
+    <button class="nav-toggle" aria-label="Menü öffnen">
+      ☰
+    </button>
     <nav>
-        <a href="#home">Start</a>
-        <a href="#wirksam">Wirksam werden</a>
-        <a href="#werte">Werte</a>
-        <a href="#ueber">Über mich</a>
-        <a href="#kontakt">Kontakt</a>
+      <a href="#start">Start</a>
+      <a href="#wirksam">Wirksam werden</a>
+      <a href="#werte">Werte &amp; Perspektiven</a>
+      <a href="#ueber">Über mich</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
-</header>
+  </header>
 
-<main>
+  <!-- Hero -->
+  <section id="start" class="hero">
+    <div>
+      <h1>VERÄNDERUNG BEGINNT OFT DAMIT,<br> EINANDER WIRKLICH ZUZUHÖREN.</h1>
 
-    <!-- HERO WIE VORHER -->
-    <div class="hero-wrap" id="home">
-        <section class="hero">
-            <h1>Veränderung beginnt oft damit, einander wirklich zuzuhören.</h1>
+      <p>
+        Systemischer Wandel bedeutet für mich: Räume zu öffnen, in denen
+        Menschen sich mit dem, was ihnen wichtig ist, gesehen fühlen – und
+        daraus gemeinsam neue, gangbare Wege entwickeln.
+      </p>
 
-            <p>
-                Systemischer Wandel bedeutet für mich: Räume zu öffnen, in denen Menschen
-                sich mit dem, was ihnen wichtig ist, gesehen fühlen – und daraus gemeinsam
-                neue, gangbare Wege entwickeln.
-            </p>
-
-            <div class="hero-buttons">
-                <a href="#wirksam">Wirksam werden</a>
-                <a href="#werte">Werte</a>
-                <a href="#kontakt">Kontakt</a>
-            </div>
-        </section>
+      <div class="hero-buttons">
+        <a href="#wirksam" class="btn-pill">Wirksam werden</a>
+        <a href="#werte" class="btn-pill secondary">Werte &amp; Perspektiven</a>
+        <a href="#kontakt" class="btn-pill secondary">Kontakt</a>
+      </div>
     </div>
+  </section>
 
+  <!-- Intro / Willkommen -->
+  <section class="narrow">
+    <div class="intro-layout">
+      <div class="intro-text">
+        <h2>Willkommen!</h2>
+        <p>
+          Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
+          und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
+          kommen können – ohne sich selbst zu verlieren.
+        </p>
 
-    <!-- WIRKSAM WERDEN -->
-    <section id="wirksam">
-        <h2>Wirksam werden – mit dem, was da ist</h2>
+        <p>
+          Auf dieser Seite sammle ich Gedanken, Formate und Projekte rund um
+          systemischen und gesellschaftlichen Wandel. Es geht mir um
+          Räume, in denen wir einander zuhören, Unterschiede halten können
+          und Schritt für Schritt wirksam werden – mit den Ressourcen, die
+          da sind.
+        </p>
+      </div>
 
-        <div class="values-section">
-            <div class="values-grid">
+      <div class="intro-image">
+        Hier könnte später ein Foto, eine Illustration oder eine Grafik zu
+        „Systemischer Wandel“ stehen. Im Moment hält dieser Platz einfach
+        Raum für das, was entstehen darf.
+      </div>
+    </div>
+  </section>
 
-                <div class="value-box">
-                    <h3>Eigene Anliegen & Werte klären</h3>
-                    <p>Was ist dir wirklich wichtig? Wo spürst du:</p>
-                    <ul>
-                        <li>Reibung oder Widerstand</li>
-                        <li>Sehnsucht nach etwas anderem</li>
-                        <li>Unzufriedenheit im Alltag, Beruf oder Miteinander?</li>
-                    </ul>
-                    <p>Klarheit schafft Orientierung – und macht wirksam.</p>
-                </div>
+  <!-- Wirksam werden -->
+  <section id="wirksam">
+    <h2>Wirksam werden – mit dem, was da ist</h2>
 
-                <div class="value-box">
-                    <h3>Verbindung & Dialog</h3>
-                    <p>Wenn Menschen sich wirklich gehört fühlen, wird möglich:</p>
-                    <ul>
-                        <li>anzuschauen, was verletzt hat</li>
-                        <li>das Schöne nicht zu übersehen</li>
-                        <li>offen nach nächsten Schritten zu fragen</li>
-                    </ul>
-                    <p>So entsteht Dialog, der Beziehungen stärkt.</p>
-                </div>
+    <div class="grid">
+      <!-- Karte 1 -->
+      <div class="card">
+        <h3>Eigene Anliegen &amp; Werte klären</h3>
+        <p>Was ist dir wirklich wichtig? Wo spürst du:</p>
+        <ul>
+          <li>Reibung oder Widerstand,</li>
+          <li>Sehnsucht nach etwas anderem,</li>
+          <li>Unzufriedenheit im Privaten, im Beruf oder im Miteinander?</li>
+        </ul>
+        <p>
+          Klarheit über das, was dir wichtig ist, schafft innere Anbindung
+          und Orientierung. Sie ist die Grundlage, überhaupt wirksam werden
+          zu können – in die Richtung deiner Werte.
+        </p>
+      </div>
 
-                <div class="value-box">
-                    <h3>Schritte Richtung Wandel</h3>
-                    <p>Wandel zeigt sich oft in kleinen, konkreten Schritten:</p>
-                    <ul>
-                        <li>ein anderes Gespräch</li>
-                        <li>eine neue Frage</li>
-                        <li>eine bewusste Entscheidung im Alltag</li>
-                    </ul>
-                </div>
+      <!-- Karte 2 -->
+      <div class="card">
+        <h3>Verbindung &amp; Dialog</h3>
+        <p>
+          Verbindung verstehe ich als Basis für gemeinsames Wirken. Wenn
+          Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört
+          fühlen, wird es möglich:
+        </p>
+        <ul>
+          <li>anzuschauen, was verletzend oder schwierig war,</li>
+          <li>das Schöne und Gelungene nicht zu übersehen,</li>
+          <li>offen und kreativ nach nächsten Schritten zu fragen.</li>
+        </ul>
+        <p>
+          So entsteht Dialog, der nicht nur Positionen verteidigt, sondern
+          Beziehungen und Handlungsspielräume stärkt.
+        </p>
+      </div>
 
-                <div class="value-box">
-                    <h3>Gesellschaftliche Annäherung</h3>
-                    <p>
-                        Wo wir uns als Gesellschaft entfernen, suche ich nach Wegen,
-                        wieder in Kontakt zu kommen – ohne Unterschiede zuzudecken.
-                    </p>
-                    <p>
-                        Mich interessiert, wie Begegnungen gestaltet werden können,
-                        in denen Verantwortung geteilt und Perspektiven gehalten werden.
-                    </p>
-                </div>
+      <!-- Karte 3 -->
+      <div class="card">
+        <h3>Schritte in Richtung Wandel</h3>
+        <p>
+          Wandel zeigt sich oft in kleinen, konkreten Schritten: ein anderes
+          Gespräch, eine neue Frage in einem Team, eine bewusste Entscheidung
+          im Alltag. Gemeinsam schauen wir, welche Schritte für dich stimmig,
+          machbar und nährend sind.
+        </p>
+      </div>
 
-            </div>
-        </div>
-    </section>
+      <!-- Karte 4 -->
+      <div class="card">
+        <h3>Gesellschaftliche Annäherung</h3>
+        <p>
+          In Zeiten, in denen sich unsere Gesellschaft an vielen Stellen
+          auseinanderzubewegen scheint, suche ich nach Wegen, wie wieder mehr
+          Verbindung entstehen kann – ohne Unterschiede zuzudecken.
+        </p>
+        <p>
+          Mich interessiert, wie Strukturen, Sprache und Begegnungen so
+          gestaltet werden können, dass Menschen mit sehr unterschiedlichen
+          Perspektiven einander begegnen und gemeinsam Verantwortung
+          übernehmen können.
+        </p>
+      </div>
+    </div>
+  </section>
 
+  <!-- Werte & Perspektiven -->
+  <section id="werte" class="narrow">
+    <h2>Werte &amp; Perspektiven</h2>
 
+    <h3>Verstehen heißt nicht einverstanden sein</h3>
+    <p>
+      Ich glaube, dass etwas Neues entstehen kann, wenn wir einander wirklich
+      zuhören – ohne sofort zu bewerten oder zu überzeugen. Verstehen heißt
+      nicht zustimmen, aber es öffnet die Tür zu Kontakt und Verantwortung.
+    </p>
 
-    <!-- WERTE -->
-    <section id="werte">
-        <h2>Werte & Perspektiven</h2>
+    <h3>Verbundenheit statt Gewalt</h3>
+    <p>
+      Ich wünsche mir eine Kultur, in der wir weniger auf Beschämung, Druck
+      und Abwertung setzen – und mehr auf Klarheit, Grenzen und Verbindung
+      auf Augenhöhe. Gewaltarmut beginnt in Sprache, Strukturen und im
+      Alltag.
+    </p>
 
-        <div class="textblock">
-            <h3>Verstehen heißt nicht einverstanden sein</h3>
-            <p>
-                Wandel beginnt dort, wo Menschen einander zuhören, ohne zu korrigieren.
-            </p>
+    <h3>Lernende Räume</h3>
+    <p>
+      Lernen ist für mich ein gemeinsamer, verkörperter Prozess. Wir lernen
+      dort, wo wir uns sicher genug fühlen, Fragen zu stellen, Fehler zu
+      machen und sichtbar zu sein. Solche Räume möchte ich mitgestalten.
+    </p>
+  </section>
 
-            <h3>Verbundenheit statt Gewalt</h3>
-            <p>
-                Weniger Beschämung – mehr Kontakt, Klarheit, Verantwortung.
-            </p>
+  <!-- Zitatblock -->
+  <section class="narrow">
+    <div class="quote">
+      „Wenn Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört
+      fühlen, wird es möglich, sowohl hinzuschauen, was nicht gut war, als
+      auch gemeinsam neue Wege zu suchen.“
+      <span>– eine Leitperspektive meiner Arbeit</span>
+    </div>
+  </section>
 
-            <h3>Lernende Räume</h3>
-            <p>
-                Lernen entsteht in Sicherheit, Neugier und Beziehung.
-            </p>
-        </div>
-    </section>
+  <!-- Über mich -->
+  <section id="ueber" class="narrow">
+    <h2>Über mich</h2>
+    <p>
+      In meiner Arbeit verbinde ich systemische Perspektiven,
+      dialogorientierte Haltungen, Körper- und Erfahrungsorientierung und
+      eine tiefe Neugier für das, was zwischen Menschen entsteht.
+    </p>
+    <p>
+      Ich bewege mich an der Schnittstelle von persönlicher Entwicklung,
+      Bildungsarbeit und gesellschaftlichem Wandel. Diese Seite darf mit
+      mir mitwachsen – als Raum für Experimente, Texte, Formate und
+      Zusammenarbeit.
+    </p>
+  </section>
 
+  <!-- Kontakt / Neugierig -->
+  <section id="kontakt" class="cta">
+    <h2>Neugierig?</h2>
+    <p>
+      Du möchtest mit mir in Kontakt kommen, eine Idee teilen oder gemeinsam
+      überlegen, wie ein Raum für Dialog und Lernen aussehen könnte?
+    </p>
+    <a href="mailto:hallo@systemischer-wandel.de" class="btn-pill">
+      Schreib mir: hallo@systemischer-wandel.de
+    </a>
+  </section>
 
-
-
-    <!-- ÜBER MICH -->
-    <section id="ueber">
-        <h2>Über mich</h2>
-
-        <div class="textblock">
-            <p>
-                Ich bin Mirjam Kittel. Mich beschäftigt, wie Menschen und Systeme
-                in Resonanz, Verbundenheit und Handlungsfähigkeit kommen.
-            </p>
-
-            <p>
-                Meine Arbeit verbindet systemische und dialogische Perspektiven,
-                Körperorientierung und eine große Neugier für das Dazwischen.
-            </p>
-        </div>
-    </section>
-
-
-
-
-    <!-- KONTAKT -->
-    <section id="kontakt">
-        <h2>Kontakt</h2>
-
-        <div class="textblock" style="text-align:center;">
-            <p>Schreib mir gerne:</p>
-            <p style="font-size:1.15rem">
-                <a href="mailto:hallo@systemischer-wandel.de">hallo@systemischer-wandel.de</a>
-            </p>
-        </div>
-    </section>
-
-</main>
-
-<footer>
+  <!-- Footer -->
+  <footer>
     © 2025 Mirjam Kittel – Systemischer Wandel
-</footer>
+  </footer>
 
+  <!-- Mini-Script nur für das Mobile-Menü -->
+  <script>
+    const nav = document.querySelector("nav");
+    const toggle = document.querySelector(".nav-toggle");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
+    }
+  </script>
 </body>
 </html>
