@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Meine Webseite</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="#" class="logo">DeinLogo</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="Navigation umschalten">☰</button>
+      <nav id="main-nav" class="main-nav">
+        <a href="#home">Start</a>
+        <a href="#services">Leistungen</a>
+        <a href="#about">Über</a>
+        <a href="#contact">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="container hero-inner">
+        <h1>Willkommen auf meiner Webseite</h1>
+        <p>Schöne, schnelle und responsive Startseite — bereit für Anpassungen.</p>
+        <p><a class="btn" href="#contact">Kontakt aufnehmen</a></p>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Leistungen</h2>
+        <div class="cards">
+          <article class="card">
+            <h3>Design</h3>
+            <p>Modernes UI/UX-Design für deine Marke.</p>
+          </article>
+          <article class="card">
+            <h3>Webentwicklung</h3>
+            <p>Responsive Webseiten mit sauberem Code.</p>
+          </article>
+          <article class="card">
+            <h3>Support</h3>
+            <p>Wartung und Weiterentwicklung nach Bedarf.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section alt">
+      <div class="container">
+        <h2>Über mich</h2>
+        <p>Kurze Beschreibung — wer du bist und was du anbietest. Ersetze diesen Text mit deinen Inhalten.</p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Kontakt</h2>
+        <form id="contact-form" action="#" method="POST">
+          <label>
+            Name
+            <input type="text" name="name" required />
+          </label>
+          <label>
+            E‑Mail
+            <input type="email" name="email" required />
+          </label>
+          <label>
+            Nachricht
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button class="btn" type="submit">Senden</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> Deine Firma — Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
