@@ -84,7 +84,6 @@
       width: 100%;
     }
 
-    /* Mobile Navi */
     .nav-toggle {
       display: none;
       border: none;
@@ -105,29 +104,25 @@
         flex-direction: column;
         align-items: flex-start;
       }
-
       nav.open {
         display: flex;
       }
-
       .nav-toggle {
         display: block;
       }
     }
 
     /* ------------------------------
-       Hero-Bereich (Zitat)
+       Hero-Bereich
     ------------------------------ */
     .hero {
-      position: relative;
-      overflow: hidden;
       min-height: 28vh;
       background: var(--salbei-dunkel);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 36px 6vw 42px;
+      padding: 40px 6vw 48px;
     }
 
     .hero h1 {
@@ -142,43 +137,16 @@
       max-width: 640px;
       margin: 0 auto;
       color: rgba(255, 255, 255, 0.92);
-      font-size: 1.05rem;
-      text-align: center;
     }
 
     /* ------------------------------
-       Sections allgemein
-    ------------------------------ */
-    section {
-      padding: 70px 6vw;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    section.narrow {
-      max-width: 800px;
-    }
-
-    h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin: 0 0 36px;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 1.25rem;
-    }
-
-    /* ------------------------------
-       Blocksatz 
+       Blocksatz
     ------------------------------ */
     p {
       text-align: justify;
       text-justify: inter-word;
       hyphens: auto;
     }
-
     .hero p,
     .cta p {
       text-align: center;
@@ -186,76 +154,79 @@
     }
 
     /* ------------------------------
-       Willkommen-Bereich 
-       Bild links, Text rechts
-       mit Salbei-Overlay
+       Willkommen-Bereich (Bild links, Text rechts)
+       Titel rechts über dem Text
     ------------------------------ */
     #intro {
-      padding: 70px 6vw;
-      max-width: 1100px;
+      max-width: 1150px;
       margin: 0 auto;
+      padding: 70px 6vw;
     }
 
-    .intro-title h2 {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    .intro-row {
-      display: flex;
+    .intro-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
       gap: 40px;
-      align-items: stretch; /* Bild wird gleich hoch wie Text */
+      align-items: stretch;
     }
 
-    .intro-col {
-      flex: 1;
-    }
-
-    .intro-text p {
-      margin-bottom: 1rem;
-    }
-
+    /* Bild-Wrapper, damit Overlay + Bild synchron bleiben */
     .intro-image-wrapper {
       position: relative;
-      width: 100%;
       border-radius: 20px;
       overflow: hidden;
+      height: 100%;
       box-shadow: 0 12px 28px rgba(0,0,0,0.12);
     }
 
+    /* Overlay */
     .intro-image-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(
-        rgba(215, 232, 225, 0.45),
-        rgba(163, 196, 188, 0.25)
+        rgba(215,232,225,0.45),
+        rgba(163,196,188,0.25)
       );
+      pointer-events: none;
       z-index: 2;
     }
 
+    /* Bild */
     .intro-photo {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: 50% 35%; /* oben abgeschnitten */
+      object-position: 50% 28%; /* leicht oben abgeschnitten, mehr Fokus unten */
       border-radius: 20px;
-      display: block;
       filter: brightness(0.95) contrast(1.05);
       z-index: 1;
     }
 
-    @media (max-width: 880px) {
-      .intro-row {
-        flex-direction: column;
-      }
+    /* rechter Bereich */
+    .intro-right h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      text-align: left;
+    }
 
+    .intro-right p {
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 900px) {
+      .intro-layout {
+        grid-template-columns: 1fr;
+      }
+      .intro-right h2 {
+        text-align: center;
+      }
       .intro-image-wrapper {
-        max-height: 300px;
+        max-height: 320px;
       }
     }
 
     /* ------------------------------
-       Karten / Wirksame Bereiche
+       Karten
     ------------------------------ */
     #wirksam {
       max-width: 1700px;
@@ -276,14 +247,14 @@
     .card {
       background: var(--salbei);
       border-radius: 18px;
-      padding: 24px 22px;
+      padding: 24px;
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
       transition: 0.16s ease;
     }
 
     .card:hover {
       transform: translateY(-4px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.12);
     }
 
     /* ------------------------------
@@ -304,7 +275,7 @@
     }
 
     /* ------------------------------
-       Über mich: Text links, Bild rechts
+       Über mich
     ------------------------------ */
     .about-layout {
       display: grid;
@@ -324,14 +295,12 @@
       border-radius: 18px;
       object-fit: cover;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      display: block;
     }
 
     @media (max-width: 880px) {
       .about-layout {
         grid-template-columns: 1fr;
       }
-
       .about-photo-wrapper {
         order: -1;
       }
@@ -346,24 +315,15 @@
       text-align: center;
     }
 
-    .cta h2 {
-      margin-bottom: 16px;
-    }
-
-    .cta p {
-      max-width: 640px;
-      margin: 0 auto 26px;
-    }
-
     .btn-pill {
       display: inline-block;
       padding: 10px 26px;
       border-radius: 999px;
+      border: 1px solid var(--white);
       background: var(--white);
       color: var(--accent);
       font-weight: 600;
-      text-decoration: none;
-      border: 1px solid var(--white);
+      margin-top: 18px;
       transition: 0.15s ease;
     }
 
@@ -399,11 +359,11 @@
     </nav>
   </header>
 
-  <!-- Hero -->
+
+  <!-- HERO -->
   <section id="start" class="hero">
     <div>
       <h1>VERÄNDERUNG BEGINNT OFT DAMIT,<br> EINANDER WIRKLICH ZUZUHÖREN.</h1>
-
       <p>
         Systemischer Wandel bedeutet für mich: Räume zu öffnen, in denen
         Menschen sich mit dem, was ihnen wichtig ist, gesehen fühlen – und
@@ -412,16 +372,13 @@
     </div>
   </section>
 
-  <!-- Willkommen -->
+
+  <!-- WILLKOMMEN (Bild links, Titel rechts oben, Text rechts unten) -->
   <section id="intro">
-    <div class="intro-title">
-      <h2>Willkommen!</h2>
-    </div>
+    <div class="intro-layout">
 
-    <div class="intro-row">
-
-      <!-- Bild links -->
-      <div class="intro-col intro-image-wrapper">
+      <!-- BILD LINKS -->
+      <div class="intro-image-wrapper">
         <div class="intro-image-overlay"></div>
         <img
           src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg"
@@ -430,8 +387,10 @@
         />
       </div>
 
-      <!-- Text rechts -->
-      <div class="intro-col intro-text">
+      <!-- TITEL + TEXT RECHTS -->
+      <div class="intro-right">
+        <h2>Willkommen!</h2>
+
         <p>
           Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
           und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
@@ -450,7 +409,8 @@
     </div>
   </section>
 
-  <!-- Wirksam werden -->
+
+  <!-- WIRKSAM -->
   <section id="wirksam">
     <h2>Wirksam werden – mit dem, was da ist</h2>
 
@@ -465,72 +425,67 @@
           <li>Unzufriedenheit im Privaten, im Beruf oder im Miteinander?</li>
         </ul>
         <p>
-          Klarheit über das, was dir wichtig ist, schafft Orientierung
-          und innere Anbindung – die Grundlage für Wirksamkeit.
+          Klarheit schafft Orientierung und innere Anbindung – die Grundlage für Wirksamkeit.
         </p>
       </div>
 
       <div class="card">
         <h3>Verbindung &amp; Dialog</h3>
         <p>
-          Verbindung ist für mich die Basis für gemeinsames Wirken.
-          Wenn Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört fühlen,
-          entsteht Raum für:
+          Verbindung ist Basis für gemeinsames Wirken. Wenn Menschen wirklich gehört werden, entsteht Raum für:
         </p>
         <ul>
           <li>Verstehen statt Bewerten,</li>
-          <li>Mut, Schwieriges anzuschauen,</li>
-          <li>Kreative, gemeinsame Lösungen.</li>
+          <li>Mut zu schwierigen Themen,</li>
+          <li>Kreative gemeinsame Wege.</li>
         </ul>
       </div>
 
       <div class="card">
         <h3>Schritte in Richtung Wandel</h3>
         <p>
-          Wandel zeigt sich oft in kleinen, konkreten Schritten.
-          Ein Gespräch, ein Impuls, eine neue Frage – und plötzlich wird
-          Handlungsfähigkeit wieder spürbar.
+          Wandel zeigt sich oft in kleinen, machbaren Schritten:
+          ein Gespräch, eine neue Frage, eine veränderte Haltung.
         </p>
       </div>
 
       <div class="card">
         <h3>Gesellschaftliche Annäherung</h3>
         <p>
-          In einer Zeit, in der vieles auseinanderdriftet,
-          interessiert mich, wie wieder mehr Verbindung entstehen kann –
-          ohne Unterschiede zu verwischen.
+          Wo Gesellschaft auseinanderdriftet, suche ich Wege,
+          wie wieder Verbindung entstehen kann – ohne Unterschiede zu verwischen.
         </p>
       </div>
 
     </div>
   </section>
 
-  <!-- Werte & Perspektiven -->
+
+  <!-- WERTE -->
   <section id="werte" class="narrow">
     <h2>Werte &amp; Perspektiven</h2>
 
     <h3>Verstehen heißt nicht einverstanden sein</h3>
     <p>
       Zuhören schafft Räume, in denen Kontakt möglich wird –
-      auch ohne Zustimmung oder Gleichheit.
+      ohne Zustimmung oder Übereinstimmung.
     </p>
 
     <h3>Verbundenheit statt Gewalt</h3>
     <p>
-      Ich wünsche mir Strukturen und Begegnungen,
-      in denen Klarheit, Grenzen und Verantwortung wichtiger sind
-      als Beschämung oder Druck.
+      Ich wünsche mir Strukturen, in denen Klarheit, Grenzen und Verantwortung
+      wichtiger sind als Beschämung oder Druck.
     </p>
 
     <h3>Lernende Räume</h3>
     <p>
-      Lernen ist ein gemeinsamer, verkörperter Prozess.
-      Wir lernen dort, wo wir sicher genug sind, Fragen zu stellen,
-      Fehler zu machen und uns zu zeigen.
+      Lernen entsteht dort, wo wir sicher genug sind, Fragen zu stellen,
+      Fehler zu machen und sichtbar zu sein.
     </p>
   </section>
 
-  <!-- Zitat -->
+
+  <!-- ZITAT -->
   <section class="narrow">
     <div class="quote">
       „Wenn Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört
@@ -540,7 +495,8 @@
     </div>
   </section>
 
-  <!-- Über mich -->
+
+  <!-- ÜBER MICH -->
   <section id="ueber" class="narrow">
     <h2>Über mich</h2>
 
@@ -569,19 +525,21 @@
     </div>
   </section>
 
-  <!-- Kontakt -->
+
+  <!-- KONTAKT -->
   <section id="kontakt" class="cta">
     <h2>Neugierig?</h2>
     <p>
-      Du möchtest mit mir in Kontakt kommen, eine Idee teilen
-      oder gemeinsam überlegen, wie ein Raum für Dialog und Lernen aussehen könnte?
+      Du möchtest eine Idee teilen oder gemeinsam überlegen,
+      wie ein Raum für Dialog und Lernen aussehen könnte?
     </p>
     <a href="mailto:hallo@systemischer-wandel.de" class="btn-pill">
       Schreib mir: hallo@systemischer-wandel.de
     </a>
   </section>
 
-  <!-- Footer -->
+
+  <!-- FOOTER -->
   <footer>
     © 2025 Mirjam Kittel – Systemischer Wandel
   </footer>
