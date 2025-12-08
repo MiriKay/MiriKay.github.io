@@ -1,0 +1,427 @@
+/* ------------------------------
+   Farbpalette Salbei
+------------------------------ */
+:root {
+  --salbei-hell:   #F3F7F5;
+  --salbei:        #D7E8E1;
+  --salbei-dunkel: #A3C4BC;
+  --salbei-tief:   #2F3E39;
+  --accent:        #6B8F71;
+  --white:         #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: var(--salbei-hell);
+  color: var(--salbei-tief);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+}
+
+/* ------------------------------
+   Header / Navigation
+------------------------------ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 6vw;
+}
+
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
+
+nav a {
+  text-decoration: none;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.18s ease-out;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* Mobile Navigation */
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+@media (max-width: 720px) {
+  nav {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--white);
+    padding: 12px 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* ------------------------------
+   Grundlayout für Inhalte
+------------------------------ */
+
+main {
+  min-height: 60vh;
+}
+
+section {
+  padding: 60px 6vw;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+section.narrow {
+  max-width: 800px;
+}
+
+.hero,
+.hero--small,
+.cta {
+  max-width: 100%;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin: 0 0 36px;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+/* Grundsätzlich Blocksatz, aber nicht überall */
+p {
+  margin: 0 0 1rem;
+  text-align: justify;
+}
+
+.hero p,
+.hero h1,
+.hero--small p,
+.hero--small h1,
+.cta p {
+  text-align: center;
+}
+
+/* ------------------------------
+   Hero Startseite
+------------------------------ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 55vh;
+  background: var(--salbei-dunkel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+}
+
+.hero-inner {
+  max-width: 800px;
+  padding: 40px 0;
+}
+
+.hero h1 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto 28px;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* ------------------------------
+   Buttons
+------------------------------ */
+.btn-pill {
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--white);
+  background: var(--white);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+}
+
+.btn-pill.secondary {
+  background: transparent;
+  color: var(--white);
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+  background: var(--white);
+  color: var(--accent);
+}
+
+/* ------------------------------
+   Hero für Unterseiten
+------------------------------ */
+.hero--small {
+  background: var(--salbei-dunkel);
+  color: var(--white);
+  text-align: center;
+  padding: 40px 6vw;
+}
+
+.hero--small-inner {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero--small h1 {
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.hero--small p {
+  max-width: 700px;
+  margin: 16px auto 0;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ------------------------------
+   Intro / Willkommen
+------------------------------ */
+.intro-layout {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+  align-items: stretch;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.intro-text p {
+  margin-bottom: 1rem;
+}
+
+.intro-image {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  background: var(--salbei);
+}
+
+.intro-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 880px) {
+  .intro-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------
+   Profilbereich / Bild rechts
+------------------------------ */
+.profil-layout {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+
+.profilbild {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  background: var(--salbei);
+}
+
+.profilbild img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 880px) {
+  .profil-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ------------------------------
+   Karten / Wirksame Felder
+------------------------------ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+/* auf großen Screens genau 4 Kästchen nebeneinander */
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.card {
+  background: var(--salbei);
+  border-radius: 18px;
+  padding: 24px 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+  margin-bottom: 0.6rem;
+}
+
+.card p:last-child {
+  margin-bottom: 0;
+}
+
+.card ul {
+  padding-left: 1.2rem;
+  margin: 0 0 0.6rem;
+}
+
+/* ------------------------------
+   Zitat
+------------------------------ */
+.quote {
+  text-align: center;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote span {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* ------------------------------
+   Neugierig-Block
+------------------------------ */
+.cta {
+  background: var(--accent);
+  color: var(--white);
+  text-align: center;
+}
+
+.cta h2 {
+  margin-bottom: 16px;
+}
+
+.cta p {
+  max-width: 640px;
+  margin: 0 auto 26px;
+}
+
+/* ------------------------------
+   Listen & kleine Helfer
+------------------------------ */
+ul {
+  padding-left: 1.2rem;
+}
+
+/* ------------------------------
+   Footer
+------------------------------ */
+footer {
+  padding: 30px 6vw 40px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(47, 62, 57, 0.7);
+}
