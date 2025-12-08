@@ -1,6 +1,6 @@
-/* ------------------------------
+/* =====================================
    Farbpalette Salbei
------------------------------- */
+===================================== */
 :root {
   --salbei-hell:   #F3F7F5;
   --salbei:        #D7E8E1;
@@ -10,6 +10,7 @@
   --white:         #FFFFFF;
 }
 
+/* Basics */
 * {
   box-sizing: border-box;
 }
@@ -27,9 +28,9 @@ a {
   color: inherit;
 }
 
-/* ------------------------------
+/* =====================================
    Header / Navigation
------------------------------- */
+===================================== */
 header {
   position: sticky;
   top: 0;
@@ -107,240 +108,166 @@ nav a:hover::after {
   }
 }
 
-/* ------------------------------
-   Grundlayout für Inhalte
------------------------------- */
+/* =====================================
+   Hero (oben, Salbeiblock)
+   - Standard: größer (für Unterseiten)
+   - .hero--compact: kleiner (Startseite)
+===================================== */
 
-main {
-  min-height: 60vh;
-}
-
-section {
-  padding: 60px 6vw;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-section.narrow {
-  max-width: 800px;
-}
-
-.hero,
-.hero--small,
-.cta {
+.hero {
   max-width: 100%;
   margin: 0;
-}
-
-h1,
-h2,
-h3 {
-  margin-top: 0;
-}
-
-h2 {
-  text-align: center;
-  font-size: 2rem;
-  margin: 0 0 36px;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-/* Grundsätzlich Blocksatz, aber nicht überall */
-p {
-  margin: 0 0 1rem;
-  text-align: justify;
-}
-
-.hero p,
-.hero h1,
-.hero--small p,
-.hero--small h1,
-.cta p {
-  text-align: center;
-}
-
-/* ------------------------------
-   Hero Startseite
------------------------------- */
-.hero {
-  position: relative;
-  overflow: hidden;
-  min-height: 55vh;
   background: var(--salbei-dunkel);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  color: var(--white);
+  min-height: 32vh;
+  padding: 40px 6vw 52px;
 }
 
-.hero-inner {
-  max-width: 800px;
-  padding: 40px 0;
+.hero--compact {
+  min-height: 22vh;
+  padding: 26px 6vw 32px;
 }
 
 .hero h1 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  letter-spacing: 0.12em;
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  margin: 0 0 20px;
+  color: var(--white);
+  margin: 0 0 12px;
 }
 
 .hero p {
   max-width: 640px;
-  margin: 0 auto 28px;
+  margin: 0 auto;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 1.05rem;
-}
-
-.hero-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-}
-
-/* ------------------------------
-   Buttons
------------------------------- */
-.btn-pill {
-  display: inline-block;
-  padding: 10px 26px;
-  border-radius: 999px;
-  border: 1px solid var(--white);
-  background: var(--white);
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background 0.15s ease, color 0.15s ease;
-  white-space: nowrap;
-}
-
-.btn-pill.secondary {
-  background: transparent;
-  color: var(--white);
-}
-
-.btn-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
-  background: var(--white);
-  color: var(--accent);
-}
-
-/* ------------------------------
-   Hero für Unterseiten
------------------------------- */
-.hero--small {
-  background: var(--salbei-dunkel);
-  color: var(--white);
   text-align: center;
-  padding: 40px 6vw;
+  hyphens: none;
 }
 
-.hero--small-inner {
-  max-width: 800px;
+/* =====================================
+   Blocksatz für Fließtexte
+===================================== */
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.hero p,
+.cta p {
+  text-align: center;
+  hyphens: none;
+}
+
+/* =====================================
+   Allgemeine Sections
+===================================== */
+
+section.page-section {
+  padding: 70px 6vw 60px; /* gleicher “Headspace” auf Unterseiten */
+  max-width: 1100px;
   margin: 0 auto;
 }
 
-.hero--small h1 {
-  font-size: 1.6rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin: 0;
+section.page-section.narrow {
+  max-width: 800px;
 }
 
-.hero--small p {
-  max-width: 700px;
-  margin: 16px auto 0;
-  color: rgba(255, 255, 255, 0.92);
+h2 {
+  font-size: 2rem;
+  margin: 0 0 36px;
+  text-align: center;
 }
 
-/* ------------------------------
-   Intro / Willkommen
------------------------------- */
+h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+/* =====================================
+   Willkommen-Bereich (Startseite)
+===================================== */
+
+#intro {
+  max-width: 1150px;
+}
+
 .intro-layout {
-  display: grid;
-  gap: 32px;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.1fr);
+  display: flex;
+  gap: 40px;
   align-items: stretch;
 }
 
-.intro-text {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.intro-image-wrapper {
+  flex: 0 0 40%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  position: relative;
+  max-height: 420px;
 }
 
-.intro-text p {
+.intro-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.intro-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro-right h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.intro-right p {
   margin-bottom: 1rem;
 }
 
-.intro-image {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  background: var(--salbei);
-}
-
-.intro-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-@media (max-width: 880px) {
+@media (max-width: 900px) {
   .intro-layout {
-    grid-template-columns: 1fr;
+    flex-direction: column;
+  }
+
+  .intro-image-wrapper {
+    max-height: 360px;
+    flex: 0 0 auto;
+  }
+
+  .intro-right h2 {
+    text-align: center;
   }
 }
 
-/* ------------------------------
-   Profilbereich / Bild rechts
------------------------------- */
-.profil-layout {
-  display: grid;
-  gap: 32px;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
-  align-items: stretch;
+/* =====================================
+   Karten / Wirksam werden
+===================================== */
+
+#wirksam {
+  max-width: 1700px;
 }
 
-.profilbild {
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  background: var(--salbei);
+#wirksam h2 {
+  text-align: center;
 }
 
-.profilbild img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-@media (max-width: 880px) {
-  .profil-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ------------------------------
-   Karten / Wirksame Felder
------------------------------- */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-/* auf großen Screens genau 4 Kästchen nebeneinander */
 @media (min-width: 1000px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
@@ -350,7 +277,7 @@ p {
 .card {
   background: var(--salbei);
   border-radius: 18px;
-  padding: 24px 22px;
+  padding: 24px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
@@ -360,22 +287,15 @@ p {
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
 }
 
-.card h3 {
-  margin-bottom: 0.6rem;
-}
-
-.card p:last-child {
-  margin-bottom: 0;
-}
-
 .card ul {
   padding-left: 1.2rem;
   margin: 0 0 0.6rem;
 }
 
-/* ------------------------------
-   Zitat
------------------------------- */
+/* =====================================
+   Zitat (falls du es wieder nutzt)
+===================================== */
+
 .quote {
   text-align: center;
   font-style: italic;
@@ -391,36 +311,91 @@ p {
   opacity: 0.75;
 }
 
-/* ------------------------------
-   Neugierig-Block
------------------------------- */
+/* =====================================
+   Über mich – Bild rechts
+===================================== */
+
+.about-layout {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  align-items: center;
+}
+
+.about-photo-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 880px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo-wrapper {
+    order: -1;
+  }
+}
+
+/* =====================================
+   Kontakt / CTA
+===================================== */
+
 .cta {
-  background: var(--accent);
+  background: var(--salbei-dunkel);
   color: var(--white);
   text-align: center;
+  max-width: 100%;
+  padding: 70px 6vw 60px;
 }
 
 .cta h2 {
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .cta p {
   max-width: 640px;
   margin: 0 auto 26px;
+  text-align: center;
 }
 
-/* ------------------------------
-   Listen & kleine Helfer
------------------------------- */
-ul {
-  padding-left: 1.2rem;
+.btn-pill {
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--white);
+  color: #666;
+  background: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  margin-top: 8px;
 }
 
-/* ------------------------------
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* =====================================
    Footer
------------------------------- */
+===================================== */
+
 footer {
   padding: 30px 6vw 40px;
   text-align: center;
   font-size: 0.85rem;
   color: rgba(47, 62, 57, 0.7);
+}
