@@ -4,444 +4,56 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Systemischer Wandel – Mirjam Kittel</title>
-
-  <style>
-    /* ------------------------------
-       Farbpalette Salbei
-    ------------------------------ */
-    :root {
-      --salbei-hell:   #F3F7F5;
-      --salbei:        #D7E8E1;
-      --salbei-dunkel: #A3C4BC;
-      --salbei-tief:   #2F3E39;
-      --accent:        #6B8F71;
-      --white:         #FFFFFF;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-        sans-serif;
-      background: var(--salbei-hell);
-      color: var(--salbei-tief);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-    }
-
-    /* ------------------------------
-       Header / Navigation
-    ------------------------------ */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 20;
-      background: var(--white);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 6vw;
-    }
-
-    .logo-text {
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      font-size: 0.95rem;
-      color: var(--accent);
-    }
-
-    nav {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.95rem;
-    }
-
-    nav a {
-      text-decoration: none;
-      position: relative;
-    }
-
-    nav a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.18s ease-out;
-    }
-
-    nav a:hover::after {
-      width: 100%;
-    }
-
-    .nav-toggle {
-      display: none;
-      border: none;
-      background: transparent;
-      font-size: 1.4rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 720px) {
-      nav {
-        display: none;
-        position: absolute;
-        right: 0;
-        top: 100%;
-        background: var(--white);
-        padding: 12px 20px;
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      nav.open {
-        display: flex;
-      }
-
-      .nav-toggle {
-        display: block;
-      }
-    }
-
-    /* ------------------------------
-       Hero-Bereich
-    ------------------------------ */
-    .hero {
-      min-height: 28vh;
-      background: var(--salbei-dunkel);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 6vw 48px;
-    }
-
-    .hero h1 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--white);
-      margin: 0 0 14px;
-    }
-
-    .hero p {
-      max-width: 640px;
-      margin: 0 auto;
-      color: rgba(255, 255, 255, 0.92);
-    }
-
-    /* ------------------------------
-       Blocksatz
-    ------------------------------ */
-    p {
-      text-align: justify;
-      text-justify: inter-word;
-      hyphens: auto;
-    }
-
-    .hero p,
-    .cta p {
-      text-align: center;
-      hyphens: none;
-    }
-
-    /* ------------------------------
-       Allgemeine Section-Styles
-    ------------------------------ */
-    section {
-      padding: 50px 6vw;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    section.narrow {
-      max-width: 800px;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin: 0 0 36px;
-      text-align: center;
-    }
-
-    h3 {
-      margin-top: 0;
-      font-size: 1.25rem;
-    }
-
-    /* ------------------------------
-       Willkommen-Bereich
-       (Bild links, Willkommen + Text rechts)
-    ------------------------------ */
-    #intro {
-      max-width: 1150px;
-    }
-
-    .intro-layout {
-      display: flex;
-      gap: 40px;
-      align-items: stretch;
-    }
-
-    /* Bild links */
-    .intro-image-wrapper {
-      flex: 0 0 40%;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-      position: relative;
-      /* Höhe an Text anpassen, aber nicht zu hoch */
-      max-height: 420px;
-    }
-
-    .intro-photo {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      /* oben und unten etwas abgeschnitten, Fokus auf Weg + Bäume */
-      object-position: 50% 35%;
-      filter: none;
-    }
-
-    /* Text rechts */
-    .intro-right {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .intro-right h2 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      text-align: left;
-    }
-
-    .intro-right p {
-      margin-bottom: 1rem;
-    }
-
-    @media (max-width: 900px) {
-      .intro-layout {
-        flex-direction: column;
-      }
-
-      .intro-image-wrapper {
-        max-height: 360px;
-        flex: 0 0 auto;
-      }
-
-      .intro-right h2 {
-        text-align: center;
-      }
-    }
-
-    /* ------------------------------
-       Karten / Wirksam werden
-    ------------------------------ */
-    #wirksam {
-      max-width: 1700px;
-    }
-
-    #wirksam h2 {
-      text-align: center;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    @media (min-width: 1000px) {
-      .grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    .card {
-      background: var(--salbei);
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
-    }
-
-    .card ul {
-      padding-left: 1.2rem;
-      margin: 0 0 0.6rem;
-    }
-
-    /* ------------------------------
-       Zitat
-    ------------------------------ */
-    .quote {
-      text-align: center;
-      font-style: italic;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .quote span {
-      display: block;
-      margin-top: 12px;
-      font-style: normal;
-      font-size: 0.9rem;
-      opacity: 0.75;
-    }
-
-    /* ------------------------------
-       Über mich (Text links, Bild rechts)
-    ------------------------------ */
-    .about-layout {
-      display: grid;
-      gap: 32px;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-      align-items: center;
-    }
-
-    .about-photo-wrapper {
-      display: flex;
-      justify-content: center;
-    }
-
-    .about-photo {
-      width: 100%;
-      max-width: 260px;
-      border-radius: 18px;
-      object-fit: cover;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    }
-
-    @media (max-width: 880px) {
-      .about-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .about-photo-wrapper {
-        order: -1;
-      }
-    }
-
-    /* ------------------------------
-       Kontakt / Neugierig
-    ------------------------------ */
-    .cta {
-      background: var(--salbei-dunkel);
-      color: var(--white);
-      text-align: center;
-      max-width: 100%;
-    }
-
-    .cta h2 {
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .cta p {
-      max-width: 640px;
-      margin: 0 auto 26px;
-    }
-
-    .btn-pill {
-      display: inline-block;
-      padding: 10px 26px;
-      border-radius: 999px;
-      border: 1px solid var(--white);
-      
-      color: #666;
-      background: var(--white);
-      font-weight: 600;
-      font-size: 0.95rem;
-      text-decoration: none;
-      transition: transform 0.15s ease, box-shadow 0.15s ease,
-        background 0.15s ease, color 0.15s ease;
-      white-space: nowrap;
-      margin-top: 8px;
-    }
-
-    .btn-pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
-    }
-
-    /* ------------------------------
-       Footer
-    ------------------------------ */
-    footer {
-      padding: 30px 6vw 40px;
-      text-align: center;
-      font-size: 0.85rem;
-      color: rgba(47, 62, 57, 0.7);
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
-
   <!-- Header -->
   <header>
     <div class="logo-text">Systemischer Wandel</div>
-    <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
+    <button class="nav-toggle" aria-label="Menü öffnen">
+      ☰
+    </button>
     <nav>
-      <a href="#start">Start</a>
-      <a href="#wirksam">Wirksam werden</a>
-      <a href="#werte">Werte &amp; Perspektiven</a>
-      <a href="#ueber">Über mich</a>
-      <a href="#kontakt">Kontakt</a>
+      <a href="index.html">Start</a>
+      <a href="angebote.html">Angebote</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="gesellschaftlicher-wandel.html">Gesellschaftlicher Wandel</a>
+      <a href="geld-und-tauschlogik.html">Geld &amp; Tauschlogik</a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section id="start" class="hero">
-    <div>
-      <h1>VERÄNDERUNG BEGINNT OFT DAMIT,<br> EINANDER WIRKLICH ZUZUHÖREN.</h1>
-      <p>
-        Systemischer Wandel bedeutet für mich: Räume zu öffnen, in denen
-        Menschen sich mit dem, was ihnen wichtig ist, gesehen fühlen – und
-        daraus gemeinsam neue, gangbare Wege entwickeln.
-      </p>
-    </div>
-  </section>
+  <main>
+    <!-- Hero -->
+    <section id="start" class="hero">
+      <div class="hero-inner">
+        <h1>VERÄNDERUNG BEGINNT OFT DAMIT,<br> EINANDER WIRKLICH ZUZUHÖREN.</h1>
 
-  <!-- Willkommen -->
-  <section id="intro">
-    <div class="intro-layout">
+        <p>
+          Systemischer Wandel bedeutet für mich: Räume zu öffnen, in denen
+          Menschen sich mit dem, was ihnen wichtig ist, gesehen fühlen – und
+          daraus gemeinsam neue, gangbare Wege entwickeln.
+        </p>
 
-      <!-- Bild links -->
-      <div class="intro-image-wrapper">
-        <img
-          src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/98021a13e9366c94cf9593bf8e71c2d96cd5f0d9/spaziergang.jpg"
-          alt="Spaziergang in der Natur"
-          class="intro-photo"
-        />
+        <div class="hero-buttons">
+          <a href="angebote.html" class="btn-pill">Wirksam werden</a>
+          <a href="ueber-mich.html" class="btn-pill secondary">Werte &amp; Perspektiven</a>
+          <a href="gesellschaftlicher-wandel.html" class="btn-pill secondary">Gesellschaftlicher Wandel</a>
+        </div>
       </div>
+    </section>
 
-      <!-- Text rechts -->
-      <div class="intro-right">
-        <div>
+    <!-- Intro / Willkommen -->
+    <section class="intro-section">
+      <div class="intro-layout">
+        <div class="intro-text">
           <h2>Willkommen!</h2>
           <p>
             Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
             und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
             kommen können – ohne sich selbst zu verlieren.
           </p>
+
           <p>
             Auf dieser Seite sammle ich Gedanken, Formate und Projekte rund um
             systemischen und gesellschaftlichen Wandel. Es geht mir um Räume,
@@ -450,158 +62,98 @@
             da sind.
           </p>
         </div>
+
+        <div class="intro-image">
+          <img
+            src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg"
+            alt="Spaziergang in der Natur – Symbol für Wandel in Bewegung"
+          />
+        </div>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- Wirksam werden Teaser -->
+    <section class="narrow">
+      <h2>Wirksam werden – mit dem, was da ist</h2>
 
-  <!-- Wirksam werden -->
-  <section id="wirksam">
-    <h2>Wirksam werden – mit dem, was da ist</h2>
+      <p>
+        Viele Menschen spüren Reibung, Überforderung oder Sehnsucht nach
+        „anders“ – im Privaten, im Beruf oder in ihrem Engagement für die
+        Gesellschaft. Mich interessiert, wie wir mit dem arbeiten können,
+        was gerade da ist: mit deinen Ressourcen, Grenzen, Fragen und Werten.
+      </p>
 
-    <div class="grid">
-      <div class="card">
-        <h3>Eigene Anliegen &amp; Werte klären</h3>
-        <p>Was ist dir wirklich wichtig? Wo spürst du:</p>
-        <ul>
-          <li>Reibung oder Widerstand,</li>
-          <li>Sehnsucht nach etwas anderem,</li>
-          <li>Unzufriedenheit im Privaten, im Beruf oder im Miteinander?</li>
-        </ul>
-        <p>
-          Klarheit über das, was dir wichtig ist, schafft innere Anbindung
-          und Orientierung. Sie ist die Grundlage, überhaupt wirksam werden
-          zu können – in die Richtung deiner Werte.
-        </p>
+      <p>
+        Auf der Seite <strong>„Angebote“</strong> findest du konkrete
+        Möglichkeiten, mit mir gemeinsam zu schauen, welche nächsten Schritte
+        für dich, ein Team oder eine Gruppe stimmig sein könnten.
+      </p>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Eigene Anliegen &amp; Werte klären</h3>
+          <p>
+            Was ist dir wirklich wichtig? Wo spürst du Reibung, Sehnsucht oder
+            Unzufriedenheit? Klarheit schafft innere Anbindung und Orientierung.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Verbindung &amp; Dialog</h3>
+          <p>
+            Wenn Menschen mit dem, was ihnen wichtig ist, gehört werden,
+            entstehen Räume, in denen Schwieriges Platz haben darf und Neues
+            möglich wird.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Schritte in Richtung Wandel</h3>
+          <p>
+            Wandel zeigt sich oft in kleinen, konkreten Schritten – einem
+            anderen Gespräch, einer neuen Entscheidung, einer mutigen Frage.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Gesellschaftliche Annäherung</h3>
+          <p>
+            In einer Zeit, in der vieles auseinanderzudriften scheint,
+            suche ich nach Wegen, wie wieder mehr Verbindung entstehen kann –
+            ohne Unterschiede zuzudecken.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Verbindung &amp; Dialog</h3>
-        <p>
-          Verbindung verstehe ich als Basis für gemeinsames Wirken. Wenn
-          Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört
-          fühlen, wird es möglich:
-        </p>
-        <ul>
-          <li>anzuschauen, was verletzend oder schwierig war,</li>
-          <li>das Schöne und Gelungene nicht zu übersehen,</li>
-          <li>offen und kreativ nach nächsten Schritten zu fragen.</li>
-        </ul>
-        <p>
-          So entsteht Dialog, der nicht nur Positionen verteidigt, sondern
-          Beziehungen und Handlungsspielräume stärkt.
-        </p>
+    <!-- Zitatblock -->
+    <section class="narrow">
+      <div class="quote">
+        „Wenn Menschen sich mit dem, was ihnen wichtig ist, wirklich gehört
+        fühlen, wird es möglich, sowohl hinzuschauen, was nicht gut war, als
+        auch gemeinsam neue Wege zu suchen.“
+        <span>– eine Leitperspektive meiner Arbeit</span>
       </div>
+    </section>
 
-      <div class="card">
-        <h3>Schritte in Richtung Wandel</h3>
-        <p>
-          Wandel zeigt sich oft in kleinen, konkreten Schritten: ein anderes
-          Gespräch, eine neue Frage in einem Team, eine bewusste Entscheidung
-          im Alltag. Gemeinsam schauen wir, welche Schritte für dich stimmig,
-          machbar und nährend sind.
-        </p>
-      </div>
-
-      <div class="card">
-        <h3>Gesellschaftliche Annäherung</h3>
-        <p>
-          In Zeiten, in denen sich unsere Gesellschaft an vielen Stellen
-          auseinanderzubewegen scheint, suche ich nach Wegen, wie wieder mehr
-          Verbindung entstehen kann – ohne Unterschiede zuzudecken.
-        </p>
-        <p>
-          Mich interessiert, wie Strukturen, Sprache und Begegnungen so
-          gestaltet werden können, dass Menschen mit sehr unterschiedlichen
-          Perspektiven einander begegnen und gemeinsam Verantwortung
-          übernehmen können.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Werte & Perspektiven -->
-  <section id="werte" class="narrow">
-    <h2>Werte &amp; Perspektiven</h2>
-
-    <h3>Verstehen heißt nicht einverstanden sein</h3>
-    <p>
-      Ich glaube, dass etwas Neues entstehen kann, wenn wir einander wirklich
-      zuhören – ohne sofort zu bewerten oder zu überzeugen. Verstehen heißt
-      nicht zustimmen, aber es öffnet die Tür zu Kontakt und Verantwortung.
-    </p>
-
-    <h3>Verbundenheit statt Gewalt</h3>
-    <p>
-      Ich wünsche mir eine Kultur, in der wir weniger auf Beschämung, Druck
-      und Abwertung setzen – und mehr auf Klarheit, Grenzen und Verbindung
-      auf Augenhöhe. Gewaltarmut beginnt in Sprache, Strukturen und im
-      Alltag.
-    </p>
-
-    <h3>Lernende Räume</h3>
-    <p>
-      Lernen ist für mich ein gemeinsamer, verkörperter Prozess. Wir lernen
-      dort, wo wir uns sicher genug fühlen, Fragen zu stellen, Fehler zu
-      machen und sichtbar zu sein. Solche Räume möchte ich mitgestalten.
-    </p>
-  </section>
-
-  <!-- Über mich -->
-  <section id="ueber" class="narrow">
-    <h2>Über mich</h2>
-
-    <div class="about-layout">
-      <div>
-        <p>
-          In meiner Arbeit verbinde ich systemische Perspektiven,
-          dialogorientierte Haltungen, Körper- und Erfahrungsorientierung und
-          eine tiefe Neugier für das, was zwischen Menschen entsteht.
-        </p>
-        <p>
-          Ich bewege mich an der Schnittstelle von persönlicher Entwicklung,
-          Bildungsarbeit und gesellschaftlichem Wandel. Diese Seite darf mit
-          mir mitwachsen – als Raum für Experimente, Texte, Formate und
-          Zusammenarbeit.
-        </p>
-      </div>
-
-      <div class="about-photo-wrapper">
-        <img
-          src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/cc207855a8df1ea8d176872145b7428d373566d2/Profilbild.jpeg"
-          alt="Mirjam Kittel"
-          class="about-photo"
-        />
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt / Neugierig -->
-  <section id="kontakt" class="cta">
-    <h2>Neugierig?</h2>
-    <p>
-      Du möchtest mit mir in Kontakt kommen, eine Idee teilen oder gemeinsam
-      überlegen, wie ein Raum für Dialog und Lernen aussehen könnte?
-    </p>
-    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">
-      Schreib mir: mirjamkittel@gmail.com
-    </a>
-  </section>
+    <!-- Kontakt / Neugierig -->
+    <section id="kontakt" class="cta">
+      <h2>Neugierig?</h2>
+      <p>
+        Du möchtest mit mir in Kontakt kommen, eine Idee teilen oder gemeinsam
+        überlegen, wie ein Raum für Dialog und Lernen aussehen könnte?
+      </p>
+      <a href="mailto:hallo@systemischer-wandel.de" class="btn-pill">
+        Schreib mir: hallo@systemischer-wandel.de
+      </a>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer>
     © 2025 Mirjam Kittel – Systemischer Wandel
   </footer>
 
-  <!-- Mobile-Menü -->
-  <script>
-    const nav = document.querySelector("nav");
-    const toggle = document.querySelector(".nav-toggle");
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
