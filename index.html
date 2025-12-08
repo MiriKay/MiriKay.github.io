@@ -121,37 +121,32 @@
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 50vh;
+      min-height: 40vh;
       background: var(--salbei-dunkel);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 60px 6vw 70px;
+      padding: 50px 6vw 40px;
     }
 
     .hero h1 {
-      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      font-size: clamp(2.1rem, 3.4vw, 2.9rem);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--white);
-      margin: 0 0 24px;
+      margin: 0 0 18px;
     }
 
     .hero p {
       max-width: 640px;
-      margin: 0 auto 32px;
+      margin: 0 auto 4px;
       color: rgba(255, 255, 255, 0.92);
       font-size: 1.05rem;
+      text-align: center;
     }
 
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
-
+    /* Buttons (nur noch für Kontakt unten verwendet) */
     .btn-pill {
       display: inline-block;
       padding: 10px 26px;
@@ -204,47 +199,65 @@
     }
 
     /* ------------------------------
-       Intro + Spaziergangsbild
+       Blocksätze & Lesbarkeit
     ------------------------------ */
-    .intro-layout {
-      display: grid;
-      gap: 32px;
-      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-      align-items: stretch; /* beide Spalten gleich hoch */
+    p {
+      text-align: justify;
+      text-justify: inter-word;
+      hyphens: auto;
     }
 
-    .intro-text p {
-      margin-bottom: 1rem;
+    /* Ausnahmen: bestimmte Bereiche bleiben zentriert */
+    .hero p,
+    .intro-overlay p,
+    .cta p {
+      text-align: center;
+      hyphens: none;
     }
 
-    .intro-media {
+    /* ------------------------------
+       Willkommen-Hero mit Spaziergangsbild
+    ------------------------------ */
+    .intro-hero {
+      position: relative;
+      background-image: url("https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      min-height: 420px;
+      border-radius: 22px;
+      margin-top: 60px;
+      padding: 60px 20px;
+
       display: flex;
-      align-items: stretch;
+      align-items: center;
       justify-content: center;
+      text-align: center;
+
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
     }
 
-    .intro-photo {
-      width: 100%;
+    .intro-overlay {
+      background: rgba(255, 255, 255, 0.65);
+      padding: 40px 35px;
+      max-width: 650px;
       border-radius: 20px;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-      object-fit: cover;
-      height: 100%;         /* füllt die Spaltenhöhe */
-      min-height: 240px;    /* auf sehr wenig Text nicht zu klein */
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
     }
 
-    @media (max-width: 880px) {
-      .intro-layout {
-        grid-template-columns: 1fr;
-      }
+    .intro-overlay h2 {
+      margin-top: 0;
+      margin-bottom: 18px;
+      font-size: 2rem;
+      color: var(--salbei-tief);
+      text-align: center;
+    }
 
-      .intro-media {
-        order: -1; /* Bild über dem Text, wenn du das nicht willst: Zeile löschen */
-      }
-
-      .intro-photo {
-        height: auto;
-        max-height: 360px;
-      }
+    .intro-overlay p {
+      margin-bottom: 1rem;
+      color: var(--salbei-tief);
     }
 
     /* ------------------------------
@@ -252,7 +265,7 @@
     ------------------------------ */
 
     #wirksam {
-      max-width: 1700px; /* damit die Karten breiter werden auf großen Screens */
+      max-width: 1700px;
     }
 
     .grid {
@@ -263,7 +276,7 @@
 
     @media (min-width: 1000px) {
       .grid {
-        grid-template-columns: repeat(4, 1fr); /* genau 4 Kästchen nebeneinander */
+        grid-template-columns: repeat(4, 1fr);
       }
     }
 
@@ -321,11 +334,9 @@
     .about-photo {
       width: 100%;
       max-width: 260px;
-      border-radius: 18px;   /* wie die Karten */
-      background: var(--salbei);
-      padding: 6px;
+      border-radius: 18px;
+      object-fit: cover;
       box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-      object-fit: contain;   /* Kopf wird nicht abgeschnitten */
       display: block;
     }
 
@@ -336,7 +347,7 @@
       }
 
       .about-photo-wrapper {
-        order: -1;      /* Bild über dem Text; wenn nicht gewünscht: entfernen */
+        order: -1;
       }
 
       .about-photo {
@@ -401,42 +412,27 @@
         Menschen sich mit dem, was ihnen wichtig ist, gesehen fühlen – und
         daraus gemeinsam neue, gangbare Wege entwickeln.
       </p>
-
-      <div class="hero-buttons">
-        <a href="#wirksam" class="btn-pill">Wirksam werden</a>
-        <a href="#werte" class="btn-pill secondary">Werte &amp; Perspektiven</a>
-        <a href="#kontakt" class="btn-pill secondary">Kontakt</a>
-      </div>
     </div>
   </section>
 
-  <!-- Intro / Willkommen + Spaziergangbild rechts -->
-  <section class="narrow">
-    <div class="intro-layout">
-      <div class="intro-text">
-        <h2>Willkommen!</h2>
-        <p>
-          Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
-          und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
-          kommen können – ohne sich selbst zu verlieren.
-        </p>
+  <!-- Willkommen mit Spaziergangsbild -->
+  <section id="intro" class="intro-hero">
+    <div class="intro-overlay">
+      <h2>Willkommen!</h2>
 
-        <p>
-          Auf dieser Seite sammle ich Gedanken, Formate und Projekte rund um
-          systemischen und gesellschaftlichen Wandel. Es geht mir um
-          Räume, in denen wir einander zuhören, Unterschiede halten können
-          und Schritt für Schritt wirksam werden – mit den Ressourcen, die
-          da sind.
-        </p>
-      </div>
+      <p>
+        Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
+        und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
+        kommen können – ohne sich selbst zu verlieren.
+      </p>
 
-      <div class="intro-media">
-        <img
-          src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg"
-          alt="Spaziergang in der Natur"
-          class="intro-photo"
-        />
-      </div>
+      <p>
+        Auf dieser Seite sammle ich Gedanken, Formate und Projekte rund um
+        systemischen und gesellschaftlichen Wandel. Es geht mir um Räume,
+        in denen wir einander zuhören, Unterschiede halten können
+        und Schritt für Schritt wirksam werden – mit den Ressourcen, die
+        da sind.
+      </p>
     </div>
   </section>
 
