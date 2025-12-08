@@ -121,21 +121,21 @@
     .hero {
       position: relative;
       overflow: hidden;
-      min-height: 40vh;
+      min-height: 22vh;          /* Option B: kompakter, aber nicht gequetscht */
       background: var(--salbei-dunkel);
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 50px 6vw 40px;
+      padding: 20px 6vw 24px;    /* weniger Abstand oben/unten */
     }
 
     .hero h1 {
-      font-size: clamp(2.1rem, 3.4vw, 2.9rem);
-      letter-spacing: 0.12em;
+      font-size: clamp(1.9rem, 3vw, 2.4rem); /* etwas kleiner als vorher */
+      letter-spacing: 0.09em;                /* weniger auseinandergezogen */
       text-transform: uppercase;
       color: var(--white);
-      margin: 0 0 18px;
+      margin: 0 0 14px;
     }
 
     .hero p {
@@ -209,61 +209,65 @@
 
     /* Ausnahmen: bestimmte Bereiche bleiben zentriert */
     .hero p,
-    .intro-overlay p,
     .cta p {
       text-align: center;
       hyphens: none;
     }
 
     /* ------------------------------
-       Willkommen-Hero mit Spaziergangsbild
+       Willkommen-Bereich mit Bild rechts
     ------------------------------ */
-    .intro-hero {
-      position: relative;
-      background-image: url("https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg");
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
+    #intro {
+      padding: 70px 6vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
 
-      min-height: 420px;
-      border-radius: 22px;
-      margin-top: 60px;
-      padding: 60px 20px;
-
-      display: flex;
+    .intro-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.6fr);
+      gap: 32px;
       align-items: center;
-      justify-content: center;
-      text-align: center;
+    }
 
+    .intro-text h2 {
+      text-align: left;
+      margin-bottom: 18px;
+    }
+
+    .intro-text p {
+      margin-bottom: 1rem;
+    }
+
+    .intro-image-frame {
+      border-radius: 22px;
+      overflow: hidden;
       box-shadow: 0 12px 28px rgba(0,0,0,0.12);
     }
 
-    .intro-overlay {
-      background: rgba(255, 255, 255, 0.65);
-      padding: 40px 35px;
-      max-width: 650px;
-      border-radius: 20px;
-      backdrop-filter: blur(6px);
-      -webkit-backdrop-filter: blur(6px);
+    .intro-image-frame img {
+      width: 100%;
+      height: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      /* Bildausschnitt: leicht oben & unten beschnitten, rechts etwas weg */
+      object-position: 55% 45%; /* x%, y% – kannst du noch feinjustieren */
+      display: block;
     }
 
-    .intro-overlay h2 {
-      margin-top: 0;
-      margin-bottom: 18px;
-      font-size: 2rem;
-      color: var(--salbei-tief);
-      text-align: center;
-    }
+    @media (max-width: 880px) {
+      .intro-grid {
+        grid-template-columns: 1fr;
+      }
 
-    .intro-overlay p {
-      margin-bottom: 1rem;
-      color: var(--salbei-tief);
+      .intro-text h2 {
+        text-align: center;
+      }
     }
 
     /* ------------------------------
        Karten / Wirksame Felder
     ------------------------------ */
-
     #wirksam {
       max-width: 1700px;
     }
@@ -415,24 +419,33 @@
     </div>
   </section>
 
-  <!-- Willkommen mit Spaziergangsbild -->
-  <section id="intro" class="intro-hero">
-    <div class="intro-overlay">
-      <h2>Willkommen!</h2>
+  <!-- Willkommen mit Spaziergangsbild rechts -->
+  <section id="intro">
+    <div class="intro-grid">
+      <div class="intro-text">
+        <h2>Willkommen!</h2>
 
-      <p>
-        Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
-        und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
-        kommen können – ohne sich selbst zu verlieren.
-      </p>
+        <p>
+          Ich bin Mirjam Kittel. Mich beschäftigt die Frage, wie Menschen
+          und Systeme in mehr Resonanz, Verbundenheit und Handlungsfähigkeit
+          kommen können – ohne sich selbst zu verlieren.
+        </p>
 
-      <p>
-        Auf dieser Seite sammle ich Gedanken, Formate und Projekte rund um
-        systemischen und gesellschaftlichen Wandel. Es geht mir um Räume,
-        in denen wir einander zuhören, Unterschiede halten können
-        und Schritt für Schritt wirksam werden – mit den Ressourcen, die
-        da sind.
-      </p>
+        <p>
+          Auf dieser Seite sammle ich Gedanken, Formate und Projekte rund um
+          systemischen und gesellschaftlichen Wandel. Es geht mir um Räume,
+          in denen wir einander zuhören, Unterschiede halten können
+          und Schritt für Schritt wirksam werden – mit den Ressourcen, die
+          da sind.
+        </p>
+      </div>
+
+      <div class="intro-image-frame">
+        <img
+          src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg"
+          alt="Spaziergang in der Natur"
+        />
+      </div>
     </div>
   </section>
 
