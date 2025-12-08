@@ -127,7 +127,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 40px 6vw 60px;
+      padding: 60px 6vw 70px;
     }
 
     .hero h1 {
@@ -188,11 +188,6 @@
       margin: 0 auto;
     }
 
-    /* Wirksam-Bereich etwas breiter (deine Einstellung) */
-    #wirksam {
-      max-width: 1700px;
-    }
-
     section.narrow {
       max-width: 800px;
     }
@@ -209,76 +204,66 @@
     }
 
     /* ------------------------------
-       Intro + Bild (Spaziergang)
+       Intro + Spaziergangsbild
     ------------------------------ */
     .intro-layout {
       display: grid;
       gap: 32px;
       grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
-      align-items: start;
+      align-items: stretch; /* beide Spalten gleich hoch */
     }
 
     .intro-text p {
       margin-bottom: 1rem;
     }
 
-    .intro-image {
-      width: 100%;
-      max-width: 360px;
-      height: 260px;
-      border-radius: 20px;
-      background: linear-gradient(
-        135deg,
-        rgba(167, 201, 187, 0.9),
-        rgba(215, 232, 225, 1)
-      );
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-      margin: 0 auto;
+    .intro-media {
       display: flex;
-      align-items: center;
+      align-items: stretch;
       justify-content: center;
-      overflow: hidden;
     }
 
-    .intro-image img {
+    .intro-photo {
       width: 100%;
-      height: 100%;
+      border-radius: 20px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
       object-fit: cover;
-      border-radius: inherit;
+      height: 100%;         /* füllt die Spaltenhöhe */
+      min-height: 240px;    /* auf sehr wenig Text nicht zu klein */
     }
 
     @media (max-width: 880px) {
       .intro-layout {
         grid-template-columns: 1fr;
       }
-    }
 
-    /* ------------------------------
-       Portrait-Bild
-    ------------------------------ */
-    .portrait {
-      display: block;
-      width: 180px;
-      height: 180px;
-      border-radius: 999px;
-      object-fit: cover;
-      margin: 0 auto 26px;
-      box-shadow: 0 10px 26px rgba(0,0,0,0.15);
+      .intro-media {
+        order: -1; /* Bild über dem Text, wenn du das nicht willst: Zeile löschen */
+      }
+
+      .intro-photo {
+        height: auto;
+        max-height: 360px;
+      }
     }
 
     /* ------------------------------
        Karten / Wirksame Felder
     ------------------------------ */
+
+    #wirksam {
+      max-width: 1700px; /* damit die Karten breiter werden auf großen Screens */
+    }
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
     }
 
-    /* auf großen Screens genau 4 Kästchen nebeneinander */
     @media (min-width: 1000px) {
       .grid {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, 1fr); /* genau 4 Kästchen nebeneinander */
       }
     }
 
@@ -316,6 +301,47 @@
       font-style: normal;
       font-size: 0.9rem;
       opacity: 0.75;
+    }
+
+    /* ------------------------------
+       Über mich: Text links, Bild rechts
+    ------------------------------ */
+    .about-layout {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      align-items: center;
+    }
+
+    .about-photo-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+
+    .about-photo {
+      width: 100%;
+      max-width: 260px;
+      border-radius: 18px;   /* wie die Karten */
+      background: var(--salbei);
+      padding: 6px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      object-fit: contain;   /* Kopf wird nicht abgeschnitten */
+      display: block;
+    }
+
+    @media (max-width: 880px) {
+      .about-layout {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .about-photo-wrapper {
+        order: -1;      /* Bild über dem Text; wenn nicht gewünscht: entfernen */
+      }
+
+      .about-photo {
+        max-width: 260px;
+      }
     }
 
     /* ------------------------------
@@ -384,7 +410,7 @@
     </div>
   </section>
 
-  <!-- Intro / Willkommen -->
+  <!-- Intro / Willkommen + Spaziergangbild rechts -->
   <section class="narrow">
     <div class="intro-layout">
       <div class="intro-text">
@@ -404,10 +430,12 @@
         </p>
       </div>
 
-      <div class="intro-image">
+      <div class="intro-media">
         <img
           src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/b85b936522f66de5cb2f590002df8a8137b68ad6/photo_5309788031789239131_y.jpg"
-          alt="Spaziergang in der Natur" />
+          alt="Spaziergang in der Natur"
+          class="intro-photo"
+        />
       </div>
     </div>
   </section>
@@ -518,26 +546,33 @@
     </div>
   </section>
 
-  <!-- Über mich -->
+  <!-- Über mich: Text links, Bild rechts -->
   <section id="ueber" class="narrow">
     <h2>Über mich</h2>
 
-    <img
-      class="portrait"
-      src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/cc207855a8df1ea8d176872145b7428d373566d2/Profilbild.jpeg"
-      alt="Mirjam Kittel" />
+    <div class="about-layout">
+      <div>
+        <p>
+          In meiner Arbeit verbinde ich systemische Perspektiven,
+          dialogorientierte Haltungen, Körper- und Erfahrungsorientierung und
+          eine tiefe Neugier für das, was zwischen Menschen entsteht.
+        </p>
+        <p>
+          Ich bewege mich an der Schnittstelle von persönlicher Entwicklung,
+          Bildungsarbeit und gesellschaftlichem Wandel. Diese Seite darf mit
+          mir mitwachsen – als Raum für Experimente, Texte, Formate und
+          Zusammenarbeit.
+        </p>
+      </div>
 
-    <p>
-      In meiner Arbeit verbinde ich systemische Perspektiven,
-      dialogorientierte Haltungen, Körper- und Erfahrungsorientierung und
-      eine tiefe Neugier für das, was zwischen Menschen entsteht.
-    </p>
-    <p>
-      Ich bewege mich an der Schnittstelle von persönlicher Entwicklung,
-      Bildungsarbeit und gesellschaftlichem Wandel. Diese Seite darf mit
-      mir mitwachsen – als Raum für Experimente, Texte, Formate und
-      Zusammenarbeit.
-    </p>
+      <div class="about-photo-wrapper">
+        <img
+          src="https://raw.githubusercontent.com/MiriKay/MiriKay.github.io/cc207855a8df1ea8d176872145b7428d373566d2/Profilbild.jpeg"
+          alt="Mirjam Kittel"
+          class="about-photo"
+        />
+      </div>
+    </div>
   </section>
 
   <!-- Kontakt / Neugierig -->
