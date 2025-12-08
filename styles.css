@@ -23,6 +23,10 @@ body {
   line-height: 1.65;
 }
 
+a {
+  color: inherit;
+}
+
 /* ------------------------------
    Navigation
 ------------------------------ */
@@ -104,46 +108,7 @@ nav a:hover::after {
 }
 
 /* ------------------------------
-   Hero Startseite
------------------------------- */
-.hero {
-  background: var(--salbei-dunkel);
-  text-align: center;
-  padding: 38px 6vw 44px;
-}
-
-.hero h1 {
-  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin: 0 0 14px;
-}
-
-.hero p {
-  max-width: 650px;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 1.05rem;
-  text-align: center;
-}
-
-/* ------------------------------
-   Blocksatz (überall außer Hero & CTA)
------------------------------- */
-p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-
-.hero p, .cta p {
-  text-align: center;
-  hyphens: none;
-}
-
-/* ------------------------------
-   Sections
+   Allgemeine Sections
 ------------------------------ */
 section {
   padding: 60px 6vw;
@@ -155,6 +120,60 @@ section.narrow {
   max-width: 800px;
 }
 
+/* ------------------------------
+   Hero (oben, über volle Breite)
+------------------------------ */
+.hero {
+  background: var(--salbei-dunkel);
+  color: var(--white);
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 70px 6vw 76px; /* Standard: etwas höher für Unterseiten */
+}
+
+.hero.home {
+  padding: 40px 6vw 46px; /* kleinere Variante für Startseite */
+}
+
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 14px;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.05rem;
+}
+
+/* ------------------------------
+   Blocksatz
+------------------------------ */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.hero p,
+.cta p {
+  text-align: center;
+  hyphens: none;
+}
+
+/* ------------------------------
+   Überschriften
+------------------------------ */
 h2 {
   text-align: center;
   font-size: 2rem;
@@ -184,7 +203,6 @@ h3 {
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-  position: relative;
 }
 
 .intro-photo {
@@ -250,7 +268,7 @@ h3 {
 }
 
 /* ------------------------------
-   Über mich Bereich
+   Über mich (Layout mit Foto)
 ------------------------------ */
 .about-layout {
   display: grid;
@@ -274,12 +292,20 @@ h3 {
 }
 
 /* ------------------------------
-   CTA
+   CTA (unten, über volle Breite)
 ------------------------------ */
 .cta {
   background: var(--salbei-dunkel);
   color: var(--white);
-  padding: 70px 6vw;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 50px 6vw; /* etwas schmaler, wie gewünscht */
+}
+
+.cta-inner {
+  max-width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
