@@ -1,253 +1,41 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Angebote – Systemischer Wandel</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+© 2025 Mirjam Kittel – Systemischer Wandel
+</footer>
 
-<body>
-  <!-- Header -->
-  <header>
-    <div class="logo-text">SYSTEMISCHER WANDEL</div>
-    <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="angebote.html">Angebote</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="gesellschaftlicher-wandel.html">Gesellschaftlicher Wandel</a>
-      <a href="geld-und-tauschlogik.html">Geld &amp; Tauschlogik</a>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>ANGEBOTE</h1>
-      <p>
-        Räume für Orientierung, Verbundenheit und Wandel – individuell, im Team
-        und im gesellschaftlichen Miteinander.
-      </p>
-    </div>
-  </section>
+<!-- Script für Nav & Modals -->
+<script>
+const nav = document.querySelector("nav");
+const toggle = document.querySelector(".nav-toggle");
+if (toggle && nav) {
+toggle.addEventListener("click", () => nav.classList.toggle("open"));
+}
 
-  <!-- Angebots-Inhalt -->
-  <section>
-    <!-- Einleitung -->
-    <div class="offer-intro">
-      <p>
-        Meine Arbeit lässt sich nicht in starre Produkte pressen. Stattdessen
-        begleite ich Menschen und Systeme in verschiedenen Räumen: dort, wo
-        innere Fragen laut werden, Teams an ihre Grenzen kommen oder sich
-        gesellschaftliche Spannungen zeigen.
-      </p>
-      </p>
-      </div>
-    </div
 
-    <!-- ICH -->
-    <div class="offer-section">
-      <div class="offer-label">RAUM ICH</div>
-      <h2>Individuelle Räume – für dich und deine Fragen</h2>
-      <p>
-        Manchmal braucht es einen Ort, an dem Gedanken, Gefühle und offene
-        Fragen sortiert werden dürfen – ohne Zielvorgabe, aber mit einem
-        gemeinsamen Blick auf das, was dir wirklich wichtig ist.
-      </p>
+const boxes = document.querySelectorAll('.angebot-box');
+const modals = document.querySelectorAll('.modal');
+const closes = document.querySelectorAll('.modal-close');
 
-      <div class="offer-grid">
-        <!-- Karte 1 -->
-        <div class="offer-card offer-card--ich">
-          <h3>Übergänge &amp; Neuorientierung</h3>
-          <p>
-            Für Menschen, die in einem Übergang sind – beruflich, privat oder
-            innerlich – und spüren, dass es so nicht weitergeht, das Neue aber
-            noch nicht klar ist.
-          </p>
-          <p>
-            Wir schauen gemeinsam, was bleiben darf, was sich verändern möchte
-            und welche nächsten Schritte stimmig und machbar sind.
-          </p>
-        </div>
 
-        <!-- Karte 2 -->
-        <div class="offer-card offer-card--ich">
-          <h3>Mut, Grenzen &amp; Verbundenheit</h3>
-          <p>
-            Für Menschen, die sich mehr bei sich selbst verankern möchten:
-            klarer werden in Beziehungen, sich zeigen, Nein sagen und trotzdem
-            in Verbindung bleiben.
-          </p>
-          <p>
-            Wir erkunden deine Bedürfnisse, schauen auf Scham und Loyalität und
-            stärken deine innere Sicherheit.
-          </p>
-        </div>
+boxes.forEach(box => {
+box.addEventListener('click', () => {
+document.getElementById(box.dataset.modal).classList.remove('hidden');
+});
+});
 
-        <!-- Karte 3 -->
-        <div class="offer-card offer-card--ich">
-          <h3>Resonanzräume mit Musik &amp; Geschichten</h3>
-          <p>
-            Manche Themen lassen sich leichter erspüren als besprechen. Musik,
-            Stimme und geteilte Erlebnisse können Menschen auf eine Weise
-            erreichen, die Worte allein manchmal nicht schaffen – zum Beispiel
-            Kinder oder ältere Menschen.
-          </p>
-          <p>
-            Hier entstehen Begegnungsräume, in denen Gemeinsames spürbar wird:
-            Zuhören, Singen, Vorlesen, miteinander in Resonanz kommen.
-          </p>
-        </div>
-      </div>
-    </div>
 
-    <!-- WIR -->
-    <div class="offer-section">
-      <div class="offer-label">RAUM WIR</div>
-      <h2>Team- &amp; Gruppenräume – Verbundenheit &amp; Verantwortung</h2>
-      <p>
-        Zusammenarbeit wird dann tragfähig, wenn Menschen sich sicher genug
-        fühlen, ehrlich zu sein – über Überforderung, Fehler, Verletzungen und
-        Hoffnungen. Ich begleite Teams dabei, Verbundenheit und Orientierung zu
-        stärken, damit Fehler nicht versteckt werden müssen und Entscheidungen
-        sich an den eigenen Werten ausrichten können.
-      </p>
+closes.forEach(btn => {
+btn.addEventListener('click', () => {
+btn.closest('.modal').classList.add('hidden');
+});
+});
 
-      <div class="offer-grid">
-        <!-- Karte 1 -->
-        <div class="offer-card offer-card--wir">
-          <h3>Verbundenheit &amp; Sicherheit im Team</h3>
-          <p>
-            Wenn Menschen sich sicher fühlen, entsteht psychologische
-            Sicherheit: schwierige Themen werden ansprechbar, ohne dass jemand
-            an den Pranger gestellt wird.
-          </p>
-          <p>
-            Wir entwickeln Räume und Rituale, in denen ehrliche Rückmeldungen,
-            gemeinsame Verantwortung und gegenseitige Unterstützung möglich
-            werden.
-          </p>
-        </div>
 
-        <!-- Karte 2 -->
-        <div class="offer-card offer-card--wir">
-          <h3>Wertearbeit &amp; Orientierung</h3>
-          <p>
-            In vielen Teams kollidieren Erwartungen: Zeitdruck, Qualität,
-            Beziehung, Sicherheit, Dokumentation, eigene Grenzen. Oft ist
-            unklar, welche Werte im Zweifel Priorität haben.
-          </p>
-          <p>
-            Gemeinsam klären wir, was eure Arbeit tragen soll – damit
-            Entscheidungen nachvollziehbar werden und Orientierung geben.
-          </p>
-        </div>
-
-        <!-- Karte 3 -->
-        <div class="offer-card offer-card--wir">
-          <h3>Fehler, Grenzen &amp; Gewalt differenziert betrachten</h3>
-          <p>
-            Fehler zu verschweigen oder schwierige Situationen zu kaschieren ist
-            häufig eine Schutzstrategie – keine Frage von mangelnder
-            Professionalität.
-          </p>
-          <p>
-            Wir schauen darauf, wie Verletzungen, Grenzüberschreitungen oder
-            Formen von Gewalt entstehen, welche Bedürfnisse dahinterstehen und
-            wie ein hilfreicher, wertorientierter Umgang im Team aussehen kann.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- GESELLSCHAFT -->
-    <div class="offer-section">
-      <div class="offer-label">RAUM GESELLSCHAFT</div>
-      <h2>Räume für Dialog &amp; gesellschaftlichen Wandel</h2>
-      <p>
-        An vielen Stellen entfernt sich unsere Gesellschaft gefühlt
-        voneinander: Welten prallen aufeinander, Menschen ziehen sich zurück
-        oder sprechen nur noch in vertrauten Kreisen. Mich interessiert, wie
-        Dialogräume aussehen können, in denen Unterschiede gehalten werden
-        dürfen und dennoch Verbundenheit wachsen darf.
-      </p>
-
-      <div class="offer-grid">
-        <!-- Karte 1 -->
-        <div class="offer-card offer-card--gesellschaft">
-          <h3>Dialogräume &amp; Begegnungsformate</h3>
-          <p>
-            Formate, in denen Menschen mit unterschiedlichen Perspektiven
-            einander zuhören – nicht, um sich zu überzeugen, sondern um ein
-            tieferes Verständnis für sich und andere zu entwickeln.
-          </p>
-          <p>
-            Möglich sind z.&nbsp;B. Dialoge zu gesellschaftlichen Themen,
-            Resonanz- und Zuhörformate oder Räume, in denen Betroffenheit und
-            Handlungswille Platz haben.
-          </p>
-        </div>
-
-        <!-- Karte 2 -->
-        <div class="offer-card offer-card--gesellschaft">
-          <h3>Kulturwandel &amp; Sprache</h3>
-          <p>
-            Oft sind es kleine, konkrete Veränderungen im Alltag, die große
-            Wirkung entfalten: eine andere Art, Meetings zu beginnen, eine neue
-            Sprache für Verantwortung, Feedback oder Grenzen.
-          </p>
-          <p>
-            Ich unterstütze Organisationen und Initiativen dabei, solche
-            Mikroveränderungen zu identifizieren und in eine stimmige
-            Gesamtbewegung einzubetten.
-          </p>
-        </div>
-
-        <!-- Karte 3 -->
-        <div class="offer-card offer-card--gesellschaft">
-          <h3>Kooperationen &amp; Projekte</h3>
-          <p>
-            Du arbeitest selbst an Fragen von Verbundenheit, Gewaltarmut,
-            Klimagerechtigkeit oder gesellschaftlichem Wandel und suchst
-            Kooperation für ein Projekt, eine Veranstaltung oder ein
-            längerfristiges Format?
-          </p>
-          <p>
-            Gern schaue ich mit dir, was entstehen möchte – von der
-            Konzeption über Moderation bis zur gemeinsamen Reflexion.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kontakt / Neugierig -->
-  <section class="cta" id="kontakt">
-    <h2>Neugierig?</h2>
-    <p>
-      Du hast eine Idee, ein Team oder ein Projekt im Kopf und möchtest schauen,
-      ob meine Art zu arbeiten dazu passt?
-    </p>
-    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">
-      Schreib mir: mirjamkittel@gmail.com
-    </a>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 Mirjam Kittel – Systemischer Wandel
-  </footer>
-
-  <!-- Mobile-Menü -->
-  <script>
-    const nav = document.querySelector("nav");
-    const toggle = document.querySelector(".nav-toggle");
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-      });
-    }
-  </script>
+modals.forEach(m => {
+m.addEventListener('click', e => {
+if (e.target === m) m.classList.add('hidden');
+});
+});
+</script>
 </body>
 </html>
