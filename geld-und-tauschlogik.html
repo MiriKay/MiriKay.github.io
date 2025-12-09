@@ -24,37 +24,63 @@
   <div class="hero-inner">
     <h1>GELD &amp; TAUSCHLOGIK</h1>
     <p>
-      Wie kann Begleitung gleichzeitig fair, zugänglich und nachhaltig sein?
+      Wie kann Begleitung zugänglich sein – und gleichzeitig meine eigene
+      Existenz sichern? Ein Feld, in dem ich bewusst am Experimentieren bin.
     </p>
   </div>
 </section>
 
 <section class="narrow">
-  <h2>Wert, Zugang &amp; Fairness</h2>
+  <h2>Zwischen Wertschätzung und Zugänglichkeit</h2>
   <p>
-    Mir ist wichtig, dass Begleitung nicht nur Menschen offensteht, die über
-    viel finanzielle Sicherheit verfügen. Gleichzeitig braucht meine Arbeit
-    einen verlässlichen Rahmen, um tragfähig zu sein.
+    Viele Menschen, die Veränderung wollen, haben keinen großen finanziellen
+    Spielraum. Gleichzeitig braucht meine Arbeit Zeit, Energie und Ausbildung
+    – und damit auch eine Form von materieller Grundlage.
   </p>
   <p>
-    Ich experimentiere deshalb mit Modi, die sowohl Wertschätzung als auch
-    unterschiedliche Ressourcen berücksichtigen – zum Beispiel mit
-    Orientierungsbeträgen, Spannbreiten oder teilweisen Tauschangeboten.
+    Ich möchte mit dieser Spannung bewusst umgehen: weder in Selbstausbeutung
+    landen noch Menschen ausschließen, die weniger Geld zur Verfügung haben.
   </p>
+
+  <h3>Mögliche Formen</h3>
   <p>
-    Wenn Geld für dich ein Thema ist, können wir im Gespräch transparent
-    schauen, was möglich ist, ohne dass jemand sich überfordert.
+    Je nach Setting nutze ich unterschiedliche Modelle, zum Beispiel:
+  </p>
+  <ul>
+    <li>Richtwerte mit solidarischer Spanne (z.&nbsp;B. „wenn du mehr hast, zahl mehr“),</li>
+    <li>
+      gestaffelte Preise für privat zahlende Menschen, Organisationen
+      und gut geförderte Projekte,
+    </li>
+    <li>
+      einzelne Pro-bono-Kontingente oder Schenkplätze – da, wo es für mich
+      stimmig ist und Ressourcen da sind.
+    </li>
+  </ul>
+  <p>
+    Konkrete Zahlen hängen stark von Rahmen, Dauer, Vorbereitung und dem
+    Kontext ab, in dem wir zusammenarbeiten.
+  </p>
+
+  <h3>Im Gespräch klären</h3>
+  <p>
+    Wenn du mit mir arbeiten möchtest und dir unsicher bist, ob du es dir
+    leisten kannst, schreib mir gern offen, wie deine Situation aussieht.
+    Wir können dann gemeinsam schauen, ob und wie wir einen Weg finden.
   </p>
 </section>
 
 <section class="cta">
   <div class="cta-inner">
-    <h2>Fragen zu Preisen?</h2>
+    <h2>Über Geld sprechen</h2>
     <p>
-      Schreib mir, wenn du ein Angebot brauchst oder unsicher bist, ob du dir
-      Begleitung leisten kannst. Wir finden gemeinsam eine stimmige Lösung.
+      Geld ist oft mit Scham, Angst oder Unsicherheit verbunden. Mir ist
+      wichtig, dass wir darüber ehrlich sprechen können – ohne Druck und
+      ohne Rechtfertigungszwang.
     </p>
-    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">Mail schreiben</a>
+    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">
+      Schreib mir, wenn du magst
+    </a>
   </div>
 </section>
 
@@ -65,9 +91,11 @@
 <script>
   const nav = document.querySelector("nav");
   const toggle = document.querySelector(".nav-toggle");
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  }
 </script>
 
 </body>
