@@ -7,9 +7,13 @@
   --salbei-dunkel: #A3C4BC;
   --salbei-tief:   #2F3E39;
   --accent:        #6B8F71;
+  --accent-soft:   #E5F0EB;
   --white:         #FFFFFF;
 }
 
+/* ------------------------------
+   Reset / Basics
+------------------------------ */
 * {
   box-sizing: border-box;
 }
@@ -20,15 +24,36 @@ body {
     sans-serif;
   background: var(--salbei-hell);
   color: var(--salbei-tief);
-  line-height: 1.65;
+  line-height: 1.6;
 }
 
 a {
   color: inherit;
 }
 
+/* Blocksatz, aber nicht überall */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.hero p,
+.cta p,
+.card p,
+.card ul,
+.angebote-mini p {
+  text-align: left;
+  hyphens: auto;
+}
+
+/* Überschriften */
+h1, h2, h3 {
+  margin-top: 0;
+}
+
 /* ------------------------------
-   Navigation
+   Header / Navigation
 ------------------------------ */
 header {
   position: sticky;
@@ -58,7 +83,6 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: var(--salbei-tief);
   position: relative;
 }
 
@@ -77,6 +101,7 @@ nav a:hover::after {
   width: 100%;
 }
 
+/* Mobile Navi */
 .nav-toggle {
   display: none;
   border: none;
@@ -93,7 +118,7 @@ nav a:hover::after {
     top: 100%;
     background: var(--white);
     padding: 12px 20px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
     flex-direction: column;
     align-items: flex-start;
   }
@@ -108,85 +133,66 @@ nav a:hover::after {
 }
 
 /* ------------------------------
-   Allgemeine Sections
+   Hero-Bereich
+   (oben auf jeder Seite)
+------------------------------ */
+.hero {
+  width: 100%;
+  min-height: 26vh;
+  background: var(--salbei-dunkel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px 6vw 40px;
+}
+
+.hero-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 10px;
+}
+
+.hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+/* ------------------------------
+   Allgemeine Section-Styles
 ------------------------------ */
 section {
-  padding: 60px 6vw;
+  padding: 50px 6vw;
   max-width: 1100px;
   margin: 0 auto;
+  background: transparent;
 }
 
 section.narrow {
   max-width: 800px;
 }
 
-/* ------------------------------
-   Hero (oben, über volle Breite)
------------------------------- */
-.hero {
-  background: var(--salbei-dunkel);
-  color: var(--white);
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 70px 6vw 76px; /* Standard: etwas höher für Unterseiten */
-}
-
-.hero.home {
-  padding: 40px 6vw 46px; /* kleinere Variante für Startseite */
-}
-
-.hero-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: clamp(1.6rem, 2.7vw, 2.2rem);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin: 0 0 14px;
-}
-
-.hero p {
-  max-width: 650px;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 1.05rem;
-}
-
-/* ------------------------------
-   Blocksatz
------------------------------- */
-p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-
-.hero p,
-.cta p {
-  text-align: center;
-  hyphens: none;
-}
-
-/* ------------------------------
-   Überschriften
------------------------------- */
 h2 {
-  text-align: center;
   font-size: 2rem;
-  margin: 0 0 36px;
+  margin: 0 0 28px;
+  text-align: center;
 }
 
 h3 {
-  margin-top: 0;
   font-size: 1.25rem;
 }
 
 /* ------------------------------
-   Willkommen – Bild links, Text rechts
+   Startseite – Intro (Bild + Text)
+   (auch für andere, falls genutzt)
 ------------------------------ */
 #intro {
   max-width: 1150px;
@@ -202,7 +208,9 @@ h3 {
   flex: 0 0 40%;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  position: relative;
+  max-height: 420px;
 }
 
 .intro-photo {
@@ -214,67 +222,156 @@ h3 {
 
 .intro-right {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .intro-right h2 {
+  margin-bottom: 18px;
   text-align: left;
-  margin-top: 0;
 }
 
 @media (max-width: 900px) {
   .intro-layout {
     flex-direction: column;
   }
-
+  .intro-image-wrapper {
+    max-height: 360px;
+    flex: 0 0 auto;
+  }
   .intro-right h2 {
     text-align: center;
   }
 }
 
 /* ------------------------------
-   Karten / Wirksam werden
+   Karten / Grids
 ------------------------------ */
-#wirksam {
-  max-width: 1700px;
-}
-
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
 }
 
-@media (min-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
 .card {
   background: var(--salbei);
   border-radius: 18px;
   padding: 24px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.16s ease, box-shadow 0.16s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
 }
 
 .card ul {
   padding-left: 1.2rem;
+  margin: 0 0 0.6rem;
 }
 
 /* ------------------------------
-   Über mich (Layout mit Foto)
+   Angebotsseite – drei Räume
+------------------------------ */
+.angebote-einleitung {
+  text-align: center;
+}
+
+.angebote-einleitung p {
+  max-width: 700px;
+  margin: 0 auto 1.2rem;
+}
+
+.raeume-mini {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.raeume-mini span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--salbei);
+}
+
+/* Cluster für ICH / WIR / GESELLSCHAFT */
+
+.angebote-cluster {
+  border-radius: 22px;
+  padding: 30px 24px 32px;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+}
+
+.angebote-cluster h2 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.angebote-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
+
+/* leichte Farbnuancen pro Raum */
+.cluster-ich {
+  background: #ffffff;
+}
+
+.cluster-wir {
+  background: #e7f0ec;
+}
+
+.cluster-gesellschaft {
+  background: #e9f3f0;
+}
+
+/* innerhalb der Cluster die Grids direkt */
+.angebote-cluster .grid {
+  margin-top: 18px;
+}
+
+/* ------------------------------
+   Zitat
+------------------------------ */
+.quote {
+  text-align: center;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.quote span {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* ------------------------------
+   Über mich – Layout
 ------------------------------ */
 .about-layout {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
   gap: 32px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
   align-items: center;
+}
+
+.about-photo-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .about-photo {
@@ -282,50 +379,72 @@ h3 {
   max-width: 260px;
   border-radius: 18px;
   object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 @media (max-width: 880px) {
   .about-layout {
     grid-template-columns: 1fr;
   }
+  .about-photo-wrapper {
+    order: -1;
+  }
 }
 
 /* ------------------------------
-   CTA (unten, über volle Breite)
+   CTA / Kontakt
 ------------------------------ */
 .cta {
   background: var(--salbei-dunkel);
   color: var(--white);
+  text-align: center;
   max-width: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 50px 6vw; /* etwas schmaler, wie gewünscht */
+  padding: 32px 6vw 40px;
 }
 
 .cta-inner {
   max-width: 800px;
   margin: 0 auto;
+}
+
+.cta h2 {
+  margin-bottom: 16px;
   text-align: center;
 }
 
+.cta p {
+  max-width: 640px;
+  margin: 0 auto 18px;
+}
+
+/* Buttons */
 .btn-pill {
-  background: var(--white);
-  color: var(--accent);
+  display: inline-block;
   padding: 10px 26px;
   border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
   border: 1px solid var(--white);
-  display: inline-block;
-  margin-top: 14px;
+  background: var(--white);
+  color: #666;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
 }
 
 /* ------------------------------
    Footer
 ------------------------------ */
 footer {
+  padding: 24px 6vw 32px;
   text-align: center;
-  padding: 30px 6vw;
+  font-size: 0.85rem;
   color: rgba(47, 62, 57, 0.7);
 }
