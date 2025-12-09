@@ -22,66 +22,92 @@
 
 <section class="hero">
   <div class="hero-inner">
-    <h1>ANGEBOTE &amp; BEGLEITUNG</h1>
+    <h1>ANGEBOTE</h1>
     <p>
-      Räume für Klärung, Dialog und lernenden Wandel – für Einzelne, Paare,
-      Gruppen und Kontexte, in denen Miteinander gestaltet wird.
+      Begleitung für Menschen, Gruppen und Kontexte, die Veränderung
+      gestalten möchten – achtsam, wirksam und verbunden.
     </p>
   </div>
 </section>
 
-<section>
-  <h2>Womit du zu mir kommen kannst</h2>
+<section class="narrow">
+  <h2>Wobei ich dich / euch unterstützen kann</h2>
+  <p>
+    Meine Arbeit ist weniger ein „fertiges Produkt“ und mehr eine
+    gemeinsame Suchbewegung: Was braucht es hier, damit Klarheit,
+    Verbundenheit und Handlungsfähigkeit wachsen können?
+  </p>
+</section>
 
+<section>
   <div class="grid">
     <div class="card">
-      <h3>Einzelbegleitung</h3>
+      <h3>1:1-Begleitung</h3>
       <p>
-        Wenn du in Übergängen, Krisen oder an Entscheidungspunkten mehr Klarheit,
-        Verbundenheit mit dir selbst und nächste Schritte entwickeln möchtest.
+        Für Menschen, die in einem Übergang sind, an ihrem Platz zweifeln
+        oder merken: So wie bisher geht es nicht weiter, aber das Neue ist
+        noch nicht klar.
       </p>
-    </div>
-
-    <div class="card">
-      <h3>Paare &amp; nahestehende Menschen</h3>
+      <ul>
+        <li>persönliche Themen, Rollen- und Werteklärung,</li>
+        <li>Umgang mit Überforderung und Ohnmachtsgefühlen,</li>
+        <li>Fragen an den eigenen Beitrag in der Welt.</li>
+      </ul>
       <p>
-        Für Beziehungen, in denen es gerade knirscht oder Neues wachsen darf –
-        mit Raum für Unterbrechung von Mustern, Bedürfnisse und Wünsche.
+        Wir arbeiten ressourcenorientiert und körpernah – in deinem Tempo,
+        mit viel Raum für das, was sich zeigen möchte.
       </p>
     </div>
 
     <div class="card">
       <h3>Teams &amp; Gruppen</h3>
       <p>
-        Für Gruppen, die ihre Kultur, Zusammenarbeit oder Konflikte
-        bewusster gestalten wollen – in Organisationen, Initiativen oder Projekten.
+        Für Gruppen, Teams oder Initiativen, die ihre Zusammenarbeit
+        bewusster, klarer und verbundener gestalten möchten.
+      </p>
+      <ul>
+        <li>gemeinsame Ausrichtung und Werte,</li>
+        <li>Konflikte als Ressource anschauen,</li>
+        <li>Formate für Dialog, Feedback und Reflexion.</li>
+      </ul>
+      <p>
+        Ich moderiere, halte den Rahmen und unterstütze euch dabei,
+        eure eigene Art des Miteinanders zu finden – orientiert an euren
+        Kontexten und Möglichkeiten.
       </p>
     </div>
 
     <div class="card">
-      <h3>Workshops &amp; Formate</h3>
+      <h3>Räume für Dialog &amp; Lernen</h3>
       <p>
-        Seminare und Workshopformate u. a. zu Gewaltarmut, Lernräumen,
-        Aktivismus &amp; Care, gesellschaftlichem Wandel.
+        Formate, die eher Werkstatt als Vortrag sind: Begegnungsräume,
+        Lernräume, Experimentierräume.
+      </p>
+      <ul>
+        <li>Dialogformate zu gesellschaftlichen Fragen,</li>
+        <li>Workshops zu Gewaltfreiheit, Resonanz &amp; Verbundenheit,</li>
+        <li>Prozessbegleitung bei Veränderungsprojekten.</li>
+      </ul>
+      <p>
+        Mir ist wichtig, dass Lernen lebendig, verkörpert und
+        erfahrungsbezogen ist – und dass auch Humor und Leichtigkeit Platz
+        haben.
       </p>
     </div>
   </div>
 </section>
 
-<section class="narrow">
-  <h2>Wie eine Zusammenarbeit entstehen kann</h2>
-  <p>
-    Wenn du eine Idee hast oder etwas in Resonanz ist, melde dich gern per Mail.
-    In einem kurzen, unverbindlichen Gespräch klären wir, was du brauchst,
-    wie ich dich unterstützen kann und welches Setting passt – online oder vor Ort.
-  </p>
-</section>
-
 <section class="cta">
   <div class="cta-inner">
-    <h2>Lass uns ins Gespräch kommen</h2>
-    <p>Schreib mir ein paar Zeilen zu deiner Situation oder deiner Idee.</p>
-    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">Kontakt aufnehmen</a>
+    <h2>Kein fertiges Angebot gefunden?</h2>
+    <p>
+      Viele meiner Angebote entstehen im Gespräch. Wenn du das Gefühl hast,
+      dass meine Art zu arbeiten zu deinem Thema passen könnte, aber nichts
+      hier direkt „passt“, schreib mir gern.
+    </p>
+    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">
+      Lass uns gemeinsam schauen
+    </a>
   </div>
 </section>
 
@@ -92,9 +118,11 @@
 <script>
   const nav = document.querySelector("nav");
   const toggle = document.querySelector(".nav-toggle");
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  }
 </script>
 
 </body>
