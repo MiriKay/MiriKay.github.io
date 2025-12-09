@@ -424,15 +424,15 @@ h3 {
 
 /* Farbcodes pro Ebene */
 .offer-card--ich {
-  background: var(--ich-bg);
+  background: #D7E8E1;
 }
 
 .offer-card--wir {
-  background: var(--wir-bg);
+  background: #D7E8E1);
 }
 
 .offer-card--gesellschaft {
-  background: var(--gesellschaft-bg);
+  background: #D7E8E1;
 }
 
 .offer-card:hover {
