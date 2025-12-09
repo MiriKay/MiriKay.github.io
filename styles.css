@@ -7,13 +7,13 @@
   --salbei-dunkel: #A3C4BC;
   --salbei-tief:   #2F3E39;
   --accent:        #6B8F71;
-  --accent-soft:   #E5F0EB;
   --white:         #FFFFFF;
+
+  --ich-bg:           #F6F4F1;
+  --wir-bg:           #D7E8E1;
+  --gesellschaft-bg:  #F5F0DA;
 }
 
-/* ------------------------------
-   Reset / Basics
------------------------------- */
 * {
   box-sizing: border-box;
 }
@@ -29,27 +29,6 @@ body {
 
 a {
   color: inherit;
-}
-
-/* Blocksatz, aber nicht überall */
-p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-
-.hero p,
-.cta p,
-.card p,
-.card ul,
-.angebote-mini p {
-  text-align: left;
-  hyphens: auto;
-}
-
-/* Überschriften */
-h1, h2, h3 {
-  margin-top: 0;
 }
 
 /* ------------------------------
@@ -133,37 +112,52 @@ nav a:hover::after {
 }
 
 /* ------------------------------
-   Hero-Bereich
-   (oben auf jeder Seite)
+   Hero-Bereich (alle Seiten)
 ------------------------------ */
 .hero {
-  width: 100%;
-  min-height: 26vh;
+  min-height: 28vh;
   background: var(--salbei-dunkel);
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 32px 6vw 40px;
+  padding: 40px 6vw 48px;
+  max-width: 100%;
+  margin: 0;
 }
 
 .hero-inner {
-  max-width: 900px;
+  max-width: 760px;
   margin: 0 auto;
 }
 
 .hero h1 {
-  font-size: clamp(1.7rem, 3vw, 2.4rem);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--white);
-  margin: 0 0 10px;
+  margin: 0 0 14px;
 }
 
 .hero p {
   max-width: 640px;
   margin: 0 auto;
-  color: rgba(255, 255, 255, 0.94);
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ------------------------------
+   Blocksatz
+------------------------------ */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.hero p,
+.cta p {
+  text-align: center;
+  hyphens: none;
 }
 
 /* ------------------------------
@@ -173,7 +167,6 @@ section {
   padding: 50px 6vw;
   max-width: 1100px;
   margin: 0 auto;
-  background: transparent;
 }
 
 section.narrow {
@@ -182,17 +175,17 @@ section.narrow {
 
 h2 {
   font-size: 2rem;
-  margin: 0 0 28px;
+  margin: 0 0 36px;
   text-align: center;
 }
 
 h3 {
+  margin-top: 0;
   font-size: 1.25rem;
 }
 
 /* ------------------------------
-   Startseite – Intro (Bild + Text)
-   (auch für andere, falls genutzt)
+   Startseite: Willkommen-Bereich
 ------------------------------ */
 #intro {
   max-width: 1150px;
@@ -228,30 +221,51 @@ h3 {
 }
 
 .intro-right h2 {
+  margin-top: 0;
   margin-bottom: 18px;
   text-align: left;
+}
+
+.intro-right p {
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 900px) {
   .intro-layout {
     flex-direction: column;
   }
+
   .intro-image-wrapper {
     max-height: 360px;
     flex: 0 0 auto;
   }
+
   .intro-right h2 {
     text-align: center;
   }
 }
 
 /* ------------------------------
-   Karten / Grids
+   Startseite: Wirksam werden
 ------------------------------ */
+#wirksam {
+  max-width: 1700px;
+}
+
+#wirksam h2 {
+  text-align: center;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 24px;
+}
+
+@media (min-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .card {
@@ -273,76 +287,7 @@ h3 {
 }
 
 /* ------------------------------
-   Angebotsseite – drei Räume
------------------------------- */
-.angebote-einleitung {
-  text-align: center;
-}
-
-.angebote-einleitung p {
-  max-width: 700px;
-  margin: 0 auto 1.2rem;
-}
-
-.raeume-mini {
-  display: flex;
-  justify-content: center;
-  gap: 18px;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.raeume-mini span {
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--salbei);
-}
-
-/* Cluster für ICH / WIR / GESELLSCHAFT */
-
-.angebote-cluster {
-  border-radius: 22px;
-  padding: 30px 24px 32px;
-  margin-bottom: 28px;
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
-}
-
-.angebote-cluster h2 {
-  text-align: left;
-  margin-bottom: 10px;
-}
-
-.angebote-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-  opacity: 0.7;
-}
-
-/* leichte Farbnuancen pro Raum */
-.cluster-ich {
-  background: #ffffff;
-}
-
-.cluster-wir {
-  background: #e7f0ec;
-}
-
-.cluster-gesellschaft {
-  background: #e9f3f0;
-}
-
-/* innerhalb der Cluster die Grids direkt */
-.angebote-cluster .grid {
-  margin-top: 18px;
-}
-
-/* ------------------------------
-   Zitat
+   Zitat auf Startseite
 ------------------------------ */
 .quote {
   text-align: center;
@@ -360,7 +305,7 @@ h3 {
 }
 
 /* ------------------------------
-   Über mich – Layout
+   Über-mich-Seite
 ------------------------------ */
 .about-layout {
   display: grid;
@@ -386,25 +331,124 @@ h3 {
   .about-layout {
     grid-template-columns: 1fr;
   }
+
   .about-photo-wrapper {
     order: -1;
   }
 }
 
 /* ------------------------------
-   CTA / Kontakt
+   Angebotsseite – neue Struktur
+------------------------------ */
+
+/* Einleitungsblock */
+.offer-intro {
+  max-width: 780px;
+  margin: 0 auto 2.2rem;
+  text-align: center;
+}
+
+.offer-intro p {
+  margin-bottom: 1rem;
+}
+
+/* kleine Chips für ICH – WIR – GESELLSCHAFT */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(47, 62, 57, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+/* Überschriften für die drei Ebenen */
+.offer-section {
+  margin-top: 3.5rem;
+}
+
+.offer-section:first-of-type {
+  margin-top: 2.8rem;
+}
+
+.offer-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+}
+
+.offer-section h2 {
+  text-align: left;
+  margin-bottom: 0.2rem;
+}
+
+.offer-section > p {
+  margin-top: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Kartenraster */
+.offer-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+.offer-card {
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.offer-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.offer-card p {
+  margin-bottom: 0.6rem;
+}
+
+/* Farbcodes pro Ebene */
+.offer-card--ich {
+  background: var(--ich-bg);
+}
+
+.offer-card--wir {
+  background: var(--wir-bg);
+}
+
+.offer-card--gesellschaft {
+  background: var(--gesellschaft-bg);
+}
+
+.offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------------------
+   Kontakt / Neugierig
 ------------------------------ */
 .cta {
   background: var(--salbei-dunkel);
   color: var(--white);
   text-align: center;
   max-width: 100%;
-  padding: 32px 6vw 40px;
-}
-
-.cta-inner {
-  max-width: 800px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .cta h2 {
@@ -414,17 +458,16 @@ h3 {
 
 .cta p {
   max-width: 640px;
-  margin: 0 auto 18px;
+  margin: 0 auto 26px;
 }
 
-/* Buttons */
 .btn-pill {
   display: inline-block;
   padding: 10px 26px;
   border-radius: 999px;
   border: 1px solid var(--white);
-  background: var(--white);
   color: #666;
+  background: var(--white);
   font-weight: 600;
   font-size: 0.95rem;
   text-decoration: none;
@@ -443,7 +486,7 @@ h3 {
    Footer
 ------------------------------ */
 footer {
-  padding: 24px 6vw 32px;
+  padding: 30px 6vw 40px;
   text-align: center;
   font-size: 0.85rem;
   color: rgba(47, 62, 57, 0.7);
