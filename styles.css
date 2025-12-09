@@ -1,493 +1,67 @@
-/* ------------------------------
-   Farbpalette Salbei
------------------------------- */
-:root {
-  --salbei-hell:   #F3F7F5;
-  --salbei:        #D7E8E1;
-  --salbei-dunkel: #A3C4BC;
-  --salbei-tief:   #2F3E39;
-  --accent:        #6B8F71;
-  --white:         #FFFFFF;
-
-  --ich-bg:           #F6F4F1;
-  --wir-bg:           #D7E8E1;
-  --gesellschaft-bg:  #F5F0DA;
-}
-
-* {
-  box-sizing: border-box;
-}
-
+/* Grundstruktur */
 body {
-  margin: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: var(--salbei-hell);
-  color: var(--salbei-tief);
-  line-height: 1.6;
+margin: 0;
+font-family: "Inter", sans-serif;
+background: #F6F4F1;
+color: #2a2a2a;
 }
 
-a {
-  color: inherit;
-}
-
-/* ------------------------------
-   Header / Navigation
------------------------------- */
-header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--white);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 6vw;
-}
-
-.logo-text {
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 0.95rem;
-  color: var(--accent);
-}
-
-nav {
-  display: flex;
-  gap: 1.5rem;
-  font-size: 0.95rem;
-}
-
-nav a {
-  text-decoration: none;
-  position: relative;
-}
-
-nav a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px;
-  width: 0;
-  height: 2px;
-  background: var(--accent);
-  transition: width 0.18s ease-out;
-}
-
-nav a:hover::after {
-  width: 100%;
-}
-
-/* Mobile Navi */
-.nav-toggle {
-  display: none;
-  border: none;
-  background: transparent;
-  font-size: 1.4rem;
-  cursor: pointer;
-}
-
-@media (max-width: 720px) {
-  nav {
-    display: none;
-    position: absolute;
-    right: 0;
-    top: 100%;
-    background: var(--white);
-    padding: 12px 20px;
-    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  .nav-toggle {
-    display: block;
-  }
-}
-
-/* ------------------------------
-   Hero-Bereich (alle Seiten)
------------------------------- */
-.hero {
-  min-height: 28vh;
-  background: var(--salbei-dunkel);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 6vw 48px;
-  max-width: 100%;
-  margin: 0;
-}
-
-.hero-inner {
-  max-width: 760px;
-  margin: 0 auto;
-}
-
-.hero h1 {
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--white);
-  margin: 0 0 14px;
-}
-
-.hero p {
-  max-width: 640px;
-  margin: 0 auto;
-  color: rgba(255, 255, 255, 0.92);
-}
-
-/* ------------------------------
-   Blocksatz
------------------------------- */
-p {
-  text-align: justify;
-  text-justify: inter-word;
-  hyphens: auto;
-}
-
-.hero p,
-.cta p {
-  text-align: center;
-  hyphens: none;
-}
-
-/* ------------------------------
-   Allgemeine Section-Styles
------------------------------- */
-section {
-  padding: 50px 6vw;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-section.narrow {
-  max-width: 800px;
-}
-
-h2 {
-  font-size: 2rem;
-  margin: 0 0 36px;
-  text-align: center;
-}
-
-h3 {
-  margin-top: 0;
-  font-size: 1.25rem;
-}
-
-/* ------------------------------
-   Startseite: Willkommen-Bereich
------------------------------- */
-#intro {
-  max-width: 1150px;
-}
-
-.intro-layout {
-  display: flex;
-  gap: 40px;
-  align-items: stretch;
-}
-
-.intro-image-wrapper {
-  flex: 0 0 40%;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  position: relative;
-  max-height: 420px;
-}
-
-.intro-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 35%;
-}
-
-.intro-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.intro-right h2 {
-  margin-top: 0;
-  margin-bottom: 18px;
-  text-align: left;
-}
-
-.intro-right p {
-  margin-bottom: 1rem;
-}
-
-@media (max-width: 900px) {
-  .intro-layout {
-    flex-direction: column;
-  }
-
-  .intro-image-wrapper {
-    max-height: 360px;
-    flex: 0 0 auto;
-  }
-
-  .intro-right h2 {
-    text-align: center;
-  }
-}
-
-/* ------------------------------
-   Startseite: Wirksam werden
------------------------------- */
-#wirksam {
-  max-width: 1700px;
-}
-
-#wirksam h2 {
-  text-align: center;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-}
-
-@media (min-width: 1000px) {
-  .grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.card {
-  background: var(--salbei);
-  border-radius: 18px;
-  padding: 24px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
-}
-
-.card ul {
-  padding-left: 1.2rem;
-  margin: 0 0 0.6rem;
-}
-
-/* ------------------------------
-   Zitat auf Startseite
------------------------------- */
-.quote {
-  text-align: center;
-  font-style: italic;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.quote span {
-  display: block;
-  margin-top: 12px;
-  font-style: normal;
-  font-size: 0.9rem;
-  opacity: 0.75;
-}
-
-/* ------------------------------
-   Über-mich-Seite
------------------------------- */
-.about-layout {
-  display: grid;
-  gap: 32px;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
-  align-items: center;
-}
-
-.about-photo-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.about-photo {
-  width: 100%;
-  max-width: 260px;
-  border-radius: 18px;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-@media (max-width: 880px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-photo-wrapper {
-    order: -1;
-  }
-}
 
-/* ------------------------------
-   Angebotsseite – neue Struktur
------------------------------- */
-
-/* Einleitungsblock */
-.offer-intro {
-  max-width: 780px;
-  margin: 0 auto 2.2rem;
-  text-align: center;
-}
-
-.offer-intro p {
-  margin-bottom: 1rem;
-}
-
-/* kleine Chips für ICH – WIR – GESELLSCHAFT */
-.badge-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem;
-  margin-top: 0.6rem;
-}
-
-.badge {
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.8rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  border: 1px solid rgba(47, 62, 57, 0.18);
-  background: rgba(255, 255, 255, 0.9);
-  white-space: nowrap;
-}
-
-/* Überschriften für die drei Ebenen */
-.offer-section {
-  margin-top: 3.5rem;
-}
-
-.offer-section:first-of-type {
-  margin-top: 2.8rem;
-}
-
-.offer-label {
-  font-size: 0.8rem;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  opacity: 0.7;
-  margin-bottom: 0.3rem;
-}
-
-.offer-section h2 {
-  text-align: center;
-  margin-bottom: 0.2rem;
-}
-
-.offer-section > p {
-  margin-top: 0.4rem;
-  margin-bottom: 1.2rem;
-}
-
-/* Kartenraster */
-.offer-grid {
-  margin-top: 1.4rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 22px;
-}
-
-.offer-card {
-  border-radius: 18px;
-  padding: 20px 22px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  transition: transform 0.16s ease, box-shadow 0.16s ease;
+.narrow {
+width: 90%;
+max-width: 900px;
+margin: 0 auto;
+padding: 40px 0;
 }
 
-.offer-card h3 {
-  margin-bottom: 0.5rem;
-}
 
-.offer-card p {
-  margin-bottom: 0.6rem;
+/* Angebot Grid */
+.angebot-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 24px;
+margin-top: 40px;
 }
 
-/* Farbcodes pro Ebene */
-.offer-card--ich {
-  background: #D7E8E1;
-}
 
-.offer-card--wir {
-  background: #D7E8E1);
+.angebot-box {
+background: #ffffff;
+border-radius: 12px;
+padding: 24px;
+box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+cursor: pointer;
+transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.offer-card--gesellschaft {
-  background: #D7E8E1;
-}
 
-.offer-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+.angebot-box:hover {
+transform: translateY(-4px);
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* ------------------------------
-   Kontakt / Neugierig
------------------------------- */
-.cta {
-  background: var(--salbei-dunkel);
-  color: var(--white);
-  text-align: center;
-  max-width: 100%;
-  margin: 0;
-}
 
-.cta h2 {
-  margin-bottom: 16px;
-  text-align: center;
+/* Modal */
+.modal {
+position: fixed;
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background: rgba(0, 0, 0, 0.45);
+display: flex;
+align-items: center;
+justify-content: center;
+z-index: 1000;
 }
 
-.cta p {
-  max-width: 640px;
-  margin: 0 auto 26px;
-}
 
-.btn-pill {
-  display: inline-block;
-  padding: 10px 26px;
-  border-radius: 999px;
-  border: 1px solid var(--white);
-  color: #666;
-  background: var(--white);
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: transform 0.15s ease, box-shadow 0.15s ease,
-    background 0.15s ease, color 0.15s ease;
-  white-space: nowrap;
-  margin-top: 8px;
+.modal.hidden {
+display: none;
 }
 
-.btn-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
-}
 
-/* ------------------------------
-   Footer
------------------------------- */
-footer {
-  padding: 30px 6vw 40px;
-  text-align: center;
-  font-size: 0.85rem;
-  color: rgba(47, 62, 57, 0.7);
-}
+.modal-content {
+background: #ffffff;
+padding: 32px;
+max-width: 600px;
+width: 90%;
