@@ -24,8 +24,8 @@
   <div class="hero-inner">
     <h1>GESELLSCHAFTLICHER WANDEL</h1>
     <p>
-      Wo und wie können wir Räume schaffen, in denen Unterschiedlichkeit gehalten
-      wird und Verbundenheit wachsen darf?
+      Wie können wir in einer auseinanderdriftenden Gesellschaft wieder in
+      Beziehung kommen – ohne Unterschiede zu glätten?
     </p>
   </div>
 </section>
@@ -33,18 +33,27 @@
 <section class="narrow">
   <h2>Räume für Annäherung</h2>
   <p>
-    In Zeiten, in denen sich gesellschaftliche Fronten zu verhärten scheinen,
-    interessiert mich, wie wir wieder mehr in Resonanz kommen können –
-    ohne Unterschiede zuzudecken oder Menschen zu beschämen.
+    Ich habe das Gefühl, dass wir uns gesellschaftlich an vielen Stellen
+    voneinander entfernen: Wir reden aneinander vorbei, ziehen uns zurück
+    oder greifen an. Gleichzeitig sehnen sich viele Menschen nach mehr
+    Frieden, Verbundenheit und Wirksamkeit.
   </p>
   <p>
-    Ich arbeite an Formaten, in denen Menschen mit sehr unterschiedlichen
-    Perspektiven einander begegnen können: über Geschichten, geteilte Erfahrung,
-    Zuhören und die Suche nach handhabbaren, konkreten Schritten.
+    Mich interessiert, wie Räume aussehen können, in denen Menschen mit
+    sehr unterschiedlichen Hintergründen einander begegnen können –
+    nicht, um sich gegenseitig zu bekehren, sondern um sichtbar zu machen,
+    was ihnen wichtig ist, was sie schützt, was sie verletzt.
   </p>
   <p>
-    Hier können nach und nach Projekte, Texte und Einladungen entstehen,
-    die sich speziell mit gesellschaftlichem Wandel beschäftigen.
+    Ich arbeite an Formaten, in denen Zuhören und Erzählen im Mittelpunkt
+    stehen: Geschichten, geteilte Erfahrungen, Fragen, die wir nicht
+    alleine halten müssen. Daraus können konkrete, kleine Schritte
+    entstehen, wie Zusammenleben vor Ort anders gestaltet werden kann.
+  </p>
+  <p>
+    Dieser Bereich der Seite ist ein Platzhalter für Projekte und
+    Experimente, die nach und nach sichtbar werden dürfen – im Feld von
+    Demokratie, Gewaltfreiheit, Bildung und gesellschaftlicher Annäherung.
   </p>
 </section>
 
@@ -52,8 +61,9 @@
   <div class="cta-inner">
     <h2>Kooperationen &amp; Projekte</h2>
     <p>
-      Du arbeitest an ähnlichen Fragen oder suchst Begleitung für ein Projekt
-      im Feld gesellschaftlicher Transformation?
+      Du arbeitest an ähnlichen Fragen oder planst ein Format, das Räume für
+      Dialog, politische Bildung oder gesellschaftliche Annäherung öffnen soll?
+      Ich freue mich über Kooperationen und gemeinsame Experimente.
     </p>
     <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">Meld dich gern</a>
   </div>
@@ -66,9 +76,11 @@
 <script>
   const nav = document.querySelector("nav");
   const toggle = document.querySelector(".nav-toggle");
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  }
 </script>
 
 </body>
