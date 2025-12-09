@@ -24,7 +24,7 @@
   <div class="hero-inner">
     <h1>ÜBER MICH</h1>
     <p>
-      Wer ich bin, woraus ich arbeite und welche Fragen mich leiten.
+      Woraus ich arbeite – und welche Fragen mich in Bewegung halten.
     </p>
   </div>
 </section>
@@ -33,34 +33,51 @@
   <div class="about-layout">
     <div>
       <p>
-        Ich arbeite an der Schnittstelle von persönlicher Entwicklung,
-        Bildungsarbeit und gesellschaftlichem Wandel. Mich interessiert,
-        wie Menschen in Kontakt mit sich selbst und miteinander bleiben
-        können – gerade dann, wenn es schwierig wird.
+        Ich bin Mirjam Kittel. Mich berührt, wie viel Mut es braucht,
+        sich ehrlich anzuschauen, wo man gerade steht – und gleichzeitig
+        nicht zynisch zu werden in einer Welt, die sich oft widersprüchlich
+        oder überfordernd anfühlt.
       </p>
       <p>
-        In meiner Haltung verbinde ich systemische Perspektiven,
-        dialogorientierte Ansätze, Körper- und Erfahrungsorientierung sowie
-        eine Sensibilität für Machtverhältnisse und gesellschaftliche Kontexte.
+        In meiner Arbeit verbinde ich systemische Perspektiven, dialogische
+        Haltungen, körper- und erfahrungsorientierte Ansätze sowie Impulse
+        aus der gewaltfreien Kommunikation und dem Art-of-Hosting-Feld.
       </p>
       <p>
-        In meiner Begleitung ist mir wichtig, dass du dich gesehen und ernst
-        genommen fühlst – mit dem, was dich bewegt, und mit deinen Ressourcen.
+        Mich interessiert, wie Menschen eigenständig und klar sein können
+        – und gleichzeitig in Bezug: verbunden mit anderen, mit ihren
+        Werten und mit dem, was ihnen wirklich wichtig ist. Ich nenne das
+        gern „bezogene Eigenständigkeit“.
+      </p>
+      <p>
+        Diese Seite verstehe ich als wachsenden Raum: für Gedanken,
+        Experimente, Projekte und Kooperationen rund um systemischen und
+        gesellschaftlichen Wandel. Sie darf sich mit mir verändern.
       </p>
     </div>
 
-    <img src="profilbild.jpeg" alt="Mirjam Kittel" class="about-photo" />
+    <div class="about-photo-wrapper">
+      <img
+        src="Profilbild.jpeg"
+        alt="Mirjam Kittel"
+        class="about-photo"
+      />
+    </div>
   </div>
 </section>
 
 <section class="cta">
   <div class="cta-inner">
-    <h2>Magst du mehr wissen?</h2>
+    <h2>Willst du mit mir arbeiten?</h2>
     <p>
-      Wenn du unsicher bist, ob mein Angebot zu dir passt, schreib mir gern.
-      Wir können in Ruhe schauen, was du brauchst.
+      Wenn du beim Lesen das Gefühl hast: „Mit dieser Art zu schauen möchte
+      ich ein Stück gehen“, dann melde dich gern. Wir können in einem
+      kurzen, unverbindlichen Gespräch klären, was du brauchst und ob es
+      passt.
     </p>
-    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">Fragen stellen</a>
+    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">
+      Schreib mir ein paar Zeilen
+    </a>
   </div>
 </section>
 
@@ -71,9 +88,11 @@
 <script>
   const nav = document.querySelector("nav");
   const toggle = document.querySelector(".nav-toggle");
-  toggle.addEventListener("click", () => {
-    nav.classList.toggle("open");
-  });
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("open");
+    });
+  }
 </script>
 
 </body>
