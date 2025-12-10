@@ -8,6 +8,7 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <div class="logo-text">SYSTEMISCHER WANDEL</div>
     <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
@@ -16,160 +17,254 @@
       <a href="angebote.html" class="active">Angebote</a>
       <a href="ueber-mich.html">Über mich</a>
       <a href="gesellschaftlicher-wandel.html">Gesellschaftlicher Wandel</a>
-      <a href="geld-und-tauschlogik.html">Geld & Tauschlogik</a>
+      <a href="geld-und-tauschlogik.html">Geld &amp; Tauschlogik</a>
     </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero small-hero">
     <div class="hero-inner">
       <h1>ANGEBOTE</h1>
-      <p>Räume für Orientierung, Verbundenheit und Wandel – individuell, im Team und im gesellschaftlichen Miteinander.</p>
+      <p>
+        Räume für Orientierung, Verbundenheit und Wandel – individuell, im Team
+        und im gesellschaftlichen Miteinander.
+      </p>
     </div>
   </section>
 
+  <!-- Intro -->
   <section class="narrow">
-    <p class="intro-text">
-      Meine Arbeit lässt sich nicht in feste Produkte pressen. Stattdessen begleite ich Menschen dort, wo innere Fragen laut werden,
-      Teams an ihre Grenzen stoßen oder gesellschaftliche Spannungen sichtbar werden. Hier findest du eine Übersicht meiner
-      Formate – jeweils zum Ausklappen.
+    <p class="angebote-intro">
+      Meine Arbeit lässt sich nicht in feste Produkte pressen. Stattdessen
+      begleite ich Menschen dort, wo innere Fragen laut werden, Teams an ihre
+      Grenzen stoßen oder gesellschaftliche Spannungen sichtbar werden.
+    </p>
+    <p class="angebote-intro">
+      Auf dieser Seite findest du eine Übersicht, in welchen Bereichen ich
+      unterstützen kann – und darunter in kleiner, unterstrichener Schrift
+      die jeweiligen Formate, die du zum Lesen einer kurzen Beschreibung
+      anklicken kannst.
     </p>
   </section>
 
-  <!-- KATEGORIE: Individuelle Begleitung -->
+  <!-- INDIVIDUELLE BEGLEITUNG -->
   <section class="narrow">
     <h2>Individuelle Begleitung</h2>
-    <div class="angebot-grid">
-
-      <div class="angebot-box" onclick="openModal('emp_cafe')">
-        <h3>Empathie-Café</h3>
-        <p>Ein Raum für Resonanz &amp; Zuhören</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('prozesse')">
-        <h3>Prozessbegleitung (1:1)</h3>
-        <p>Übergänge & Neuorientierung</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('zuhoeren')">
-        <h3>Zuhören</h3>
-        <p>Ein sicherer Ort ohne Bewertung</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('vorlesen')">
-        <h3>Vorlesen</h3>
-        <p>Für Kinder & ältere Menschen</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('singen')">
-        <h3>Gemeinsam singen</h3>
-        <p>Verbindung durch Stimme</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('musik')">
-        <h3>Musikimprovisation</h3>
-        <p>Klangräume zum Spüren</p>
-      </div>
-
-    </div>
+    <p>
+      Für Menschen, die innere Klarheit suchen, in Übergängen stehen oder
+      mutiger mit Verbundenheit, Grenzen und Unsicherheiten umgehen möchten.
+      Manchmal braucht es dafür einen Ort, an dem Gedanken und Gefühle
+      sortiert werden dürfen – ohne Zielvorgabe, aber mit einem gemeinsamen
+      Blick auf das, was dir wirklich wichtig ist.
+    </p>
+    <p class="angebote-links">
+      <strong>Formate (zum Anklicken):</strong><br />
+      <button class="angebot-link" data-modal="emp_cafe">Empathie-Café</button>
+      <button class="angebot-link" data-modal="prozesse">Prozessbegleitung (1:1)</button>
+      <button class="angebot-link" data-modal="zuhoeren">Zuhören</button>
+      <button class="angebot-link" data-modal="vorlesen">Vorlesen</button>
+      <button class="angebot-link" data-modal="singen">Gemeinsam singen</button>
+      <button class="angebot-link" data-modal="musik">Musikimprovisation</button>
+    </p>
   </section>
 
-  <!-- KATEGORIE: Team & Gruppen -->
+  <!-- TEAM & GRUPPEN -->
   <section class="narrow">
-    <h2>Team- & Gruppenformate</h2>
-    <div class="angebot-grid">
-
-      <div class="angebot-box" onclick="openModal('supervision')">
-        <h3>Supervision</h3>
-        <p>Reflexion & Zusammenarbeit</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('teamprozess')">
-        <h3>Teamprozessbegleitung</h3>
-        <p>Für Teams im Wandel</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('konflikte')">
-        <h3>Konfliktbegleitung</h3>
-        <p>Mit Spannung konstruktiv umgehen</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('dialog_team')">
-        <h3>Dialogräume</h3>
-        <p>Für echtes Zuhören</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('empathie_team')">
-        <h3>Empathie-Café (Team)</h3>
-        <p>Gemeinsame Resonanz</p>
-      </div>
-
-    </div>
+    <h2>Team- &amp; Gruppenformate</h2>
+    <p>
+      Für Teams, die sich neu sortieren, an ihre Grenzen kommen oder sich
+      fragen: Wie wollen wir eigentlich miteinander arbeiten? Welche Werte
+      tragen uns – und wie können wir sie im Alltag leben? Gemeinsam schauen
+      wir auf Spannungen, Ressourcen und mögliche nächste Schritte.
+    </p>
+    <p class="angebote-links">
+      <strong>Formate (zum Anklicken):</strong><br />
+      <button class="angebot-link" data-modal="supervision">Supervision</button>
+      <button class="angebot-link" data-modal="teamprozess">Teamprozessbegleitung</button>
+      <button class="angebot-link" data-modal="konflikte">Konfliktbegleitung</button>
+      <button class="angebot-link" data-modal="dialog_team">Dialogräume (Team)</button>
+      <button class="angebot-link" data-modal="empathie_team">Empathie-Café (Team)</button>
+    </p>
   </section>
 
-  <!-- KATEGORIE: Gesellschaftliche Räume -->
+  <!-- GESELLSCHAFTLICHE RÄUME -->
   <section class="narrow">
-    <h2>Gesellschaftliche Räume & kollektive Resonanz</h2>
-    <div class="angebot-grid">
-
-      <div class="angebot-box" onclick="openModal('dialog_oeff')">
-        <h3>Dialogräume (öffentlich)</h3>
-        <p>Begegnung trotz Unterschiedlichkeit</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('gesellschaft_konflikt')">
-        <h3>Konflikt- & Spannungsbegleitung</h3>
-        <p>Für herausfordernde Kontexte</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('musik_kollektiv')">
-        <h3>Musik & Improvisation</h3>
-        <p>Kollektives Spüren & Spielen</p>
-      </div>
-
-      <div class="angebot-box" onclick="openModal('empathie_oeff')">
-        <h3>Empathie-Café (öffentlich)</h3>
-        <p>Resonanz für gesellschaftliche Themen</p>
-      </div>
-
-    </div>
+    <h2>Gesellschaftliche Räume &amp; kollektive Resonanz</h2>
+    <p>
+      Für Gruppen, Initiativen oder Kontexte, in denen gesellschaftliche
+      Themen, Unterschiedlichkeit, Unsicherheiten oder Ungleichheiten spürbar
+      werden. Hier geht es darum, im Gespräch zu bleiben, Resonanzräume zu
+      öffnen und gemeinsam handhabbare Schritte zu finden.
+    </p>
+    <p class="angebote-links">
+      <strong>Formate (zum Anklicken):</strong><br />
+      <button class="angebot-link" data-modal="dialog_oeff">Dialogräume (öffentlich)</button>
+      <button class="angebot-link" data-modal="gesellschaft_konflikt">Konflikt- &amp; Spannungsbegleitung</button>
+      <button class="angebot-link" data-modal="musik_kollektiv">Musik &amp; Improvisation</button>
+      <button class="angebot-link" data-modal="empathie_oeff">Empathie-Café (öffentlich)</button>
+    </p>
   </section>
 
-  <!-- MODALS (Einblend-Fenster für jedes Angebot) -->
+  <!-- Container für Modals -->
   <div id="modal-container"></div>
 
-  <footer>© 2025 Mirjam Kittel – Systemischer Wandel</footer>
+  <!-- Footer -->
+  <footer>
+    © 2025 Mirjam Kittel – Systemischer Wandel
+  </footer>
 
+  <!-- SCRIPTS -->
   <script>
-    function openModal(key) {
-      const modalContent = {
-        emp_cafe: `<h2>Empathie-Café</h2><p>Ein Resonanzraum ohne Zielvorgabe, in dem Geschichten, Gefühle und Gedanken Platz finden.</p>`,
-        prozesse: `<h2>1:1 Prozessbegleitung</h2><p>Für Übergänge, Neuorientierung & stimmige nächste Schritte.</p>`,
-        zuhoeren: `<h2>Zuhören</h2><p>Ein wertfreier Raum, um laut denken & fühlen zu dürfen.</p>`,
-        vorlesen: `<h2>Vorlesen</h2><p>Für Kinder & ältere Menschen. Geschichten schaffen Verbundenheit.</p>`,
-        singen: `<h2>Gemeinsam singen</h2><p>Einfaches Singen ohne Anspruch. Verbindung durch Klang.</p>`,
-        musik: `<h2>Musikimprovisation</h2><p>Intuitive Klangräume, in denen Neues entstehen darf.</p>`,
-        supervision: `<h2>Supervision</h2><p>Reflexion, Muster erkennen & Ressourcen stärken.</p>`,
-        teamprozess: `<h2>Teamprozessbegleitung</h2><p>Für Teams im Wandel – strukturiert, wertschätzend, gemeinsam.</p>`,
-        konflikte: `<h2>Konfliktbegleitung</h2><p>Ein sicherer Rahmen, um Spannung in Verständigung zu verwandeln.</p>`,
-        dialog_team: `<h2>Dialogräume (Team)</h2><p>Gespräche, die echtes Zuhören ermöglichen.</p>`,
-        empathie_team: `<h2>Empathie-Café (Team)</h2><p>Ein gemeinsamer Raum für Resonanz & Verständnis.</p>`,
-        dialog_oeff: `<h2>Dialogräume (öffentlich)</h2><p>Für offene gesellschaftliche Gespräche mit echtem Interesse.</p>`,
-        gesellschaft_konflikt: `<h2>Konflikt- & Spannungsbegleitung</h2><p>Für Kontexte mit gesellschaftlichen oder politischen Spannungen.</p>`,
-        musik_kollektiv: `<h2>Musik & Improvisation</h2><p>Kollektive Klangräume als Möglichkeit des Miteinanders.</p>`,
-        empathie_oeff: `<h2>Empathie-Café (öffentlich)</h2><p>Ein Resonanzraum für gesellschaftliche Themen.</p>`
-      };
-
-      const modal = document.createElement('div');
-      modal.className = 'modal-bg';
-      modal.innerHTML = `
-        <div class="modal">
-          <button class="close" onclick="this.closest('.modal-bg').remove()">✕</button>
-          ${modalContent[key]}
-        </div>`;
-
-      document.getElementById('modal-container').appendChild(modal);
+    // Mobile-Navigation
+    const nav = document.querySelector("nav");
+    const toggle = document.querySelector(".nav-toggle");
+    if (toggle && nav) {
+      toggle.addEventListener("click", () => {
+        nav.classList.toggle("open");
+      });
     }
+
+    // Inhalte für die kleinen Popup-Fenster
+    const modalContent = {
+      emp_cafe: `
+        <h2>Empathie-Café</h2>
+        <p>
+          Ein Resonanzraum ohne Zielvorgabe. Wir erzählen, hören zu und lassen
+          Erfahrungen wirken – ohne sofort Lösungen finden zu müssen.
+        </p>
+        <p>
+          Geeignet als einzelner Abend oder als Reihe, in Präsenz oder online.
+        </p>
+      `,
+      prozesse: `
+        <h2>Prozessbegleitung (1:1)</h2>
+        <p>
+          Für Zeiten der Neuorientierung: wir sortieren, was bleiben darf, was
+          sich verändern möchte und welche nächsten Schritte stimmig und
+          machbar sind.
+        </p>
+      `,
+      zuhoeren: `
+        <h2>Zuhören</h2>
+        <p>
+          Manchmal braucht es vor allem ein aufmerksames, nicht wertendes
+          Gegenüber. Ein Raum, in dem du laut denken, fühlen und sortieren
+          darfst.
+        </p>
+      `,
+      vorlesen: `
+        <h2>Vorlesen</h2>
+        <p>
+          Geschichten schaffen Ruhe und Verbindung – besonders mit Kindern
+          oder älteren Menschen. Wir wählen gemeinsam Texte, die passen.
+        </p>
+      `,
+      singen: `
+        <h2>Gemeinsam singen</h2>
+        <p>
+          Einfaches Singen ohne Leistungsanspruch. Im gemeinsamen Klang
+          entstehen oft Nähe, Leichtigkeit und ein anderer Zugang zu
+          Emotionen.
+        </p>
+      `,
+      musik: `
+        <h2>Musikimprovisation</h2>
+        <p>
+          Mit Stimme oder einfachen Instrumenten improvisieren – als
+          spielerischer Zugang zu Ausdruck, Verbindung und Staunen.
+        </p>
+      `,
+      supervision: `
+        <h2>Supervision</h2>
+        <p>
+          Ein Raum, um Arbeit, Rollen, Spannungsfelder und Ressourcen im Team
+          gemeinsam zu reflektieren – wertschätzend und klar.
+        </p>
+      `,
+      teamprozess: `
+        <h2>Teamprozessbegleitung</h2>
+        <p>
+          Längerfristige Begleitung für Teams im Wandel – wenn sich Strukturen,
+          Aufgaben oder Zusammenarbeit verändern und Orientierung hilfreich ist.
+        </p>
+      `,
+      konflikte: `
+        <h2>Konfliktbegleitung</h2>
+        <p>
+          Ein sicherer Rahmen, um Spannungen sichtbar zu machen, Bedürfnisse
+          zu hören und neue Umgangsweisen miteinander zu finden.
+        </p>
+      `,
+      dialog_team: `
+        <h2>Dialogräume (Team)</h2>
+        <p>
+          Gespräche, in denen ihr euch zuhört, auch wenn ihr unterschiedlich
+          denkt. Es geht nicht darum, zu gewinnen, sondern einander zu begegnen.
+        </p>
+      `,
+      empathie_team: `
+        <h2>Empathie-Café (Team)</h2>
+        <p>
+          Ein Raum im Team, um Erfahrungen zu teilen, zuzuhören und gemeinsam
+          in Resonanz zu kommen – jenseits von To-do-Listen.
+        </p>
+      `,
+      dialog_oeff: `
+        <h2>Dialogräume (öffentlich)</h2>
+        <p>
+          Moderierte Räume, in denen Menschen mit unterschiedlichen Erfahrungen
+          und Sichtweisen einander zuhören, ohne sich überzeugen zu müssen.
+        </p>
+      `,
+      gesellschaft_konflikt: `
+        <h2>Konflikt- & Spannungsbegleitung</h2>
+        <p>
+          Für Kontexte, in denen gesellschaftliche oder politische Spannungen
+          spürbar sind und ein gehaltenes Hinschauen nötig ist.
+        </p>
+      `,
+      musik_kollektiv: `
+        <h2>Musik & Improvisation</h2>
+        <p>
+          Kollektive Improvisationsräume, um gemeinsam zu spielen, zu scheitern,
+          zu lachen und neue Formen von Miteinander zu erkunden.
+        </p>
+      `,
+      empathie_oeff: `
+        <h2>Empathie-Café (öffentlich)</h2>
+        <p>
+          Ein öffentlicher Resonanzraum, in dem Sorgen, Hoffnungen und Fragen
+          Platz haben – ohne dass es eine „richtige“ Meinung geben muss.
+        </p>
+      `,
+    };
+
+    const modalContainer = document.getElementById("modal-container");
+    const angebotLinks = document.querySelectorAll(".angebot-link");
+
+    angebotLinks.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const key = btn.getAttribute("data-modal");
+        const content = modalContent[key];
+        if (!content) return;
+
+        const wrapper = document.createElement("div");
+        wrapper.className = "modal-bg";
+        wrapper.innerHTML = `
+          <div class="modal">
+            <button class="close" aria-label="Fenster schließen">✕</button>
+            ${content}
+          </div>
+        `;
+        modalContainer.appendChild(wrapper);
+
+        const closeBtn = wrapper.querySelector(".close");
+        closeBtn.addEventListener("click", () => wrapper.remove());
+        wrapper.addEventListener("click", (e) => {
+          if (e.target === wrapper) wrapper.remove();
+        });
+      });
+    });
   </script>
 </body>
 </html>
-
