@@ -1,41 +1,175 @@
 <!DOCTYPE html>
-© 2025 Mirjam Kittel – Systemischer Wandel
-</footer>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angebote – Systemischer Wandel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
+<body>
+  <header>
+    <div class="logo-text">SYSTEMISCHER WANDEL</div>
+    <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
+    <nav>
+      <a href="index.html">Start</a>
+      <a href="angebote.html" class="active">Angebote</a>
+      <a href="ueber-mich.html">Über mich</a>
+      <a href="gesellschaftlicher-wandel.html">Gesellschaftlicher Wandel</a>
+      <a href="geld-und-tauschlogik.html">Geld & Tauschlogik</a>
+    </nav>
+  </header>
 
-<!-- Script für Nav & Modals -->
-<script>
-const nav = document.querySelector("nav");
-const toggle = document.querySelector(".nav-toggle");
-if (toggle && nav) {
-toggle.addEventListener("click", () => nav.classList.toggle("open"));
-}
+  <section class="hero small-hero">
+    <div class="hero-inner">
+      <h1>ANGEBOTE</h1>
+      <p>Räume für Orientierung, Verbundenheit und Wandel – individuell, im Team und im gesellschaftlichen Miteinander.</p>
+    </div>
+  </section>
 
+  <section class="narrow">
+    <p class="intro-text">
+      Meine Arbeit lässt sich nicht in feste Produkte pressen. Stattdessen begleite ich Menschen dort, wo innere Fragen laut werden,
+      Teams an ihre Grenzen stoßen oder gesellschaftliche Spannungen sichtbar werden. Hier findest du eine Übersicht meiner
+      Formate – jeweils zum Ausklappen.
+    </p>
+  </section>
 
-const boxes = document.querySelectorAll('.angebot-box');
-const modals = document.querySelectorAll('.modal');
-const closes = document.querySelectorAll('.modal-close');
+  <!-- KATEGORIE: Individuelle Begleitung -->
+  <section class="narrow">
+    <h2>Individuelle Begleitung</h2>
+    <div class="angebot-grid">
 
+      <div class="angebot-box" onclick="openModal('emp_cafe')">
+        <h3>Empathie-Café</h3>
+        <p>Ein Raum für Resonanz &amp; Zuhören</p>
+      </div>
 
-boxes.forEach(box => {
-box.addEventListener('click', () => {
-document.getElementById(box.dataset.modal).classList.remove('hidden');
-});
-});
+      <div class="angebot-box" onclick="openModal('prozesse')">
+        <h3>Prozessbegleitung (1:1)</h3>
+        <p>Übergänge & Neuorientierung</p>
+      </div>
 
+      <div class="angebot-box" onclick="openModal('zuhoeren')">
+        <h3>Zuhören</h3>
+        <p>Ein sicherer Ort ohne Bewertung</p>
+      </div>
 
-closes.forEach(btn => {
-btn.addEventListener('click', () => {
-btn.closest('.modal').classList.add('hidden');
-});
-});
+      <div class="angebot-box" onclick="openModal('vorlesen')">
+        <h3>Vorlesen</h3>
+        <p>Für Kinder & ältere Menschen</p>
+      </div>
 
+      <div class="angebot-box" onclick="openModal('singen')">
+        <h3>Gemeinsam singen</h3>
+        <p>Verbindung durch Stimme</p>
+      </div>
 
-modals.forEach(m => {
-m.addEventListener('click', e => {
-if (e.target === m) m.classList.add('hidden');
-});
-});
-</script>
+      <div class="angebot-box" onclick="openModal('musik')">
+        <h3>Musikimprovisation</h3>
+        <p>Klangräume zum Spüren</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KATEGORIE: Team & Gruppen -->
+  <section class="narrow">
+    <h2>Team- & Gruppenformate</h2>
+    <div class="angebot-grid">
+
+      <div class="angebot-box" onclick="openModal('supervision')">
+        <h3>Supervision</h3>
+        <p>Reflexion & Zusammenarbeit</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('teamprozess')">
+        <h3>Teamprozessbegleitung</h3>
+        <p>Für Teams im Wandel</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('konflikte')">
+        <h3>Konfliktbegleitung</h3>
+        <p>Mit Spannung konstruktiv umgehen</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('dialog_team')">
+        <h3>Dialogräume</h3>
+        <p>Für echtes Zuhören</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('empathie_team')">
+        <h3>Empathie-Café (Team)</h3>
+        <p>Gemeinsame Resonanz</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KATEGORIE: Gesellschaftliche Räume -->
+  <section class="narrow">
+    <h2>Gesellschaftliche Räume & kollektive Resonanz</h2>
+    <div class="angebot-grid">
+
+      <div class="angebot-box" onclick="openModal('dialog_oeff')">
+        <h3>Dialogräume (öffentlich)</h3>
+        <p>Begegnung trotz Unterschiedlichkeit</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('gesellschaft_konflikt')">
+        <h3>Konflikt- & Spannungsbegleitung</h3>
+        <p>Für herausfordernde Kontexte</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('musik_kollektiv')">
+        <h3>Musik & Improvisation</h3>
+        <p>Kollektives Spüren & Spielen</p>
+      </div>
+
+      <div class="angebot-box" onclick="openModal('empathie_oeff')">
+        <h3>Empathie-Café (öffentlich)</h3>
+        <p>Resonanz für gesellschaftliche Themen</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODALS (Einblend-Fenster für jedes Angebot) -->
+  <div id="modal-container"></div>
+
+  <footer>© 2025 Mirjam Kittel – Systemischer Wandel</footer>
+
+  <script>
+    function openModal(key) {
+      const modalContent = {
+        emp_cafe: `<h2>Empathie-Café</h2><p>Ein Resonanzraum ohne Zielvorgabe, in dem Geschichten, Gefühle und Gedanken Platz finden.</p>`,
+        prozesse: `<h2>1:1 Prozessbegleitung</h2><p>Für Übergänge, Neuorientierung & stimmige nächste Schritte.</p>`,
+        zuhoeren: `<h2>Zuhören</h2><p>Ein wertfreier Raum, um laut denken & fühlen zu dürfen.</p>`,
+        vorlesen: `<h2>Vorlesen</h2><p>Für Kinder & ältere Menschen. Geschichten schaffen Verbundenheit.</p>`,
+        singen: `<h2>Gemeinsam singen</h2><p>Einfaches Singen ohne Anspruch. Verbindung durch Klang.</p>`,
+        musik: `<h2>Musikimprovisation</h2><p>Intuitive Klangräume, in denen Neues entstehen darf.</p>`,
+        supervision: `<h2>Supervision</h2><p>Reflexion, Muster erkennen & Ressourcen stärken.</p>`,
+        teamprozess: `<h2>Teamprozessbegleitung</h2><p>Für Teams im Wandel – strukturiert, wertschätzend, gemeinsam.</p>`,
+        konflikte: `<h2>Konfliktbegleitung</h2><p>Ein sicherer Rahmen, um Spannung in Verständigung zu verwandeln.</p>`,
+        dialog_team: `<h2>Dialogräume (Team)</h2><p>Gespräche, die echtes Zuhören ermöglichen.</p>`,
+        empathie_team: `<h2>Empathie-Café (Team)</h2><p>Ein gemeinsamer Raum für Resonanz & Verständnis.</p>`,
+        dialog_oeff: `<h2>Dialogräume (öffentlich)</h2><p>Für offene gesellschaftliche Gespräche mit echtem Interesse.</p>`,
+        gesellschaft_konflikt: `<h2>Konflikt- & Spannungsbegleitung</h2><p>Für Kontexte mit gesellschaftlichen oder politischen Spannungen.</p>`,
+        musik_kollektiv: `<h2>Musik & Improvisation</h2><p>Kollektive Klangräume als Möglichkeit des Miteinanders.</p>`,
+        empathie_oeff: `<h2>Empathie-Café (öffentlich)</h2><p>Ein Resonanzraum für gesellschaftliche Themen.</p>`
+      };
+
+      const modal = document.createElement('div');
+      modal.className = 'modal-bg';
+      modal.innerHTML = `
+        <div class="modal">
+          <button class="close" onclick="this.closest('.modal-bg').remove()">✕</button>
+          ${modalContent[key]}
+        </div>`;
+
+      document.getElementById('modal-container').appendChild(modal);
+    }
+  </script>
 </body>
 </html>
+
