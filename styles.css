@@ -1,345 +1,162 @@
-/* ===================================
-   Grundlayout & Farben
-   =================================== */
+/* ---------------------------------------------------
+   GRUNDLAYOUT & FARBEN
+--------------------------------------------------- */
 
 :root {
-  --bg-page: #f6f4f1;
-  --bg-hero: #8fb8a4;
-  --bg-card: #d7e8e1;
+  --bg-light: #f6f4f1;
+  --bg-accent: #94b5a3;
   --text-main: #2f2f2f;
-  --text-muted: #666666;
-  --accent: #4f6f60;      /* Salbei-Dunkelgrün */
-  --accent-light: #b8d3c2;
-  --border-soft: #d0cbc0;
-  --radius-lg: 18px;
-  --radius-md: 12px;
-  --shadow-soft: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.06);
+  --text-muted: #555;
+  --accent: #4f6f60;
+  --white: #ffffff;
+
+  --radius: 14px;
+  --shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  background: var(--bg-page);
+  font-family: "Inter", sans-serif;
+  background: var(--bg-light);
   color: var(--text-main);
-  line-height: 1.6;
-  overflow-x: hidden; /* kein horizontales Scrollen */
+  line-height: 1.55;
 }
 
-/* ===================================
-   Header & Navigation
-   =================================== */
+/* ---------------------------------------------------
+   HEADER & NAVIGATION
+--------------------------------------------------- */
 
 header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 1.4rem;
-  background: var(--bg-page);          /* erste Zeile weiß/beige */
-  border-bottom: 1px solid var(--border-soft);
+  align-items: center;
+  padding: 1.2rem 1.4rem;
+  background: var(--bg-light);
+  border-bottom: 1px solid #ddd;
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo-text {
-  font-size: 0.8rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   font-weight: 600;
-  color: var(--accent);                /* Salbei-Schrift */
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  font-size: 1.1rem;
 }
-
-/* Desktop-Navigation */
 
 nav {
   display: flex;
-  gap: 1rem;
-  align-items: center;
+  gap: 1.2rem;
 }
 
 nav a {
-  text-decoration: none;
   color: var(--text-main);
+  text-decoration: none;
   font-size: 0.95rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 999px;
-  transition: background 0.2s ease, color 0.2s ease;
-}
-
-nav a:hover {
-  background: var(--accent-light);
-  color: #ffffff;
 }
 
 nav a.active {
-  background: var(--accent);
-  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
 }
-
-/* Burger-Button (rechts) */
 
 .nav-toggle {
   display: none;
   background: none;
   border: none;
-  font-size: 1.9rem;
-  line-height: 1;
+  font-size: 2rem;
   cursor: pointer;
-  color: var(--accent);                /* Burger Salbei */
 }
 
-/* ===================================
-   Hero
-   =================================== */
+/* MOBILE NAV */
+@media (max-width: 820px) {
+  nav {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--bg-light);
+    padding: 1.5rem;
+    position: absolute;
+    left: 0;
+    top: 63px;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+  }
+
+  nav.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+}
+
+/* ---------------------------------------------------
+   HERO
+--------------------------------------------------- */
 
 .hero {
-  background: var(--bg-hero);
-  color: #ffffff;
+  background: var(--bg-accent);
+  color: var(--white);
+  padding: 4.5rem 1.4rem;
   text-align: center;
-  padding: 5rem 1.4rem 3.5rem;
 }
 
-.hero.small-hero {
-  padding: 3.5rem 1.4rem 2.8rem;
-}
-
-.hero-inner {
-  max-width: 820px;
-  margin: 0 auto;
+.small-hero {
+  padding: 3.2rem 1.4rem;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: 2.2rem;
-  letter-spacing: 0.08em;
+  font-size: 2.3rem;
+  letter-spacing: 0.05em;
 }
 
 .hero p {
-  margin-top: 0.9rem;
-  font-size: 1.05rem;
+  margin-top: 0.8rem;
+  font-size: 1.1rem;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* ===================================
-   Grund-Layout Sektionen
-   =================================== */
+/* ---------------------------------------------------
+   PAGE LAYOUT
+--------------------------------------------------- */
 
 .narrow {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 2.8rem 1.4rem;
-}
-
-.narrow p {
-  margin-top: 0;
+  max-width: 780px;
+  margin: 2.5rem auto;
+  padding: 0 1.4rem;
 }
 
 h2 {
-  font-size: 1.7rem;
-  margin-top: 0;
+  font-size: 1.8rem;
   margin-bottom: 0.6rem;
+  margin-top: 3rem;
 }
 
 h3 {
-  font-size: 1.2rem;
-  margin-top: 1.7rem;
+  margin-top: 1.6rem;
+  font-size: 1.25rem;
 }
 
-/* ===================================
-   Startseite – Intro-Karte mit Bild
-   =================================== */
-
-.intro-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 2fr);
-  gap: 1.8rem;
-  background: #ffffff;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 1.6rem;
-  border: 1px solid var(--border-soft);
-  margin-top: 2.4rem;
-}
-
-.intro-card img {
-  width: 100%;
-  max-width: 100%;
-  height: auto;
-  border-radius: var(--radius-lg);
-  object-fit: cover;
-  display: block;
-}
-
-@media (max-width: 800px) {
-  .intro-card {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ===================================
-   „Hübsche Kästchen“ – Karten / Tiles
-   =================================== */
-
-.card-row,
-.angebot-grid {
-  display: grid;
-  gap: 2.2rem;           /* mehr Abstand zwischen Kästchen */
-  margin-top: 2.6rem;
-  margin-bottom: 1.2rem;
-}
-
-/* Desktop: 3 nebeneinander, Tablet: 2, Mobile: 1 */
-@media (min-width: 600px) {
-  .card-row,
-  .angebot-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 960px) {
-  .card-row,
-  .angebot-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Standard-Karte (leicht grün) */
-.card,
-.angebot-box {
-  background: var(--bg-card);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
-  padding: 1.7rem 1.5rem;
-  border: 1px solid var(--border-soft);
-}
-
-.card h3,
-.angebot-box h3 {
-  margin-top: 0;
-  margin-bottom: 0.4rem;
-  color: var(--accent);
-}
-
-.card p,
-.angebot-box p {
-  margin: 0;
-  color: var(--text-main);
-}
-
-/* Icon oben im Kästchen (optional) */
-.card-icon,
-.angebot-icon {
-  font-size: 1.6rem;
-  display: inline-block;
-  margin-bottom: 0.6rem;
-}
-
-/* klickbare Kästchen */
-.angebot-box.clickable {
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.angebot-box.clickable:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
-}
-
-/* ===================================
-   Über mich – Layout & Bild
-   =================================== */
-
-.about-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.4fr);
-  gap: 2rem;
-  align-items: flex-start;
-}
-
-/* Profilbild OHNE extra Kasten */
-.about-photo-wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.about-photo {
-  width: 100%;
-  max-width: 220px;           /* kleiner */
-  border-radius: 24px;
-  object-fit: cover;
-  display: block;
-  box-shadow: var(--shadow-soft);
-}
-
-@media (max-width: 800px) {
-  .about-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .about-photo {
-    margin-top: 0.3rem;
-  }
-}
-
-/* Aufklappbare Abschnitte */
-
-details {
-  background: #f0ebe1;
-  border-radius: var(--radius-md);
-  padding: 0.85rem 1rem;
-  margin-top: 0.8rem;
-}
-
-details + details {
-  margin-top: 0.55rem;
-}
-
-summary {
-  cursor: pointer;
-  font-weight: 500;
-  list-style: none;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-summary::after {
-  content: "▾";
-  float: right;
-  font-size: 0.8rem;
-  opacity: 0.7;
-  transition: transform 0.2s ease;
-}
-
-details[open] summary::after {
-  transform: rotate(180deg);
-}
-
-details p,
-details ul {
-  font-size: 0.95rem;
-  margin-bottom: 0.4rem;
-}
-
-/* ===================================
-   ANGEBOTE – Text + Linkliste
-   =================================== */
+/* ---------------------------------------------------
+   ANGEBOTE: ruhige Textseite
+--------------------------------------------------- */
 
 .angebote-intro {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
+  margin-bottom: 1.3rem;
   color: var(--text-muted);
-  margin-bottom: 1.4rem;
 }
+
+/* ---------------------------------------------------
+   ANGEBOTE: kleine unterstrichene Links
+--------------------------------------------------- */
 
 .angebote-links {
   font-size: 0.9rem;
@@ -365,17 +182,17 @@ details ul {
 }
 
 .angebot-link:hover {
-  opacity: 0.75;
+  opacity: 0.7;
 }
 
-/* ===================================
-   Pop-up-Fenster (Modals)
-   =================================== */
+/* ---------------------------------------------------
+   POPUP FENSTER (MODALS)
+--------------------------------------------------- */
 
 .modal-bg {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0,0,0,0.45);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -384,14 +201,13 @@ details ul {
 }
 
 .modal {
-  background: #ffffff;
-  padding: 2rem 1.8rem;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  background: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   max-width: 520px;
   width: 100%;
-  position: relative;
-  animation: fadeIn 0.22s ease-out;
+  animation: fadeIn 0.25s ease-out;
 }
 
 .modal h2 {
@@ -403,102 +219,25 @@ details ul {
   border: none;
   font-size: 1.6rem;
   position: absolute;
-  top: 14px;
-  right: 18px;
+  top: 18px;
+  right: 22px;
   cursor: pointer;
   color: var(--accent);
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(6px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ===================================
-   CTA & Footer
-   =================================== */
-
-.cta {
-  background: var(--bg-hero);
-  color: #ffffff;
-  text-align: center;
-  padding: 3rem 1.4rem;
-}
-
-.cta p {
-  max-width: 620px;
-  margin: 0.6rem auto 1.4rem;
-}
-
-.btn-pill {
-  display: inline-block;
-  padding: 0.7rem 1.6rem;
-  border-radius: 999px;
-  background: #ffffff;
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
-}
-
-.btn-pill:hover {
-  background: #f0ebe1;
-  transform: translateY(-1px);
-}
+/* ---------------------------------------------------
+   FOOTER
+--------------------------------------------------- */
 
 footer {
   text-align: center;
-  padding: 2.5rem 1rem 3rem;
+  padding: 3rem 1rem;
+  margin-top: 3rem;
   font-size: 0.9rem;
   color: var(--text-muted);
-}
-
-/* ===================================
-   Mobile-Navigation – Overlay,
-   aber Header bleibt weiß
-   =================================== */
-
-@media (max-width: 820px) {
-  .nav-toggle {
-    display: block;
-  }
-
-  nav {
-    position: fixed;
-    top: 56px; /* unter dem weißen Header */
-    left: 0;
-    right: 0;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.8rem;
-    padding: 1.3rem 1.4rem 1.6rem;
-    background: rgba(143, 184, 164, 0.97); /* hero-grün leicht transparent */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-    z-index: 1200;
-  }
-
-  nav.open {
-    display: flex;
-  }
-
-  nav a {
-    color: #ffffff;
-    padding: 0.1rem 0;
-    border-radius: 0;
-  }
-
-  nav a.active {
-    background: none;
-    text-decoration: underline;
-    text-underline-offset: 0.16em;
-  }
 }
