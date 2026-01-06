@@ -567,3 +567,20 @@ footer {
   max-width: 100%;
   margin: 0;
 }
+/* ------------------------------
+   Textausrichtung – Blocksatz
+------------------------------ */
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Ausnahmen: zentrierte Bereiche */
+.hero p,
+.cta p,
+footer p {
+  text-align: center;
+  hyphens: none;
+}
