@@ -1,283 +1,574 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Angebote – Systemischer Wandel</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
+/* ==============================
+   Systemischer Wandel – styles.css
+   (Vollständige Datei zum Ersetzen)
+============================== */
 
-<body>
-  <!-- Header -->
-  <header>
-    <div class="logo-text">SYSTEMISCHER WANDEL</div>
-    <button class="nav-toggle" aria-label="Menü öffnen">☰</button>
-    <nav>
-      <a href="index.html">Start</a>
-      <a href="angebote.html">Angebote</a>
-      <a href="ueber-mich.html">Über mich</a>
-      <a href="gesellschaftlicher-wandel.html">Gesellschaftlicher Wandel</a>
-      <a href="geld-und-tauschlogik.html">Geld &amp; Tauschlogik</a>
-    </nav>
-  </header>
+/* ------------------------------
+   Farbpalette Salbei
+------------------------------ */
+:root {
+  --salbei-hell:   #F3F7F5;
+  --salbei:        #D7E8E1;
+  --salbei-dunkel: #A3C4BC;
+  --salbei-tief:   #2F3E39;
+  --accent:        #6B8F71;
+  --white:         #FFFFFF;
 
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h1>ANGEBOTE</h1>
-      <p>
-        Räume für Orientierung, Verbundenheit und Wandel – individuell, im Team
-        und im gesellschaftlichen Miteinander.
-      </p>
-    </div>
-  </section>
-<!-- Aktuelle Angebote -->
-<section class="offers" id="aktuelle-angebote">
-  <div class="offers-inner">
-    <h2>Aktuelle Angebote</h2>
+  /* optionale Akzentflächen */
+  --ich-bg:           #F6F4F1;
+  --wir-bg:           #D7E8E1;
+  --gesellschaft-bg:  #F5F0DA;
 
-    <p class="offers-lead">
-      Offene Online-Räume für Verbindung, Dialog und Praxis.
-      Alle Termine laufen über denselben Raum:
-      <a class="offers-link" href="https://lecture.senfcall.de/mir-fti-hfo-zev" target="_blank" rel="noopener">
-        lecture.senfcall.de/mir-fti-hfo-zev
-      </a>
-    </p>
+  --page-pad: 6vw;
+  --content-max: 1100px;
+  --narrow-max: 800px;
+}
 
-    <div class="offers-grid">
-      <!-- Empathie Café -->
-      <article class="offer-card offer-a">
-        <h3>Empathie Café</h3>
-        <p class="offer-meta">Alle 2 Wochen dienstags ·  </p> <strong>18:00–19:30</strong></p>
-        <p class="offer-dates">13.01 · 27.01 · 10.02 · 24.02 · 10.03 · 24.03 · 07.04</p>
-        <p class="offer-text">
-          Offener Raum für Verbindung, Resonanz und Mitgefühl – ohne Diskussion, ohne Lösungspflicht.
-        </p>
-      </article>
+* { box-sizing: border-box; }
 
-      <!-- Dialograum -->
-      <article class="offer-card offer-b">
-        <h3>Dialograum <span class="offer-with">mit Luka</span></h3>
-        <p class="offer-meta">Alle 2 Wochen dienstags ·  </p> <strong>19:00–20:30</strong></p>
-        <p class="offer-dates">20.01 · 03.02 · 17.02 · 03.03 · 17.03 · 31.03</p>
-        <p class="offer-text">
-          Zuhören, Perspektiven begegnen und in Kontakt bleiben – auch (und gerade) bei kontroversen Themen.
-        </p>
-      </article>
+html, body { width: 100%; }
 
-      <!-- GFK-Übungsraum -->
-      <article class="offer-card offer-c">
-        <h3>GFK-Übungsraum <span class="offer-with">mit Sophia</span></h3>
-        <p class="offer-meta">Alle 2 Wochen mittwochs ·  </p> <strong>18:30–20:00</strong></p>
-        <p class="offer-dates">14.01 · 28.01 · 11.02 · 25.02 · 11.03 · 25.03 · 08.04</p>
-        <p class="offer-text">
-          Gemeinsam die Haltung der Gewaltfreien Kommunikation üben und vertiefen – für neue und erfahrene Interessierte.
-        </p>
-      </article>
-    </div>
-  </div>
-</section>
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--salbei-hell);
+  color: var(--salbei-tief);
+  line-height: 1.6;
+}
 
+a { color: inherit; }
 
-    <!-- ICH -->
-    <div class="offer-section">
-      <h2>Individuelle Räume – für dich und deine Fragen</h2>
-      <p>
-        Manchmal braucht es einen Ort, an dem Gedanken, Gefühle und offene
-        Fragen sortiert werden dürfen – ohne Zielvorgabe, aber mit einem
-        gemeinsamen Blick auf das, was dir wirklich wichtig ist.
-      </p>
+/* ------------------------------
+   GLOBAL: Abstand überall
+   (damit nichts mehr am Rand klebt)
+------------------------------ */
+main,
+section,
+.page-wrap,
+.container,
+.content,
+.narrow,
+.offer-section,
+.offers,
+#intro,
+#wirksam,
+#werte,
+#ueber,
+#kontakt {
+  padding-left: var(--page-pad);
+  padding-right: var(--page-pad);
+}
 
-      <div class="offer-grid">
-        <!-- Karte 1 -->
-        <div class="offer-card offer-card--ich">
-          <h3>Übergänge &amp; Neuorientierung</h3>
-          <p>
-            Für Menschen, die in einem Übergang sind – beruflich, privat oder
-            innerlich – und spüren, dass es so nicht weitergeht, das Neue aber
-            noch nicht klar ist.
-          </p>
-          <p>
-            Wir schauen gemeinsam, was bleiben darf, was sich verändern möchte
-            und welche nächsten Schritte stimmig und machbar sind.
-          </p>
-        </div>
+/* Inhalte zentrieren + Max-Breite */
+main,
+section,
+.page-wrap,
+.container,
+.content,
+.offers,
+.offer-section,
+#intro,
+#werte,
+#ueber {
+  max-width: var(--content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        <!-- Karte 2 -->
-        <div class="offer-card offer-card--ich">
-          <h3>Mut, Grenzen &amp; Verbundenheit</h3>
-          <p>
-            Für Menschen, die sich mehr bei sich selbst verankern möchten:
-            klarer werden in Beziehungen, sich zeigen, Nein sagen und trotzdem
-            in Verbindung bleiben.
-          </p>
-          <p>
-            Wir erkunden deine Bedürfnisse, schauen auf Scham und Loyalität und
-            stärken deine innere Sicherheit.
-          </p>
-        </div>
+/* "narrow" */
+.narrow,
+section.narrow {
+  max-width: var(--narrow-max);
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        <!-- Karte 3 -->
-        <div class="offer-card offer-card--ich">
-          <h3>Resonanzräume mit Musik &amp; Geschichten</h3>
-          <p>
-            Manche Themen lassen sich leichter erspüren als besprechen. Musik,
-            Stimme und geteilte Erlebnisse können Menschen auf eine Weise
-            erreichen, die Worte allein manchmal nicht schaffen – zum Beispiel
-            Kinder oder ältere Menschen.
-          </p>
-          <p>
-            Hier entstehen Begegnungsräume, in denen Gemeinsames spürbar wird:
-            Zuhören, Singen, Vorlesen, miteinander in Resonanz kommen.
-          </p>
-        </div>
-      </div>
-    </div>
+/* ------------------------------
+   Header / Navigation
+------------------------------ */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--white);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px var(--page-pad);
+}
 
-    <!-- WIR -->
-    <div class="offer-section">
-      <h2>Team- &amp; Gruppenräume – Verbundenheit &amp; Verantwortung</h2>
-      <p>
-        Zusammenarbeit wird dann tragfähig, wenn Menschen sich sicher genug
-        fühlen, ehrlich zu sein – über Überforderung, Fehler, Verletzungen und
-        Hoffnungen. Ich begleite Teams dabei, Verbundenheit und Orientierung zu
-        stärken, damit Fehler nicht versteckt werden müssen und Entscheidungen
-        sich an den eigenen Werten ausrichten können.
-      </p>
+.logo-text {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--accent);
+}
 
-      <div class="offer-grid">
-        <!-- Karte 1 -->
-        <div class="offer-card offer-card--wir">
-          <h3>Verbundenheit &amp; Sicherheit im Team</h3>
-          <p>
-            Wenn Menschen sich sicher fühlen, entsteht psychologische
-            Sicherheit: schwierige Themen werden ansprechbar, ohne dass jemand
-            an den Pranger gestellt wird.
-          </p>
-          <p>
-            Wir entwickeln Räume und Rituale, in denen ehrliche Rückmeldungen,
-            gemeinsame Verantwortung und gegenseitige Unterstützung möglich
-            werden.
-          </p>
-        </div>
+nav {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+}
 
-        <!-- Karte 2 -->
-        <div class="offer-card offer-card--wir">
-          <h3>Wertearbeit &amp; Orientierung</h3>
-          <p>
-            In vielen Teams kollidieren Erwartungen: Zeitdruck, Qualität,
-            Beziehung, Sicherheit, Dokumentation, eigene Grenzen. Oft ist
-            unklar, welche Werte im Zweifel Priorität haben.
-          </p>
-          <p>
-            Gemeinsam klären wir, was eure Arbeit tragen soll – damit
-            Entscheidungen nachvollziehbar werden und Orientierung geben.
-          </p>
-        </div>
+nav a {
+  text-decoration: none;
+  position: relative;
+}
 
-        <!-- Karte 3 -->
-        <div class="offer-card offer-card--wir">
-          <h3>Fehler, Grenzen &amp; Gewalt differenziert betrachten</h3>
-          <p>
-            Fehler zu verschweigen oder schwierige Situationen zu kaschieren ist
-            häufig eine Schutzstrategie – keine Frage von mangelnder
-            Professionalität.
-          </p>
-          <p>
-            Wir schauen darauf, wie Verletzungen, Grenzüberschreitungen oder
-            Formen von Gewalt entstehen, welche Bedürfnisse dahinterstehen und
-            wie ein hilfreicher, wertorientierter Umgang im Team aussehen kann.
-          </p>
-        </div>
-      </div>
-    </div>
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.18s ease-out;
+}
 
-    <!-- GESELLSCHAFT -->
-    <div class="offer-section">
-      <h2>Räume für Dialog &amp; gesellschaftlichen Wandel</h2>
-      <p>
-        An vielen Stellen entfernt sich unsere Gesellschaft gefühlt
-        voneinander: Welten prallen aufeinander, Menschen ziehen sich zurück
-        oder sprechen nur noch in vertrauten Kreisen. Mich interessiert, wie
-        Dialogräume aussehen können, in denen Unterschiede gehalten werden
-        dürfen und dennoch Verbundenheit wachsen darf.
-      </p>
+nav a:hover::after { width: 100%; }
 
-      <div class="offer-grid">
-        <!-- Karte 1 -->
-        <div class="offer-card offer-card--gesellschaft">
-          <h3>Dialogräume &amp; Begegnungsformate</h3>
-          <p>
-            Formate, in denen Menschen mit unterschiedlichen Perspektiven
-            einander zuhören – nicht, um sich zu überzeugen, sondern um ein
-            tieferes Verständnis für sich und andere zu entwickeln.
-          </p>
-          <p>
-            Möglich sind z.&nbsp;B. Dialoge zu gesellschaftlichen Themen,
-            Resonanz- und Zuhörformate oder Räume, in denen Betroffenheit und
-            Handlungswille Platz haben.
-          </p>
-        </div>
+/* Mobile Navi */
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
 
-        <!-- Karte 2 -->
-        <div class="offer-card offer-card--gesellschaft">
-          <h3>Kulturwandel &amp; Sprache</h3>
-          <p>
-            Oft sind es kleine, konkrete Veränderungen im Alltag, die große
-            Wirkung entfalten: eine andere Art, Meetings zu beginnen, eine neue
-            Sprache für Verantwortung, Feedback oder Grenzen.
-          </p>
-          <p>
-            Ich unterstütze Organisationen und Initiativen dabei, solche
-            Mikroveränderungen zu identifizieren und in eine stimmige
-            Gesamtbewegung einzubetten.
-          </p>
-        </div>
+@media (max-width: 720px) {
+  nav {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background: var(--white);
+    padding: 12px 20px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav.open { display: flex; }
+  .nav-toggle { display: block; }
+}
 
-        <!-- Karte 3 -->
-        <div class="offer-card offer-card--gesellschaft">
-          <h3>Kooperationen &amp; Projekte</h3>
-          <p>
-            Du arbeitest selbst an Fragen von Verbundenheit, Gewaltarmut,
-            Klimagerechtigkeit oder gesellschaftlichem Wandel und suchst
-            Kooperation für ein Projekt, eine Veranstaltung oder ein
-            längerfristiges Format?
-          </p>
-          <p>
-            Gern schaue ich mit dir, was entstehen möchte – von der
-            Konzeption über Moderation bis zur gemeinsamen Reflexion.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
+/* ------------------------------
+   Hero (alle Seiten) – volle Breite
+------------------------------ */
+.hero {
+  min-height: 28vh;
+  background: var(--salbei-dunkel);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px var(--page-pad) 48px;
+  max-width: 100%;
+  margin: 0;
+}
 
-  <!-- Kontakt / Neugierig -->
-  <section class="cta" id="kontakt">
-    <h2>Neugierig?</h2>
-    <p>
-      Du hast eine Idee, ein Team oder ein Projekt im Kopf und möchtest schauen,
-      ob meine Art zu arbeiten dazu passt?
-    </p>
-    <a href="mailto:mirjamkittel@gmail.com" class="btn-pill">
-      Schreib mir: mirjamkittel@gmail.com
-    </a>
-  </section>
+.hero-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
 
-  <!-- Footer -->
-  <footer>
-    © 2025 Mirjam Kittel – Systemischer Wandel
-  </footer>
+.hero h1 {
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 14px;
+}
 
-  <!-- Mobile-Menü -->
-  <script>
-    const nav = document.querySelector("nav");
-    const toggle = document.querySelector(".nav-toggle");
-    if (toggle && nav) {
-      toggle.addEventListener("click", () => {
-        nav.classList.toggle("open");
-      });
-    }
-  </script>
-</body>
-</html>
+.hero p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255, 255, 255, 0.92);
+  text-align: center;
+}
+
+/* ------------------------------
+   Typografie / Blocksatz
+------------------------------ */
+p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+.hero p,
+.cta p,
+.offers-lead,
+.offers-note {
+  text-align: center;
+  hyphens: none;
+}
+
+/* ------------------------------
+   Allgemeine Section-Styles
+------------------------------ */
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 0 0 26px;
+  text-align: center;
+}
+
+h3 {
+  margin-top: 0;
+  font-size: 1.25rem;
+}
+
+/* ------------------------------
+   Startseite: Willkommen-Bereich
+------------------------------ */
+#intro { max-width: 1150px; }
+
+.intro-layout {
+  display: flex;
+  gap: 40px;
+  align-items: stretch;
+}
+
+.intro-image-wrapper {
+  flex: 0 0 40%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  position: relative;
+  max-height: 420px;
+}
+
+.intro-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 35%;
+}
+
+.intro-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.intro-right h2 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.intro-right p { margin-bottom: 1rem; }
+
+@media (max-width: 900px) {
+  .intro-layout { flex-direction: column; }
+  .intro-image-wrapper { max-height: 360px; flex: 0 0 auto; }
+  .intro-right h2 { text-align: center; }
+}
+
+/* ------------------------------
+   Startseite: Wirksam werden
+------------------------------ */
+#wirksam { max-width: 1700px; }
+#wirksam h2 { text-align: center; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+@media (min-width: 1000px) {
+  .grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Standard-Karte */
+.card {
+  background: var(--salbei);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.card ul {
+  padding-left: 1.2rem;
+  margin: 0 0 0.6rem;
+}
+
+/* ------------------------------
+   Zitat (Startseite)
+------------------------------ */
+.quote {
+  text-align: center;
+  font-style: italic;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.quote span {
+  display: block;
+  margin-top: 12px;
+  font-style: normal;
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+/* ------------------------------
+   Über-mich-Seite (Bild rechts)
+------------------------------ */
+.about-layout {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+  align-items: center;
+}
+
+.about-photo-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.about-photo {
+  width: 100%;
+  max-width: 260px;
+  border-radius: 18px;
+  object-fit: cover;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 880px) {
+  .about-layout { grid-template-columns: 1fr; }
+  .about-photo-wrapper { order: -1; }
+}
+
+/* ------------------------------
+   Angebote-Seite – Aktuelle Angebote
+------------------------------ */
+.offers {
+  padding-top: 60px;
+  padding-bottom: 60px;
+  max-width: var(--content-max);
+}
+
+.offers-inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+}
+
+.offers h2 { margin: 0 0 18px; }
+
+.offers-lead {
+  max-width: 820px;
+  margin: 0 auto 26px;
+}
+
+.offers-link {
+  display: inline-block;
+  margin-left: 6px;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 2px solid rgba(107, 143, 113, 0.35);
+}
+.offers-link:hover { border-bottom-color: rgba(107, 143, 113, 0.8); }
+
+.offers-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 18px;
+}
+
+/* Karte: Aktuelle Angebote */
+.offers-grid .offer-card {
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  background: var(--salbei);
+}
+
+.offer-a { background: #D7E8E1; } /* salbei */
+.offer-b { background: #E4EEE9; } /* heller */
+.offer-c { background: #DDEBE5; } /* dazwischen */
+
+.offers-grid .offer-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.offer-with {
+  font-weight: 500;
+  opacity: 0.85;
+  font-size: 0.95em;
+}
+
+.offer-meta { margin: 0 0 8px; opacity: 0.92; }
+
+.offer-dates {
+  margin: 0 0 10px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.offer-text { margin: 0; }
+
+.offers-note {
+  margin: 18px auto 0;
+  max-width: 820px;
+  opacity: 0.8;
+}
+
+/* Blocksatz in Angeboten lieber linksbündig fürs Lesen */
+.offers p {
+  text-align: left;
+  hyphens: auto;
+}
+
+@media (max-width: 720px) {
+  .offers-lead,
+  .offers-note { text-align: left; }
+}
+
+/* ------------------------------
+   Angebote-Seite – Drei Ebenen / Chips
+------------------------------ */
+.badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.badge {
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(47, 62, 57, 0.18);
+  background: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+.offer-section {
+  margin-top: 3.5rem;
+}
+
+.offer-section:first-of-type { margin-top: 2.8rem; }
+
+.offer-label {
+  font-size: 0.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 0.3rem;
+  text-align: left;
+}
+
+.offer-section h2 {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.offer-section > p {
+  margin-top: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Raster für Angebots-Karten (ICH/WIR/GESELLSCHAFT) */
+.offer-grid {
+  margin-top: 1.4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
+}
+
+/* Karte: Ebenen */
+.offer-grid .offer-card {
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+}
+
+.offer-grid .offer-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+}
+
+.offer-grid .offer-card h3 { margin-bottom: 0.5rem; }
+
+.offer-grid .offer-card p { margin-bottom: 0.6rem; }
+
+/* Farbcodes pro Ebene */
+.offer-card--ich { background: #D7E8E1; }
+.offer-card--wir { background: #E4EEE9; }
+.offer-card--gesellschaft { background: #DDEBE5; }
+
+/* ------------------------------
+   Kontakt / Neugierig – volle Breite
+------------------------------ */
+.cta {
+  background: var(--salbei-dunkel);
+  color: var(--white);
+  text-align: center;
+  max-width: 100%;
+  margin: 0;
+  padding: 60px var(--page-pad);
+}
+
+.cta h2 {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.cta p {
+  max-width: 640px;
+  margin: 0 auto 26px;
+}
+
+.btn-pill {
+  display: inline-block;
+  padding: 10px 26px;
+  border-radius: 999px;
+  border: 1px solid var(--white);
+  color: #666;
+  background: var(--white);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease, color 0.15s ease;
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+.btn-pill:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* ------------------------------
+   Footer – volle Breite, aber mit Innenabstand
+------------------------------ */
+footer {
+  padding: 30px var(--page-pad) 40px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(47, 62, 57, 0.7);
+  max-width: 100%;
+  margin: 0;
+}
